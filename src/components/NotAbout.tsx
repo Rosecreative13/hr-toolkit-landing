@@ -243,45 +243,6 @@ export default function NotAbout() {
                       >
                         {item}
                       </span>
-                      {/* Drawn strikethrough */}
-                      {!prefersReducedMotion ? (
-                        <svg
-                          aria-hidden="true"
-                          style={{
-                            position: 'absolute',
-                            left: 0,
-                            top: '50%',
-                            width: '100%',
-                            height: 2,
-                            overflow: 'visible',
-                            pointerEvents: 'none',
-                          }}
-                        >
-                          <motion.line
-                            x1="0"
-                            y1="0"
-                            x2="100%"
-                            y2="0"
-                            stroke="var(--color-magenta-tint)"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            initial={{ pathLength: 0 }}
-                            whileInView={{ pathLength: 1 }}
-                            viewport={VIEWPORT_ONCE}
-                            transition={{ duration: 0.5, ease: EASE_OUT_EXPO, delay: delay + 0.32 }}
-                          />
-                        </svg>
-                      ) : (
-                        <span style={{
-                          position: 'absolute',
-                          left: 0,
-                          top: '50%',
-                          width: '100%',
-                          height: '1.5px',
-                          background: 'var(--color-magenta-tint)',
-                          pointerEvents: 'none',
-                        }} />
-                      )}
                     </span>
                   </motion.li>
                 )
