@@ -26,7 +26,8 @@ export default function CornerBrackets({
   const wrapClass = `cb-${uid}`
 
   const mSize = mobileSize ?? Math.round(size * 0.7)
-  const mInset = mobileInset ?? inset + 32
+  // On mobile push corners closer to screen edges (smaller inset)
+  const mInset = mobileInset ?? Math.max(8, Math.round(inset / 3))
 
   const corners = [
     { pos: { top: inset, left: inset }, mPos: { top: mInset, left: mInset }, rot: 0 },
