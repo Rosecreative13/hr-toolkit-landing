@@ -153,7 +153,7 @@ export default function Hero() {
               style={{
                 fontFamily: 'var(--font-display)',
                 fontWeight: 700,
-                fontSize: 'clamp(2rem, 5.5vw, 4.5rem)',
+                fontSize: 'clamp(1.75rem, 4vw, 3.5rem)',
                 lineHeight: 1.02,
                 letterSpacing: '-0.03em',
                 color: 'var(--color-ink)',
@@ -178,7 +178,8 @@ export default function Hero() {
                   style={{ display: 'block' }}
                 >
                   {t('hero.line2')}{' '}
-                  <CircledWord inView>{t('hero.line2Circled')}</CircledWord>.
+                  <CircledWord inView>{t('hero.line2Circled')}</CircledWord>
+                  <span className="hero-heading-comma">,</span>
                 </motion.span>
               </span>
               <span style={{ display: 'block', overflow: 'hidden' }}>
@@ -647,6 +648,7 @@ export default function Hero() {
 
       <style>{`
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+        .hero-heading-comma { margin-left: 0.08em; }
         @media (max-width: 768px) {
           .hero-section { grid-template-columns: 1fr !important; min-height: auto !important; }
           .hero-section > div:last-child { display: none !important; }
@@ -654,7 +656,7 @@ export default function Hero() {
             padding: 5.5rem 1.25rem 3rem 1.25rem !important;
           }
           .hero-h1 {
-            font-size: clamp(1.875rem, 9vw, 2.5rem) !important;
+            font-size: clamp(1.5625rem, 7vw, 2rem) !important;
             word-break: break-word !important;
           }
           .hero-body {
