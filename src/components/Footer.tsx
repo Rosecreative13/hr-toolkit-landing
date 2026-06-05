@@ -7,7 +7,28 @@ import DotGrid from './marks/DotGrid'
 import { flyInFrom, VIEWPORT_ONCE } from '../lib/motion'
 
 const regions = ['Bălți', 'Chișinău', 'Edineț', 'Orhei', 'Soroca', 'Ungheni']
-const PARTNERS_LOGOS = '/assets/partners.png'
+const partnerLogos = [
+  {
+    src: '/assets/partners/german-cooperation.png',
+    altKey: 'footer.partnerAlts.germanCooperation',
+    className: 'footer-partner-logo--compact',
+  },
+  {
+    src: '/assets/partners/giz.png',
+    altKey: 'footer.partnerAlts.giz',
+    className: 'footer-partner-logo--compact',
+  },
+  {
+    src: '/assets/partners/moldova-labour-ministry.png',
+    altKey: 'footer.partnerAlts.labourMinistry',
+    className: 'footer-partner-logo--wide',
+  },
+  {
+    src: '/assets/partners/employment-agency.png',
+    altKey: 'footer.partnerAlts.employmentAgency',
+    className: 'footer-partner-logo--wide',
+  },
+]
 
 function FooterLink({ children, href = '#' }: { children: React.ReactNode; href?: string }) {
   const [hovered, setHovered] = useState(false)
@@ -324,44 +345,24 @@ export default function Footer() {
             >
               {t('footer.partnersLabel')}
             </p>
-            <p
-              style={{
-                fontFamily: 'var(--font-body)',
-                fontSize: '0.875rem',
-                color: 'rgba(255,255,255,0.42)',
-                lineHeight: 1.6,
-                maxWidth: '30ch',
-              }}
-            >
-              {t('footer.partnersDescription')}
-            </p>
           </div>
           <div
             style={{
               minWidth: 0,
-              background: 'rgba(0,0,0,0.24)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: 6,
-              padding: 'clamp(0.75rem, 2vw, 1.125rem) clamp(0.75rem, 3vw, 1.5rem)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
             }}
+            className="footer-partners-grid"
           >
-            <img
-              src={PARTNERS_LOGOS}
-              alt={t('footer.partnersAlt')}
-              loading="lazy"
-              decoding="async"
-              width={2000}
-              height={239}
-              style={{
-                width: '100%',
-                maxWidth: 900,
-                height: 'auto',
-                display: 'block',
-              }}
-            />
+            {partnerLogos.map((logo) => (
+              <div className="footer-partner-tile" key={logo.src}>
+                <img
+                  src={logo.src}
+                  alt={t(logo.altKey)}
+                  loading="lazy"
+                  decoding="async"
+                  className={`footer-partner-logo ${logo.className}`}
+                />
+              </div>
+            ))}
           </div>
         </motion.section>
 
@@ -388,9 +389,55 @@ export default function Footer() {
 
       <style>{`
         .footer-link-hover { color: rgba(255,255,255,0.75) !important; }
+        .footer-partners-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(240px, 1fr));
+          gap: 0.75rem;
+        }
+        .footer-partner-tile {
+          min-width: 0;
+          min-height: 132px;
+          background: rgba(0,0,0,0.24);
+          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 6px;
+          padding: clamp(0.875rem, 1.8vw, 1.25rem);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .footer-partner-logo {
+          display: block;
+          width: auto;
+          max-width: 100%;
+          height: auto;
+          max-height: 88px;
+          object-fit: contain;
+        }
+        .footer-partner-logo--compact {
+          max-width: 260px;
+        }
+        .footer-partner-logo--wide {
+          max-width: 390px;
+        }
         @media (max-width: 760px) {
           .footer-partners {
             grid-template-columns: 1fr !important;
+            align-items: start !important;
+          }
+          .footer-partners-grid {
+            grid-template-columns: 1fr;
+            gap: 0.625rem;
+          }
+          .footer-partner-tile {
+            min-height: 116px;
+            padding: 0.875rem 1rem;
+          }
+          .footer-partner-logo {
+            max-height: 80px;
+          }
+          .footer-partner-logo--compact,
+          .footer-partner-logo--wide {
+            max-width: 300px;
           }
         }
       `}</style>

@@ -254,8 +254,12 @@
     "contactLabel": "Contact",
     "contactPending": "Contact details to be added.",
     "partnersLabel": "Partners",
-    "partnersDescription": "Programme partner logos.",
-    "partnersAlt": "HR Toolkit Programme partner logos",
+    "partnerAlts": {
+      "germanCooperation": "German Cooperation",
+      "giz": "GIZ Moldova",
+      "labourMinistry": "Ministry of Labour and Social Protection of the Republic of Moldova",
+      "employmentAgency": "National Employment Agency"
+    },
     "copyright": "HR Toolkit Programme for SMEs. Moldova, 2025.",
     "participationNote": "Participation is free and voluntary."
   },

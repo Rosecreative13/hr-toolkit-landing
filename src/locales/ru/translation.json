@@ -254,8 +254,12 @@
     "contactLabel": "Контакты",
     "contactPending": "Контактные данные будут добавлены.",
     "partnersLabel": "Партнёры",
-    "partnersDescription": "Логотипы партнёров программы.",
-    "partnersAlt": "Логотипы партнёров HR Toolkit Programme",
+    "partnerAlts": {
+      "germanCooperation": "Германское сотрудничество",
+      "giz": "GIZ Moldova",
+      "labourMinistry": "Министерство труда и социальной защиты Республики Молдова",
+      "employmentAgency": "Национальное агентство занятости населения"
+    },
     "copyright": "Программа HR Toolkit для малых и средних предприятий. Молдова, 2025.",
     "participationNote": "Участие бесплатное и добровольное."
   },

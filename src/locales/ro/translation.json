@@ -254,8 +254,12 @@
     "contactLabel": "Contact",
     "contactPending": "Detaliile de contact vor fi adăugate.",
     "partnersLabel": "Parteneri",
-    "partnersDescription": "Logotipurile partenerilor programului.",
-    "partnersAlt": "Logotipurile partenerilor HR Toolkit Programme",
+    "partnerAlts": {
+      "germanCooperation": "Cooperarea germană",
+      "giz": "GIZ Moldova",
+      "labourMinistry": "Ministerul Muncii și Protecției Sociale al Republicii Moldova",
+      "employmentAgency": "Agenția Națională pentru Ocuparea Forței de Muncă"
+    },
     "copyright": "Programul HR Toolkit pentru IMM-uri. Moldova, 2025.",
     "participationNote": "Participarea este gratuită și voluntară."
   },
