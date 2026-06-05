@@ -16,7 +16,12 @@
     "cta": "Exprimă interesul",
     "ctaSecondary": "Află mai multe",
     "note": "Numărul de locuri este limitat la 50 de IMM-uri.",
-    "emailPlaceholder": "Introduceți adresa de email"
+    "emailPlaceholder": "Introduceți adresa de email",
+    "icon1": "Instrumente HR practice",
+    "icon2": "Ateliere",
+    "icon3": "Suport de mentorat",
+    "icon4": "Șabloane utile",
+    "regionsLabel": "REGIUNI"
   },
   "why": {
     "eyebrow": "Programul",
@@ -26,22 +31,58 @@
     "body2": "Programul HR Toolkit abordează aceste provocări cu instrumente practice, nu cadre teoretice. Este conceput pentru companii care funcționează cu echipe reduse, expertiză HR limitată și presiuni reale de recrutare.",
     "body3": "Participarea este gratuită. Instrumentele vă aparțin. Scopul este îmbunătățirea durabilă a modului în care compania atrage, primește și reține oamenii de care are nevoie pentru a crește.",
     "tag": "Instrumente practice. Rezultate reale.",
-    "stat1": { "num": "50", "label": "IMM-uri selectate", "sub": "din toată Moldova" },
-    "stat2": { "num": "6", "label": "Regiuni ale programului", "sub": "Bălți · Chișinău · Edineț · Orhei · Soroca · Ungheni" },
-    "stat3": { "num": "100%", "label": "Gratuit", "sub": "Fără taxe în nicio etapă" }
+    "stat1": {
+      "num": "50",
+      "label": "IMM-uri selectate",
+      "sub": "din toată Moldova"
+    },
+    "stat2": {
+      "num": "6",
+      "label": "Regiuni ale programului",
+      "sub": "Bălți · Chișinău · Edineț · Orhei · Soroca · Ungheni"
+    },
+    "stat3": {
+      "num": "100%",
+      "label": "Gratuit",
+      "sub": "Fără taxe în nicio etapă"
+    }
   },
   "pains": {
     "heading": "Vă sunt cunoscute aceste",
     "headingCircled": "provocări?",
     "subhead": "Aceste provocări sunt comune în rândul IMM-urilor din Moldova",
-    "item1": { "title": "Este dificil să găsiți angajați potriviți.", "description": "Candidații potriviți există, dar procesul de a-i găsi este neclar și consumă mult timp." },
-    "item2": { "title": "Noii angajați pleacă după câteva săptămâni sau luni.", "description": "Oamenii vin și pleacă în câteva săptămâni, înainte de a apuca să contribuie." },
-    "item3": { "title": "Integrarea noilor angajați este informală sau improvizată.", "description": "Fiecare nou angajat este primit diferit. Nu există un proces repetabil." },
-    "item4": { "title": "Supervisorii nu au instrumente simple pentru a sprijini noii angajați.", "description": "Liderii de echipă vor să facă mai bine, dar nu au resurse care să îi ghideze." },
-    "item5": { "title": "Recrutarea consumă prea mult timp.", "description": "Ore pierdute pe interviuri și documente care ar putea fi simplificate cu șabloane mai clare." },
-    "item6": { "title": "Compania nu are un departament HR dedicat.", "description": "Deciziile legate de oameni revin proprietarului, managerului sau oricui este disponibil, fără un ghid de urmat." },
-    "item7": { "title": "Tinerii angajați au nevoie de mai multă ghidare în perioada de adaptare.", "description": "Noii angajați tineri au nevoie de sprijin suplimentar pentru a se adapta cu succes la locul de muncă." },
-    "item8": { "title": "Așteptările față de rol nu sunt întotdeauna clare.", "description": "Fără o descriere clară a postului și a așteptărilor, angajații nu știu ce se așteaptă de la ei." },
+    "item1": {
+      "title": "Este dificil să găsiți angajați potriviți.",
+      "description": "Candidații potriviți există, dar procesul de a-i găsi este neclar și consumă mult timp."
+    },
+    "item2": {
+      "title": "Noii angajați pleacă după câteva săptămâni sau luni.",
+      "description": "Oamenii vin și pleacă în câteva săptămâni, înainte de a apuca să contribuie."
+    },
+    "item3": {
+      "title": "Integrarea noilor angajați este informală sau improvizată.",
+      "description": "Fiecare nou angajat este primit diferit. Nu există un proces repetabil."
+    },
+    "item4": {
+      "title": "Supervisorii nu au instrumente simple pentru a sprijini noii angajați.",
+      "description": "Liderii de echipă vor să facă mai bine, dar nu au resurse care să îi ghideze."
+    },
+    "item5": {
+      "title": "Recrutarea consumă prea mult timp.",
+      "description": "Ore pierdute pe interviuri și documente care ar putea fi simplificate cu șabloane mai clare."
+    },
+    "item6": {
+      "title": "Compania nu are un departament HR dedicat.",
+      "description": "Deciziile legate de oameni revin proprietarului, managerului sau oricui este disponibil, fără un ghid de urmat."
+    },
+    "item7": {
+      "title": "Tinerii angajați au nevoie de mai multă ghidare în perioada de adaptare.",
+      "description": "Noii angajați tineri au nevoie de sprijin suplimentar pentru a se adapta cu succes la locul de muncă."
+    },
+    "item8": {
+      "title": "Așteptările față de rol nu sunt întotdeauna clare.",
+      "description": "Fără o descriere clară a postului și a așteptărilor, angajații nu știu ce se așteaptă de la ei."
+    },
     "badge": "Programul HR Toolkit poate ajuta"
   },
   "receive": {
@@ -49,15 +90,42 @@
     "headingColored": "IMM-urile",
     "subhead": "Nouă livrabile concrete — instrumente, ateliere și suport între colegi — pentru IMM-uri fără departamente HR dedicate.",
     "footer": "Conceput pentru IMM-uri fără departamente HR dedicate.",
-    "item1": { "title": "HR Toolkit practic", "description": "Un set structurat de documente și șabloane pe care le puteți pune imediat în practică." },
-    "item2": { "title": "Modele pentru recrutare", "description": "Formate gata de utilizare pentru descrierea posturilor și liste de verificare pentru selecție." },
-    "item3": { "title": "Instrumente pentru interviuri structurate", "description": "Ghiduri cu întrebări și fișe de evaluare care fac compararea candidaților consecventă." },
-    "item4": { "title": "Checklist-uri pentru onboarding", "description": "Liste pas cu pas care asigură că fiecare nou angajat are un start bun." },
-    "item5": { "title": "Ghidare pentru supervisori", "description": "Materiale de referință simple care îi ajută pe liderii de echipă să stabilească așteptările clar." },
-    "item6": { "title": "Instrumente pentru retenție și feedback", "description": "Șabloane pentru întâlniri de verificare și indicatori de avertizare timpurie privind implicarea." },
-    "item7": { "title": "Ateliere practice", "description": "Sesiuni practice și facilitate, construite în jurul situațiilor reale ale companiei dvs." },
-    "item8": { "title": "Cercuri de mentorat", "description": "Sesiuni în grupuri mici cu facilitatori experți și IMM-uri partenere." },
-    "item9": { "title": "Învățare de la colegi", "description": "Oportunități structurate de a învăța de la companii în situații similare din regiune." }
+    "item1": {
+      "title": "HR Toolkit practic",
+      "description": "Un set structurat de documente și șabloane pe care le puteți pune imediat în practică."
+    },
+    "item2": {
+      "title": "Modele pentru recrutare",
+      "description": "Formate gata de utilizare pentru descrierea posturilor și liste de verificare pentru selecție."
+    },
+    "item3": {
+      "title": "Instrumente pentru interviuri structurate",
+      "description": "Ghiduri cu întrebări și fișe de evaluare care fac compararea candidaților consecventă."
+    },
+    "item4": {
+      "title": "Checklist-uri pentru onboarding",
+      "description": "Liste pas cu pas care asigură că fiecare nou angajat are un start bun."
+    },
+    "item5": {
+      "title": "Ghidare pentru supervisori",
+      "description": "Materiale de referință simple care îi ajută pe liderii de echipă să stabilească așteptările clar."
+    },
+    "item6": {
+      "title": "Instrumente pentru retenție și feedback",
+      "description": "Șabloane pentru întâlniri de verificare și indicatori de avertizare timpurie privind implicarea."
+    },
+    "item7": {
+      "title": "Ateliere practice",
+      "description": "Sesiuni practice și facilitate, construite în jurul situațiilor reale ale companiei dvs."
+    },
+    "item8": {
+      "title": "Cercuri de mentorat",
+      "description": "Sesiuni în grupuri mici cu facilitatori experți și IMM-uri partenere."
+    },
+    "item9": {
+      "title": "Învățare de la colegi",
+      "description": "Oportunități structurate de a învăța de la companii în situații similare din regiune."
+    }
   },
   "map": {
     "heading": "Cine poate",
@@ -76,12 +144,30 @@
     "heading": "Cum funcționează",
     "headingColored": "programul",
     "subhead": "Șase etape. Suport practic, pas cu pas.",
-    "step1": { "title": "Exprimarea interesului", "description": "Compania completează un formular scurt de exprimare a interesului. Nu sunt necesare documente lungi în această etapă." },
-    "step2": { "title": "Selecție", "description": "Echipa programului analizează candidaturile și selectează 50 de IMM-uri participante din cele șase regiuni." },
-    "step3": { "title": "Evaluare inițială", "description": "Un scurt diagnostic pentru a înțelege practicile actuale de recrutare și onboarding." },
-    "step4": { "title": "Toolkit și ateliere", "description": "Primiți HR Toolkit-ul personalizat și participați la ateliere practice facilitate." },
-    "step5": { "title": "Suport de mentorat", "description": "Acces la cercuri de mentorat cu facilitatori experți și IMM-uri partenere pe parcursul programului." },
-    "step6": { "title": "Implementare practică", "description": "Aplicați instrumentele în activitățile zilnice de recrutare și onboarding ale companiei, cu suport continuu." },
+    "step1": {
+      "title": "Exprimarea interesului",
+      "description": "Compania completează un formular scurt de exprimare a interesului. Nu sunt necesare documente lungi în această etapă."
+    },
+    "step2": {
+      "title": "Selecție",
+      "description": "Echipa programului analizează candidaturile și selectează 50 de IMM-uri participante din cele șase regiuni."
+    },
+    "step3": {
+      "title": "Evaluare inițială",
+      "description": "Un scurt diagnostic pentru a înțelege practicile actuale de recrutare și onboarding."
+    },
+    "step4": {
+      "title": "Toolkit și ateliere",
+      "description": "Primiți HR Toolkit-ul personalizat și participați la ateliere practice facilitate."
+    },
+    "step5": {
+      "title": "Suport de mentorat",
+      "description": "Acces la cercuri de mentorat cu facilitatori experți și IMM-uri partenere pe parcursul programului."
+    },
+    "step6": {
+      "title": "Implementare practică",
+      "description": "Aplicați instrumentele în activitățile zilnice de recrutare și onboarding ale companiei, cu suport continuu."
+    },
     "footer": "Suport practic pentru IMM-uri la fiecare etapă."
   },
   "notAbout": {

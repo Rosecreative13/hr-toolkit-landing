@@ -14,10 +14,12 @@ i18n
       ru: { translation: ru },
       en: { translation: en },
     },
+    // 'ro' is the default — do NOT use navigator (picks up browser language)
+    lng: undefined,
     fallbackLng: 'ro',
     defaultNS: 'translation',
     detection: {
-      order: ['querystring', 'localStorage', 'navigator'],
+      order: ['querystring', 'localStorage'],
       lookupQuerystring: 'lang',
       caches: ['localStorage'],
     },

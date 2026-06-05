@@ -16,7 +16,12 @@
     "cta": "Express interest",
     "ctaSecondary": "Learn more",
     "note": "Places are limited to 50 SMEs.",
-    "emailPlaceholder": "Enter your email"
+    "emailPlaceholder": "Enter your email",
+    "icon1": "Practical HR tools",
+    "icon2": "Workshops",
+    "icon3": "Mentoring support",
+    "icon4": "Useful templates",
+    "regionsLabel": "REGIONS"
   },
   "why": {
     "eyebrow": "The programme",
@@ -26,22 +31,58 @@
     "body2": "The HR Toolkit Programme addresses these challenges with practical tools, not theoretical frameworks. It is designed for companies that operate with lean teams, limited HR expertise and real hiring pressures.",
     "body3": "Participation is free. The tools are yours to keep. The goal is lasting improvement in how your company attracts, welcomes and retains the people it needs to grow.",
     "tag": "Practical tools. Real results.",
-    "stat1": { "num": "50", "label": "SMEs selected", "sub": "across Moldova" },
-    "stat2": { "num": "6", "label": "Programme regions", "sub": "Bălți · Chișinău · Edineț · Orhei · Soroca · Ungheni" },
-    "stat3": { "num": "100%", "label": "Free of charge", "sub": "No fees at any stage" }
+    "stat1": {
+      "num": "50",
+      "label": "SMEs selected",
+      "sub": "across Moldova"
+    },
+    "stat2": {
+      "num": "6",
+      "label": "Programme regions",
+      "sub": "Bălți · Chișinău · Edineț · Orhei · Soroca · Ungheni"
+    },
+    "stat3": {
+      "num": "100%",
+      "label": "Free of charge",
+      "sub": "No fees at any stage"
+    }
   },
   "pains": {
     "heading": "Do these challenges sound",
     "headingCircled": "familiar?",
     "subhead": "These challenges are common across Moldova's SMEs",
-    "item1": { "title": "It is difficult to find suitable employees.", "description": "The right candidates are out there, but the process of reaching them is unclear and time-consuming." },
-    "item2": { "title": "New employees leave after a few weeks or months.", "description": "People join and leave within weeks, before they have had the chance to contribute." },
-    "item3": { "title": "Onboarding is informal or improvised.", "description": "Each new hire is welcomed differently. There is no repeatable process." },
-    "item4": { "title": "Supervisors do not have simple tools to support new employees.", "description": "Team leaders want to do better but are given no resources to guide them." },
-    "item5": { "title": "Recruitment takes too much time.", "description": "Hours spent on interviews and paperwork that could be streamlined with clearer templates." },
-    "item6": { "title": "The company does not have a dedicated HR department.", "description": "People decisions fall to an owner, manager or whoever is available, with no playbook to follow." },
-    "item7": { "title": "Young employees need more guidance during adaptation.", "description": "Young new hires need additional support to successfully adapt to the workplace." },
-    "item8": { "title": "Job expectations are not always clear.", "description": "Without a clear job description and expectations, employees do not know what is required of them." },
+    "item1": {
+      "title": "It is difficult to find suitable employees.",
+      "description": "The right candidates are out there, but the process of reaching them is unclear and time-consuming."
+    },
+    "item2": {
+      "title": "New employees leave after a few weeks or months.",
+      "description": "People join and leave within weeks, before they have had the chance to contribute."
+    },
+    "item3": {
+      "title": "Onboarding is informal or improvised.",
+      "description": "Each new hire is welcomed differently. There is no repeatable process."
+    },
+    "item4": {
+      "title": "Supervisors do not have simple tools to support new employees.",
+      "description": "Team leaders want to do better but are given no resources to guide them."
+    },
+    "item5": {
+      "title": "Recruitment takes too much time.",
+      "description": "Hours spent on interviews and paperwork that could be streamlined with clearer templates."
+    },
+    "item6": {
+      "title": "The company does not have a dedicated HR department.",
+      "description": "People decisions fall to an owner, manager or whoever is available, with no playbook to follow."
+    },
+    "item7": {
+      "title": "Young employees need more guidance during adaptation.",
+      "description": "Young new hires need additional support to successfully adapt to the workplace."
+    },
+    "item8": {
+      "title": "Job expectations are not always clear.",
+      "description": "Without a clear job description and expectations, employees do not know what is required of them."
+    },
     "badge": "The HR Toolkit Programme can help"
   },
   "receive": {
@@ -49,15 +90,42 @@
     "headingColored": "receive",
     "subhead": "Nine concrete deliverables — tools, workshops, and peer support — for SMEs without dedicated HR departments.",
     "footer": "Designed for SMEs without dedicated HR departments.",
-    "item1": { "title": "Practical HR Toolkit", "description": "A structured set of documents and templates you can put to work immediately." },
-    "item2": { "title": "Recruitment templates", "description": "Ready-to-use job description formats and screening checklists." },
-    "item3": { "title": "Structured interview tools", "description": "Question guides and scoring sheets that make candidate comparison consistent." },
-    "item4": { "title": "Onboarding checklists", "description": "Step-by-step lists that ensure every new hire starts well." },
-    "item5": { "title": "Supervisor guidance", "description": "Simple reference materials that help team leaders set expectations clearly." },
-    "item6": { "title": "Retention and feedback tools", "description": "Check-in templates and early-warning indicators for engagement." },
-    "item7": { "title": "Workshops", "description": "Practical, facilitated sessions built around your company's real situations." },
-    "item8": { "title": "Mentoring circles", "description": "Small-group sessions with expert facilitators and peer SMEs." },
-    "item9": { "title": "Peer learning", "description": "Structured opportunities to learn from companies in similar situations across the region." }
+    "item1": {
+      "title": "Practical HR Toolkit",
+      "description": "A structured set of documents and templates you can put to work immediately."
+    },
+    "item2": {
+      "title": "Recruitment templates",
+      "description": "Ready-to-use job description formats and screening checklists."
+    },
+    "item3": {
+      "title": "Structured interview tools",
+      "description": "Question guides and scoring sheets that make candidate comparison consistent."
+    },
+    "item4": {
+      "title": "Onboarding checklists",
+      "description": "Step-by-step lists that ensure every new hire starts well."
+    },
+    "item5": {
+      "title": "Supervisor guidance",
+      "description": "Simple reference materials that help team leaders set expectations clearly."
+    },
+    "item6": {
+      "title": "Retention and feedback tools",
+      "description": "Check-in templates and early-warning indicators for engagement."
+    },
+    "item7": {
+      "title": "Workshops",
+      "description": "Practical, facilitated sessions built around your company's real situations."
+    },
+    "item8": {
+      "title": "Mentoring circles",
+      "description": "Small-group sessions with expert facilitators and peer SMEs."
+    },
+    "item9": {
+      "title": "Peer learning",
+      "description": "Structured opportunities to learn from companies in similar situations across the region."
+    }
   },
   "map": {
     "heading": "Who",
@@ -76,12 +144,30 @@
     "heading": "How the programme",
     "headingColored": "works",
     "subhead": "Six steps. Practical support, step by step.",
-    "step1": { "title": "Express interest", "description": "Submit a short expression of interest form. No lengthy paperwork required at this stage." },
-    "step2": { "title": "Selection", "description": "The programme team reviews applications and selects 50 participating SMEs across the six regions." },
-    "step3": { "title": "Baseline assessment", "description": "A brief diagnostic to understand your current recruitment and onboarding practices." },
-    "step4": { "title": "Toolkit and workshops", "description": "You receive your customised HR Toolkit and participate in facilitated practical workshops." },
-    "step5": { "title": "Mentoring support", "description": "Access to mentoring circles with expert facilitators and peer SMEs throughout the programme." },
-    "step6": { "title": "Practical implementation", "description": "You apply the tools in your company's day-to-day hiring and onboarding with ongoing support." },
+    "step1": {
+      "title": "Express interest",
+      "description": "Submit a short expression of interest form. No lengthy paperwork required at this stage."
+    },
+    "step2": {
+      "title": "Selection",
+      "description": "The programme team reviews applications and selects 50 participating SMEs across the six regions."
+    },
+    "step3": {
+      "title": "Baseline assessment",
+      "description": "A brief diagnostic to understand your current recruitment and onboarding practices."
+    },
+    "step4": {
+      "title": "Toolkit and workshops",
+      "description": "You receive your customised HR Toolkit and participate in facilitated practical workshops."
+    },
+    "step5": {
+      "title": "Mentoring support",
+      "description": "Access to mentoring circles with expert facilitators and peer SMEs throughout the programme."
+    },
+    "step6": {
+      "title": "Practical implementation",
+      "description": "You apply the tools in your company's day-to-day hiring and onboarding with ongoing support."
+    },
     "footer": "Practical support for SMEs at every stage."
   },
   "notAbout": {

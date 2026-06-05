@@ -502,7 +502,7 @@ export default function Hero() {
                 flexShrink: 0,
               }}
             >
-              Regions:
+              {t('hero.regionsLabel')}:
             </span>
             <Marquee
               items={regions}
@@ -529,10 +529,10 @@ export default function Hero() {
             }}
           >
             {[
-              { label: 'Practical HR tools' },
-              { label: 'Workshops' },
-              { label: 'Mentoring support' },
-              { label: 'Useful templates' },
+              { label: t('hero.icon1') },
+              { label: t('hero.icon2') },
+              { label: t('hero.icon3') },
+              { label: t('hero.icon4') },
             ].map((item, i) => (
               <div key={item.label} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 {i > 0 && (
