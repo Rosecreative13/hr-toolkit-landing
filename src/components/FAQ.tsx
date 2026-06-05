@@ -192,7 +192,7 @@ export default function FAQ() {
                 color: 'var(--color-ink-faint)',
               }}
             >
-              Questions
+              {t('faq.eyebrow')}
             </span>
           </motion.div>
           <div style={{ overflow: 'hidden' }}>
@@ -235,7 +235,7 @@ export default function FAQ() {
             marginTop: '1.5rem',
           }}
         >
-          If your question is not answered here, contact the programme team directly.
+          {t('faq.footerNote')}
         </motion.p>
       </div>
     </section>

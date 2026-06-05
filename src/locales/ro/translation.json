@@ -4,7 +4,13 @@
     "forSMEs": "Pentru IMM-uri",
     "howItWorks": "Cum funcționează",
     "faq": "Întrebări frecvente",
-    "expressInterest": "Exprimă interesul"
+    "expressInterest": "Exprimă interesul",
+    "switchTo": "Schimbă limba în {{lang}}",
+    "homeAria": "Pagina principală HR Toolkit Programme",
+    "mainNavigation": "Navigare principală",
+    "mobileNavigation": "Navigare mobilă",
+    "openMenu": "Deschide meniul",
+    "closeMenu": "Închide meniul"
   },
   "hero": {
     "eyebrow": "Programul HR Toolkit pentru IMM-uri",
@@ -21,7 +27,9 @@
     "icon2": "Ateliere",
     "icon3": "Suport de mentorat",
     "icon4": "Șabloane utile",
-    "regionsLabel": "REGIUNI"
+    "regionsLabel": "REGIUNI",
+    "imageAlt": "Echipă de afaceri colaborând într-un birou",
+    "rotatingBadge": "SUPORT HR PRACTIC PENTRU IMM-URI"
   },
   "why": {
     "eyebrow": "Programul",
@@ -31,6 +39,13 @@
     "body2": "Programul HR Toolkit abordează aceste provocări cu instrumente practice, nu cadre teoretice. Este conceput pentru companii care funcționează cu echipe reduse, expertiză HR limitată și presiuni reale de recrutare.",
     "body3": "Participarea este gratuită. Instrumentele vă aparțin. Scopul este îmbunătățirea durabilă a modului în care compania atrage, primește și reține oamenii de care are nevoie pentru a crește.",
     "tag": "Instrumente practice. Rezultate reale.",
+    "topicRecruitment": "Recrutare",
+    "topicOnboarding": "Integrare",
+    "topicRetention": "Retenție",
+    "peerTitle": "Învățare de la colegi inclusă",
+    "peerBody": "Conectați-vă cu alți lideri IMM din Moldova",
+    "peerNetwork": "Rețea de colegi",
+    "mentoringLabel": "Mentorat expert",
     "stat1": {
       "num": "50",
       "label": "IMM-uri selectate",
@@ -83,7 +98,11 @@
       "title": "Așteptările față de rol nu sunt întotdeauna clare.",
       "description": "Fără o descriere clară a postului și a așteptărilor, angajații nu știu ce se așteaptă de la ei."
     },
-    "badge": "Programul HR Toolkit poate ajuta"
+    "badge": "Programul HR Toolkit poate ajuta",
+    "insightEyebrow": "Observație din cercetare",
+    "insightText": "Schimbările mici în onboarding pot reduce fluctuația timpurie cu până la 50% în primele 90 de zile.",
+    "insightNote": "Toolkitul abordează direct această provocare",
+    "photoAlt": "Manager discutând cu membrii echipei"
   },
   "receive": {
     "heading": "Ce vor primi",
@@ -138,7 +157,10 @@
     "criteria5": "Poate desemna o persoană de contact pentru program",
     "tag1": "IMM-uri",
     "tag2": "Focus pe tineri angajați",
-    "tag3": "Suport HR practic"
+    "tag3": "Suport HR practic",
+    "popupSub": "Regiune a programului",
+    "attributionPrefix": "Hartă",
+    "attributionSuffix": "contributori"
   },
   "howItWorks": {
     "heading": "Cum funcționează",
@@ -184,6 +206,7 @@
     "restatementSub": "Aplicat. Orientat spre rezultate. Gratuit."
   },
   "faq": {
+    "eyebrow": "Întrebări",
     "heading": "Frecvent",
     "headingCircled": "întrebat",
     "q1": "Participarea este gratuită?",
@@ -201,7 +224,8 @@
     "q7": "Informațiile companiei vor rămâne confidențiale?",
     "a7": "Da. Informațiile vor fi utilizate în scopurile proiectului și pentru raportare în formă agregată. Informațiile individuale ale companiilor nu vor fi divulgate public fără acordul prealabil.",
     "q8": "Ce se întâmplă după transmiterea expresiei de interes?",
-    "a8": "Echipa proiectului va analiza formularele transmise și va contacta companiile eligibile cu pașii următori."
+    "a8": "Echipa proiectului va analiza formularele transmise și va contacta companiile eligibile cu pașii următori.",
+    "footerNote": "Dacă întrebarea dvs. nu este acoperită aici, contactați direct echipa programului."
   },
   "cta": {
     "heading": "Sunteți interesați să participați la",
@@ -210,11 +234,19 @@
     "button": "Exprimă interesul acum",
     "note": "Numărul de locuri este limitat la 50 de IMM-uri din Bălți, Chișinău, Edineț, Orhei, Soroca și Ungheni.",
     "emailPlaceholder": "Introduceți adresa de email",
+    "emailLabel": "Adresa de email",
     "eyebrow": "Expresiile de interes sunt deschise"
   },
   "footer": {
     "tagline": "Echipe mai puternice. Afaceri mai puternice. Comunități mai puternice.",
-    "description": "Suport HR practic pentru IMM-uri din Moldova."
+    "description": "Suport HR practic pentru IMM-uri din Moldova.",
+    "regionsLabel": "Regiuni",
+    "contactLabel": "Contact",
+    "contactPending": "Detaliile de contact vor fi adăugate.",
+    "partnersLabel": "Parteneri",
+    "partnerLogo": "Logo partener",
+    "copyright": "Programul HR Toolkit pentru IMM-uri. Moldova, 2025.",
+    "participationNote": "Participarea este gratuită și voluntară."
   },
   "confidentiality": {
     "heading": "Participare și confidențialitate",

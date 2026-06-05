@@ -43,9 +43,18 @@ function MagneticCTA() {
 }
 
 function LangSwitcher({ mobile = false }: { mobile?: boolean }) {
-  const { i18n: i18next } = useTranslation()
+  const { t, i18n: i18next } = useTranslation()
   const langs = ['RO', 'RU', 'EN'] as const
-  const current = i18next.language?.slice(0, 2).toLowerCase()
+  const current = (i18next.resolvedLanguage || i18next.language || 'ro').slice(0, 2).toLowerCase()
+
+  const handleLanguageChange = (code: string) => {
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href)
+      url.searchParams.set('lang', code)
+      window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`)
+    }
+    void i18n.changeLanguage(code)
+  }
 
   return (
     <div
@@ -64,7 +73,7 @@ function LangSwitcher({ mobile = false }: { mobile?: boolean }) {
         return (
           <button
             key={lang}
-            onClick={() => i18n.changeLanguage(code)}
+            onClick={() => handleLanguageChange(code)}
             style={{
               fontFamily: 'var(--font-body)',
               fontWeight: 700,
@@ -89,7 +98,7 @@ function LangSwitcher({ mobile = false }: { mobile?: boolean }) {
                 (e.currentTarget as HTMLButtonElement).style.background = 'transparent'
               }
             }}
-            aria-label={`Switch to ${lang}`}
+            aria-label={t('nav.switchTo', { lang })}
             aria-pressed={isActive}
           >
             {lang}
@@ -207,7 +216,7 @@ export default function Header() {
         {/* Logo lockup */}
         <a
           href="#"
-          aria-label="HR Toolkit Programme home"
+          aria-label={t('nav.homeAria')}
           style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}
         >
           <Star size={18} color="var(--color-magenta)" points={8} idle="spin" />
@@ -240,7 +249,7 @@ export default function Header() {
         </a>
 
         {/* Desktop pill nav */}
-        <nav aria-label="Main navigation" className="desktop-nav">
+        <nav aria-label={t('nav.mainNavigation')} className="desktop-nav">
           <div
             style={{
               display: 'flex',
@@ -270,7 +279,7 @@ export default function Header() {
 
           {/* Hamburger */}
           <button
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-label={menuOpen ? t('nav.closeMenu') : t('nav.openMenu')}
             onClick={() => setMenuOpen(!menuOpen)}
             className="hamburger-btn"
             style={{
@@ -306,7 +315,7 @@ export default function Header() {
               backdropFilter: 'blur(12px)',
             }}
           >
-            <nav aria-label="Mobile navigation">
+            <nav aria-label={t('nav.mobileNavigation')}>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {navLinks.map((link) => (
                   <li key={link.href}>
@@ -354,7 +363,7 @@ export default function Header() {
       <style>{`
         .desktop-nav { display: flex; }
         .hamburger-btn { display: none; }
-        @media (max-width: 768px) {
+        @media (max-width: 1080px) {
           .desktop-nav { display: none !important; }
           .hamburger-btn { display: flex !important; }
           .cta-btn { display: none !important; }

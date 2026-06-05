@@ -46,9 +46,11 @@ function makeIcon(name: string, active: boolean): L.DivIcon {
 function MarkerLayer({
   activeRegion,
   setActiveRegion,
+  popupSub,
 }: {
   activeRegion: string | null
   setActiveRegion: (n: string | null) => void
+  popupSub: string
 }) {
   // Access map instance (needed so Popup opens on marker click)
   useMap()
@@ -78,7 +80,7 @@ function MarkerLayer({
               <div className="map-popup-inner">
                 <div className="map-popup-accent" />
                 <span className="map-popup-name">{r.name}</span>
-                <span className="map-popup-sub">Programme region</span>
+                <span className="map-popup-sub">{popupSub}</span>
               </div>
             </Popup>
           </Marker>
@@ -103,7 +105,8 @@ export default function Map() {
   ]
 
   useEffect(() => {
-    setMounted(true)
+    const timer = window.setTimeout(() => setMounted(true), 0)
+    return () => window.clearTimeout(timer)
   }, [])
 
   return (
@@ -333,6 +336,7 @@ export default function Map() {
                   <MarkerLayer
                     activeRegion={activeRegion}
                     setActiveRegion={setActiveRegion}
+                    popupSub={t('map.popupSub')}
                   />
                 </MapContainer>
               ) : (
@@ -342,7 +346,7 @@ export default function Map() {
 
             {/* Attribution (OSM license requirement) */}
             <p className="map-attribution">
-              Map &copy;{' '}
+              {t('map.attributionPrefix')} &copy;{' '}
               <a
                 href="https://www.openstreetmap.org/copyright"
                 target="_blank"
@@ -350,7 +354,7 @@ export default function Map() {
               >
                 OpenStreetMap
               </a>{' '}
-              contributors, CartoDB
+              {t('map.attributionSuffix')}, CartoDB
             </p>
           </motion.div>
         </div>

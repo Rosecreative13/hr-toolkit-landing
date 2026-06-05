@@ -221,7 +221,7 @@ export default function Footer() {
                 marginBottom: '1rem',
               }}
             >
-              Regions
+              {t('footer.regionsLabel')}
             </p>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.375rem' }}>
               {regions.map((r, i) => (
@@ -274,7 +274,7 @@ export default function Footer() {
                 marginBottom: '1rem',
               }}
             >
-              Contact
+              {t('footer.contactLabel')}
             </p>
             <p
               style={{
@@ -284,7 +284,7 @@ export default function Footer() {
                 fontStyle: 'italic',
               }}
             >
-              Contact details to be added.
+              {t('footer.contactPending')}
             </p>
           </motion.div>
 
@@ -306,7 +306,7 @@ export default function Footer() {
                 marginBottom: '1rem',
               }}
             >
-              Partners
+              {t('footer.partnersLabel')}
             </p>
             <div
               style={{
@@ -328,7 +328,7 @@ export default function Footer() {
                   fontStyle: 'italic',
                 }}
               >
-                Partner logo
+                {t('footer.partnerLogo')}
               </span>
             </div>
           </motion.div>
@@ -347,10 +347,10 @@ export default function Footer() {
           }}
         >
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.8125rem', color: 'rgba(255,255,255,0.2)' }}>
-            HR Toolkit Programme for SMEs. Moldova, 2025.
+            {t('footer.copyright')}
           </p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.8125rem', color: 'rgba(255,255,255,0.2)' }}>
-            Participation is free and voluntary.
+            {t('footer.participationNote')}
           </p>
         </div>
       </div>

@@ -3,14 +3,14 @@ import { motion, useReducedMotion, useScroll, useVelocity, useSpring, useMotionV
 import Star from './Star'
 
 interface RotatingBadgeProps {
-  text?: string
+  text: string
   size?: number
   color?: string
 }
 
 /** Circular rotated-text badge. Rotation speed couples to scroll velocity on enter. */
 export default function RotatingBadge({
-  text = 'PRACTICAL HR SUPPORT FOR SMES',
+  text,
   size = 120,
   color = 'var(--color-magenta)',
 }: RotatingBadgeProps) {

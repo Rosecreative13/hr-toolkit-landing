@@ -243,7 +243,7 @@ export default function FinalCTA() {
                   marginBottom: '1rem',
                 }}
               >
-                <label htmlFor="cta-email" className="sr-only">Your email address</label>
+                <label htmlFor="cta-email" className="sr-only">{t('cta.emailLabel')}</label>
                 <input
                   id="cta-email"
                   type="email"
@@ -287,7 +287,7 @@ export default function FinalCTA() {
             style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}
             className="cta-badge"
           >
-            <RotatingBadge size={140} />
+            <RotatingBadge size={140} text={t('hero.rotatingBadge')} />
             {/* Star bursts — pop in staggered from diagonal */}
             <motion.div
               initial={prefersReducedMotion ? {} : { scale: 0, opacity: 0, rotate: 30 }}

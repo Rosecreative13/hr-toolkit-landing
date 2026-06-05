@@ -4,7 +4,13 @@
     "forSMEs": "For SMEs",
     "howItWorks": "How it works",
     "faq": "FAQ",
-    "expressInterest": "Express interest"
+    "expressInterest": "Express interest",
+    "switchTo": "Switch to {{lang}}",
+    "homeAria": "HR Toolkit Programme home",
+    "mainNavigation": "Main navigation",
+    "mobileNavigation": "Mobile navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "hero": {
     "eyebrow": "HR Toolkit Programme for SMEs",
@@ -21,7 +27,9 @@
     "icon2": "Workshops",
     "icon3": "Mentoring support",
     "icon4": "Useful templates",
-    "regionsLabel": "REGIONS"
+    "regionsLabel": "REGIONS",
+    "imageAlt": "Business team collaborating in an office",
+    "rotatingBadge": "PRACTICAL HR SUPPORT FOR SMES"
   },
   "why": {
     "eyebrow": "The programme",
@@ -31,6 +39,13 @@
     "body2": "The HR Toolkit Programme addresses these challenges with practical tools, not theoretical frameworks. It is designed for companies that operate with lean teams, limited HR expertise and real hiring pressures.",
     "body3": "Participation is free. The tools are yours to keep. The goal is lasting improvement in how your company attracts, welcomes and retains the people it needs to grow.",
     "tag": "Practical tools. Real results.",
+    "topicRecruitment": "Recruitment",
+    "topicOnboarding": "Onboarding",
+    "topicRetention": "Retention",
+    "peerTitle": "Peer learning built in",
+    "peerBody": "Connect with other SME leaders across Moldova",
+    "peerNetwork": "Peer Network",
+    "mentoringLabel": "Expert mentoring",
     "stat1": {
       "num": "50",
       "label": "SMEs selected",
@@ -83,7 +98,11 @@
       "title": "Job expectations are not always clear.",
       "description": "Without a clear job description and expectations, employees do not know what is required of them."
     },
-    "badge": "The HR Toolkit Programme can help"
+    "badge": "The HR Toolkit Programme can help",
+    "insightEyebrow": "Research insight",
+    "insightText": "Small changes in onboarding reduce early turnover by up to 50% within the first 90 days.",
+    "insightNote": "The toolkit addresses this directly",
+    "photoAlt": "Manager talking to team members"
   },
   "receive": {
     "heading": "What SMEs",
@@ -138,7 +157,10 @@
     "criteria5": "Can designate a contact person for the programme",
     "tag1": "SMEs",
     "tag2": "Young employee focus",
-    "tag3": "Practical HR support"
+    "tag3": "Practical HR support",
+    "popupSub": "Programme region",
+    "attributionPrefix": "Map",
+    "attributionSuffix": "contributors"
   },
   "howItWorks": {
     "heading": "How the programme",
@@ -184,6 +206,7 @@
     "restatementSub": "Hands-on. Results-focused. Free."
   },
   "faq": {
+    "eyebrow": "Questions",
     "heading": "Frequently",
     "headingCircled": "asked",
     "q1": "Is participation free of charge?",
@@ -201,7 +224,8 @@
     "q7": "Will company information remain confidential?",
     "a7": "Yes. Information will be used for project purposes and reporting in aggregated form. Individual company information will not be publicly disclosed without prior agreement.",
     "q8": "What happens after we submit the expression of interest?",
-    "a8": "The project team will review submitted forms and contact eligible companies with the next steps."
+    "a8": "The project team will review submitted forms and contact eligible companies with the next steps.",
+    "footerNote": "If your question is not answered here, contact the programme team directly."
   },
   "cta": {
     "heading": "Interested in",
@@ -210,11 +234,19 @@
     "button": "Express interest now",
     "note": "Places are limited to 50 SMEs from Bălți, Chișinău, Edineț, Orhei, Soroca and Ungheni.",
     "emailPlaceholder": "Enter your email",
+    "emailLabel": "Your email address",
     "eyebrow": "Expressions of interest now open"
   },
   "footer": {
     "tagline": "Stronger teams. Stronger businesses. Stronger communities.",
-    "description": "Practical HR support for SMEs in Moldova."
+    "description": "Practical HR support for SMEs in Moldova.",
+    "regionsLabel": "Regions",
+    "contactLabel": "Contact",
+    "contactPending": "Contact details to be added.",
+    "partnersLabel": "Partners",
+    "partnerLogo": "Partner logo",
+    "copyright": "HR Toolkit Programme for SMEs. Moldova, 2025.",
+    "participationNote": "Participation is free and voluntary."
   },
   "confidentiality": {
     "heading": "Participation and confidentiality",

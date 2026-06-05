@@ -30,7 +30,6 @@ export default function CountUp({
 
   useEffect(() => {
     if (!inView || fired.current || prefersReducedMotion) {
-      if (prefersReducedMotion) setDisplay(target)
       return
     }
     fired.current = true
@@ -50,5 +49,5 @@ export default function CountUp({
     return () => { if (rafId.current) cancelAnimationFrame(rafId.current) }
   }, [inView, target, duration, prefersReducedMotion])
 
-  return <>{prefix}{display}{suffix}</>
+  return <>{prefix}{prefersReducedMotion ? target : display}{suffix}</>
 }

@@ -107,7 +107,7 @@ function StatBlock({
   )
 }
 
-const TOPIC_CHIPS_KEYS = ['Recruitment', 'Onboarding', 'Retention']
+const TOPIC_CHIPS_KEYS = ['why.topicRecruitment', 'why.topicOnboarding', 'why.topicRetention']
 
 /** Amber hand-drawn squiggle SVG */
 function AmberSquiggle({ style }: { style?: React.CSSProperties }) {
@@ -416,7 +416,7 @@ export default function Why() {
                       display: 'inline-block',
                     }}
                   >
-                    {chip}
+                    {t(chip)}
                   </motion.span>
                 ))}
               </div>
@@ -483,7 +483,7 @@ export default function Why() {
                     lineHeight: 1.3,
                   }}
                 >
-                  Peer learning built in
+                  {t('why.peerTitle')}
                 </div>
                 <div
                   style={{
@@ -494,7 +494,7 @@ export default function Why() {
                     maxWidth: '18ch',
                   }}
                 >
-                  Connect with other SME leaders across Moldova
+                  {t('why.peerBody')}
                 </div>
                 <div
                   style={{
@@ -511,7 +511,7 @@ export default function Why() {
                   }}
                 >
                   <span style={{ width: 14, height: 1.5, background: 'var(--ill-amber)', display: 'inline-block', borderRadius: 1 }} />
-                  Peer Network
+                  {t('why.peerNetwork')}
                 </div>
               </div>
             </motion.div>
@@ -610,7 +610,7 @@ export default function Why() {
                     borderRadius: 1,
                   }}
                 />
-                Expert mentoring
+                {t('why.mentoringLabel')}
               </div>
             </motion.div>
           </div>

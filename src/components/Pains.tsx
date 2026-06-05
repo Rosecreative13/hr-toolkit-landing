@@ -254,7 +254,7 @@ export default function Pains() {
               >
                 <img
                   src={PAINS_PHOTO}
-                  alt="Manager talking to team members"
+                  alt={t('pains.photoAlt')}
                   style={{
                     width: '100%',
                     height: '100%',
@@ -367,7 +367,7 @@ export default function Pains() {
                 >
                   <Star size={10} color="rgba(255,255,255,0.7)" points={6} />
                 </motion.span>
-                Research insight
+                {t('pains.insightEyebrow')}
               </div>
 
               <blockquote
@@ -383,7 +383,7 @@ export default function Pains() {
                   textWrap: 'balance' as React.CSSProperties['textWrap'],
                 }}
               >
-                Small changes in onboarding reduce early turnover by up to 50% within the first 90 days.
+                {t('pains.insightText')}
               </blockquote>
 
               {/* Arrow indicator down toward next section */}
@@ -404,7 +404,7 @@ export default function Pains() {
                     fontWeight: 500,
                   }}
                 >
-                  The toolkit addresses this directly
+                  {t('pains.insightNote')}
                 </span>
               </div>
             </motion.div>

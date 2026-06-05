@@ -132,15 +132,3 @@ export function IconPeerLearning({ size = 36 }: IconProps) {
     </svg>
   )
 }
-
-export const RECEIVE_ICONS = [
-  IconToolkit,
-  IconTemplate,
-  IconInterview,
-  IconChecklist,
-  IconGuide,
-  IconFeedback,
-  IconWorkshop,
-  IconMentoring,
-  IconPeerLearning,
-] as const

@@ -86,7 +86,7 @@ export const stampVariants: Variants = {
 }
 
 /** Diagonal stamp stagger: items reveal on a diagonal grid offset */
-export const diagonalStampDelay = (row: number, col: number, _cols = 3, base = 0.05) =>
+export const diagonalStampDelay = (row: number, col: number, base = 0.05) =>
   (row + col) * base
 
 // ─── scatterIn ───────────────────────────────────────────────────────────────
@@ -310,7 +310,7 @@ export const faqContentVariants: Variants = {
  * Returns a callback ref and the current display value string.
  * Uses requestAnimationFrame internally, no layout triggers.
  */
-export function useCountUp(target: number | string, _duration = 900, suffix = '') {
+export function useCountUp(target: number | string, suffix = '') {
   const isNumeric = typeof target === 'number'
   // We return the plain target for non-numeric strings, but still export
   // the hook signature for uniformity.

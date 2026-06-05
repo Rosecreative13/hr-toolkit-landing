@@ -387,7 +387,7 @@ export default function Hero() {
             >
               <img
                 src={HERO_PHOTO}
-                alt="Business team collaborating in an office"
+                alt={t('hero.imageAlt')}
                 fetchPriority="high"
                 style={{
                   width: '100%',
@@ -413,7 +413,7 @@ export default function Hero() {
               animate={{ scale: 1, opacity: 1, rotate: 0 }}
               transition={{ type: 'spring' as const, stiffness: 260, damping: 22, delay: 0.9 }}
             >
-              <RotatingBadge size={110} />
+              <RotatingBadge size={110} text={t('hero.rotatingBadge')} />
             </motion.div>
 
             {/* Star top right — pop + rotate overshoot from top-right + parallax */}
