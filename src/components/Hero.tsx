@@ -50,13 +50,13 @@ export default function Hero() {
   const badgeParallax = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? [0, 0] : [0, 30])
 
   // Wipe variants for h1 lines — uneven stagger + skew
-  // Negative top/bottom insets allow CircledWord SVG to overflow the line bounds
+  // Negative insets on all sides allow CircledWord SVG to fully overflow line bounds
   const lineVariant = (delay: number, skew = -3) => ({
     hidden: prefersReducedMotion
-      ? { clipPath: 'inset(-20px 0% -12px -4px)', skewX: 0 }
-      : { clipPath: 'inset(-20px 100% -12px -4px)', skewX: skew },
+      ? { clipPath: 'inset(-24px -32px -16px -24px)', skewX: 0 }
+      : { clipPath: 'inset(-24px 100% -16px -24px)', skewX: skew },
     visible: {
-      clipPath: 'inset(-20px 0% -12px -4px)',
+      clipPath: 'inset(-24px -32px -16px -24px)',
       skewX: 0,
       transition: { duration: 0.72, ease: EASE_OUT_EXPO, delay },
     },
@@ -167,7 +167,7 @@ export default function Hero() {
                   {t('hero.line1')}
                 </motion.span>
               </span>
-              <span style={{ display: 'block', overflow: 'hidden' }}>
+              <span style={{ display: 'block', overflow: 'visible' }}>
                 <motion.span
                   initial="hidden"
                   animate="visible"
