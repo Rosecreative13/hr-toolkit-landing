@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
+import L from 'leaflet'
 import GridBg from './marks/GridBg'
 import Star from './marks/Star'
 import Arrow from './marks/Arrow'
 import DotGrid from './marks/DotGrid'
-import { flyInFrom, VIEWPORT_ONCE } from '../lib/motion'
+import { VIEWPORT_ONCE } from '../lib/motion'
 
 const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as [number, number, number, number]
 
@@ -16,54 +18,91 @@ const criteria = [
   'Can designate a contact person for the programme',
 ]
 
-// Real lon/lat → SVG coords via Mercator projection
-// ViewBox: "0 0 200 280"
-// Bounding box: lon 26.55–30.25, lat 45.43–48.57
-// All pins land inside the silhouette polygon
-const regions = [
-  { name: 'Edineț',    x: 41.7,  y: 59.6  },
-  { name: 'Bălți',     x: 75.1,  y: 74.8  },
-  { name: 'Soroca',    x: 94.7,  y: 39.0  },
-  { name: 'Orhei',     x: 122.2, y: 108.5 },
-  { name: 'Chișinău',  x: 124.4, y: 141.1 },
-  { name: 'Ungheni',   x: 67.7,  y: 123.5 },
+const regions: { name: string; lat: number; lng: number }[] = [
+  { name: 'Edineț',   lat: 47.93, lng: 27.30 },
+  { name: 'Bălți',    lat: 47.76, lng: 27.93 },
+  { name: 'Soroca',   lat: 48.16, lng: 28.30 },
+  { name: 'Orhei',    lat: 47.38, lng: 28.82 },
+  { name: 'Chișinău', lat: 47.01, lng: 28.86 },
+  { name: 'Ungheni',  lat: 47.21, lng: 27.79 },
 ]
 
-// Accurate Moldova silhouette — Mercator-projected from real border coordinates.
-// Key features preserved:
-//   • Prut river western border (curved, NW to SW)
-//   • Dniester eastern border with Transnistria strip (eastern bulge ~29.5–29.7°E)
-//   • Narrow southern tip at Giurgiulești (45.47°N)
-//   • Vertically elongated shape (N 48.5° → S 45.47°)
-const MOLDOVA_PATH =
-  'M 5.7,8.3 L 25.8,8.3 L 41.7,11.0 L 57.6,11.0 L 78.8,9.2 L 91.0,9.2 ' +
-  'L 102.1,12.0 L 113.2,17.4 L 126.5,28.2 L 143.4,48.8 L 158.3,71.2 ' +
-  'L 166.2,93.5 L 169.9,117.4 L 163.6,142.0 L 155.6,166.6 L 145.0,190.1 ' +
-  'L 131.8,216.1 L 118.5,239.4 L 106.4,259.2 L 94.7,272.0 L 89.4,274.6 ' +
-  'L 83.0,263.5 L 72.5,242.0 L 60.3,218.7 L 48.1,196.2 L 35.4,172.7 ' +
-  'L 25.8,146.4 L 17.9,120.0 L 11.0,93.5 L 6.8,66.7 L 5.7,37.2 Z'
+// ── Custom DivIcon: cobalt circle 14px + white inner dot + pill label ──
+function makeIcon(name: string, active: boolean): L.DivIcon {
+  const ring = active
+    ? `<span class="map-pin-ring"></span>`
+    : ''
+  return L.divIcon({
+    className: '',
+    iconAnchor: [10, 10],
+    popupAnchor: [0, -14],
+    html: `
+      <div class="map-pin-wrap" aria-label="${name}">
+        ${ring}
+        <div class="map-pin-dot${active ? ' map-pin-dot--active' : ''}">
+          <div class="map-pin-inner"></div>
+        </div>
+        <div class="map-pin-label">${name}</div>
+      </div>
+    `,
+  })
+}
 
-// Stagger directions for pin pop-ins — varied per region
-const pinPops: { rotate: number; delay: number }[] = [
-  { rotate: -12, delay: 0.50 },
-  { rotate:  10, delay: 0.62 },
-  { rotate:  -8, delay: 0.72 },
-  { rotate:  14, delay: 0.55 },
-  { rotate: -10, delay: 0.80 },
-  { rotate:   7, delay: 0.65 },
-]
+// Re-render markers on active change by forcing key change in parent,
+// but we need to update icons imperatively. Use a small bridge component.
+function MarkerLayer({
+  activeRegion,
+  setActiveRegion,
+}: {
+  activeRegion: string | null
+  setActiveRegion: (n: string | null) => void
+}) {
+  // Access map instance (needed so Popup opens on marker click)
+  useMap()
 
-// Label pill geometry — computed so labels stay inside viewBox
-// Each label: rect of width labelW, height 8, rx 4; text centred
-function getLabelRect(name: string) {
-  const chars = name.length
-  const w = Math.max(22, chars * 2.9 + 6)
-  return { w, h: 8 }
+  return (
+    <>
+      {regions.map((r) => {
+        const isActive = activeRegion === r.name
+        const icon = makeIcon(r.name, isActive)
+
+        return (
+          <Marker
+            key={r.name}
+            position={[r.lat, r.lng]}
+            icon={icon}
+            eventHandlers={{
+              mouseover: () => setActiveRegion(r.name),
+              mouseout: () => setActiveRegion(null),
+              click: () => setActiveRegion(isActive ? null : r.name),
+            }}
+          >
+            <Popup
+              closeButton={false}
+              className="map-popup"
+              offset={[0, -6]}
+            >
+              <div className="map-popup-inner">
+                <div className="map-popup-accent" />
+                <span className="map-popup-name">{r.name}</span>
+                <span className="map-popup-sub">Programme region</span>
+              </div>
+            </Popup>
+          </Marker>
+        )
+      })}
+    </>
+  )
 }
 
 export default function Map() {
   const [activeRegion, setActiveRegion] = useState<string | null>(null)
+  const [mounted, setMounted] = useState(false)
   const prefersReducedMotion = useReducedMotion()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   return (
     <section
@@ -234,255 +273,275 @@ export default function Map() {
           </div>
         </div>
 
-        {/* Right: Moldova map — accurate silhouette with Mercator-projected pins */}
-        <motion.div
-          initial={prefersReducedMotion ? {} : { opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={VIEWPORT_ONCE}
-          transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
-          style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}
-        >
-          {/* Diagonal flyIn for the entire map container */}
+        {/* Right: Live Leaflet map */}
+        <div className="map-col">
           <motion.div
-            initial="hidden"
-            whileInView="visible"
+            initial={prefersReducedMotion ? {} : { opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={VIEWPORT_ONCE}
-            variants={flyInFrom('diag-right', 0.1)}
+            transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
+            style={{ position: 'relative' }}
           >
-            <Arrow
-              direction="down-right"
-              length={30}
-              color="var(--color-magenta)"
-              strokeWidth={1.5}
-              style={{ position: 'absolute', top: 0, left: 0, opacity: 0.5 }}
-            />
-          </motion.div>
-
-          <div
-            className="map-svg-container"
-            style={{ position: 'relative', width: '100%', maxWidth: 340 }}
-          >
-            {/*
-              ViewBox: 0 0 200 280
-              Moldova bounding box: lon 26.55–30.25 (3.7°), lat 45.43–48.57 (3.14°)
-              Mercator projected. Transnistria bulge is visible on the east side (~x 155–170).
-              Southern tip narrows to Giurgiulești at y~274.
-            */}
-            <svg
-              viewBox="0 0 200 284"
-              style={{ width: '100%', height: 'auto', overflow: 'visible', display: 'block' }}
-              role="img"
-              aria-label="Map of Moldova showing 6 programme regions: Edineț, Bălți, Soroca, Orhei, Chișinău, Ungheni"
+            {/* Decorative marks */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={VIEWPORT_ONCE}
+              variants={{
+                hidden: { opacity: 0, x: 12, y: -12 },
+                visible: { opacity: 1, x: 0, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.1 } },
+              }}
+              style={{ position: 'absolute', top: -10, left: -10, zIndex: 10 }}
             >
-              {/* Country silhouette — fades in with slight scale */}
-              {!prefersReducedMotion ? (
-                <motion.path
-                  d={MOLDOVA_PATH}
-                  fill="var(--color-magenta-tint)"
-                  stroke="var(--color-magenta)"
-                  strokeOpacity="0.9"
-                  strokeWidth="1.2"
-                  strokeLinejoin="round"
-                  initial={{ opacity: 0, scale: 0.96 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={VIEWPORT_ONCE}
-                  style={{ transformOrigin: '100px 142px' }}
-                  transition={{ duration: 0.7, ease: EASE_OUT_EXPO }}
-                />
+              <Arrow
+                direction="down-right"
+                length={30}
+                color="var(--color-magenta)"
+                strokeWidth={1.5}
+                style={{ opacity: 0.5 }}
+              />
+            </motion.div>
+
+            {/* Map container */}
+            <motion.div
+              initial={prefersReducedMotion ? {} : { opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={VIEWPORT_ONCE}
+              transition={{ duration: 0.55, ease: [0.25, 1, 0.5, 1], delay: 0.08 }}
+              className="map-leaflet-wrap"
+            >
+              {mounted ? (
+                <MapContainer
+                  center={[47.2, 28.5]}
+                  zoom={7}
+                  scrollWheelZoom={false}
+                  doubleClickZoom={false}
+                  touchZoom={true}
+                  zoomControl={true}
+                  maxBounds={[[45.3, 26.4], [48.6, 30.3]]}
+                  maxBoundsViscosity={0.85}
+                  style={{ width: '100%', height: '100%', background: '#F4F2EC' }}
+                  attributionControl={false}
+                >
+                  <TileLayer
+                    url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+                    subdomains={['a', 'b', 'c', 'd']}
+                    maxZoom={19}
+                    detectRetina={true}
+                  />
+                  <MarkerLayer
+                    activeRegion={activeRegion}
+                    setActiveRegion={setActiveRegion}
+                  />
+                </MapContainer>
               ) : (
-                <path
-                  d={MOLDOVA_PATH}
-                  fill="var(--color-magenta-tint)"
-                  stroke="var(--color-magenta)"
-                  strokeOpacity="0.9"
-                  strokeWidth="1.2"
-                  strokeLinejoin="round"
-                />
+                <div className="map-placeholder" />
               )}
+            </motion.div>
 
-              {/* Region pins */}
-              {regions.map((region, i) => {
-                const isActive = activeRegion === region.name
-                const pop = pinPops[i]
-                const label = getLabelRect(region.name)
-                // Clamp label rect so it never clips outside viewBox
-                const rectX = Math.min(Math.max(region.x - label.w / 2, 2), 200 - label.w - 2)
-                const rectY = region.y - label.h - 7
-
-                return (
-                  <g
-                    key={region.name}
-                    style={{ cursor: 'pointer' }}
-                    onMouseEnter={() => setActiveRegion(region.name)}
-                    onMouseLeave={() => setActiveRegion(null)}
-                    role="button"
-                    aria-label={`Region: ${region.name}`}
-                    tabIndex={0}
-                    onFocus={() => setActiveRegion(region.name)}
-                    onBlur={() => setActiveRegion(null)}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
-                        setActiveRegion(isActive ? null : region.name)
-                      }
-                    }}
-                  >
-                    {/* Connector stem — draws on enter */}
-                    {!prefersReducedMotion ? (
-                      <motion.line
-                        x1={region.x}
-                        y1={region.y - 5}
-                        x2={region.x}
-                        y2={region.y - label.h - 7}
-                        stroke="var(--color-magenta)"
-                        strokeWidth="0.5"
-                        strokeOpacity="0.55"
-                        initial={{ pathLength: 0 }}
-                        whileInView={{ pathLength: 1 }}
-                        viewport={VIEWPORT_ONCE}
-                        transition={{ duration: 0.35, ease: EASE_OUT_EXPO, delay: pop.delay + 0.08 }}
-                      />
-                    ) : (
-                      <line
-                        x1={region.x}
-                        y1={region.y - 5}
-                        x2={region.x}
-                        y2={region.y - label.h - 7}
-                        stroke="var(--color-magenta)"
-                        strokeWidth="0.5"
-                        strokeOpacity="0.55"
-                      />
-                    )}
-
-                    {/* Pulse ring — shown on active */}
-                    {isActive && !prefersReducedMotion && (
-                      <motion.circle
-                        cx={region.x}
-                        cy={region.y}
-                        r={4}
-                        fill="none"
-                        stroke="var(--color-magenta)"
-                        strokeWidth="0.6"
-                        initial={{ scale: 1, opacity: 0.7 }}
-                        animate={{ scale: 3.0, opacity: 0 }}
-                        transition={{ duration: 0.85, ease: 'easeOut', repeat: Infinity }}
-                        style={{ transformOrigin: `${region.x}px ${region.y}px` }}
-                      />
-                    )}
-
-                    {/* Pin dot — pops in with rotate overshoot, scales on hover */}
-                    {!prefersReducedMotion ? (
-                      <motion.circle
-                        cx={region.x}
-                        cy={region.y}
-                        r={4}
-                        fill="var(--color-magenta)"
-                        fillOpacity={isActive ? 1 : 0.82}
-                        initial={{ scale: 0, opacity: 0, rotate: pop.rotate }}
-                        whileInView={{ scale: 1, opacity: 1, rotate: 0 }}
-                        viewport={VIEWPORT_ONCE}
-                        animate={isActive ? { scale: 1.4 } : { scale: 1 }}
-                        transition={
-                          isActive
-                            ? { type: 'spring' as const, stiffness: 420, damping: 18 }
-                            : { type: 'spring' as const, stiffness: 440, damping: 22, delay: pop.delay }
-                        }
-                        style={{ transformOrigin: `${region.x}px ${region.y}px` }}
-                      />
-                    ) : (
-                      <circle
-                        cx={region.x}
-                        cy={region.y}
-                        r={4}
-                        fill="var(--color-magenta)"
-                        fillOpacity={isActive ? 1 : 0.82}
-                      />
-                    )}
-
-                    {/* Pill label — springs up on hover */}
-                    {!prefersReducedMotion ? (
-                      <motion.g
-                        initial={{ opacity: 0.72, y: 0 }}
-                        animate={isActive ? { opacity: 1, y: -2 } : { opacity: 0.72, y: 0 }}
-                        transition={{ type: 'spring' as const, stiffness: 380, damping: 22 }}
-                      >
-                        <rect
-                          x={rectX}
-                          y={rectY}
-                          width={label.w}
-                          height={label.h}
-                          rx={4}
-                          fill={isActive ? 'var(--color-magenta)' : 'var(--color-magenta-tint)'}
-                          stroke="var(--color-magenta)"
-                          strokeWidth="0.4"
-                        />
-                        <text
-                          x={rectX + label.w / 2}
-                          y={rectY + 5.6}
-                          textAnchor="middle"
-                          style={{
-                            fontFamily: 'var(--font-body)',
-                            fontSize: '4.2px',
-                            fontWeight: 700,
-                            fill: isActive ? 'white' : 'var(--color-magenta-dark)',
-                            letterSpacing: '0.01em',
-                          }}
-                        >
-                          {region.name}
-                        </text>
-                      </motion.g>
-                    ) : (
-                      <g>
-                        <rect
-                          x={rectX}
-                          y={rectY}
-                          width={label.w}
-                          height={label.h}
-                          rx={4}
-                          fill={isActive ? 'var(--color-magenta)' : 'var(--color-magenta-tint)'}
-                          stroke="var(--color-magenta)"
-                          strokeWidth="0.4"
-                        />
-                        <text
-                          x={rectX + label.w / 2}
-                          y={rectY + 5.6}
-                          textAnchor="middle"
-                          style={{
-                            fontFamily: 'var(--font-body)',
-                            fontSize: '4.2px',
-                            fontWeight: 700,
-                            fill: isActive ? 'white' : 'var(--color-magenta-dark)',
-                            letterSpacing: '0.01em',
-                          }}
-                        >
-                          {region.name}
-                        </text>
-                      </g>
-                    )}
-                  </g>
-                )
-              })}
-            </svg>
-          </div>
-        </motion.div>
+            {/* Attribution (OSM license requirement) */}
+            <p className="map-attribution">
+              Map &copy;{' '}
+              <a
+                href="https://www.openstreetmap.org/copyright"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                OpenStreetMap
+              </a>{' '}
+              contributors, CartoDB
+            </p>
+          </motion.div>
+        </div>
       </div>
 
       <style>{`
+        /* ── Layout ── */
         @media (max-width: 768px) {
           .map-grid {
             grid-template-columns: 1fr !important;
           }
-          /* Map column appears ABOVE criteria list on mobile */
-          .map-grid > *:last-child {
+          .map-col {
             order: -1;
-            min-height: 320px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
           }
-          .map-svg-container {
-            max-width: 320px !important;
-            margin: 0 auto;
-          }
+        }
+
+        /* ── Map wrapper sizing ── */
+        .map-leaflet-wrap {
+          width: 100%;
+          height: 420px;
+          border: 1.5px solid var(--color-border);
+          border-radius: 12px;
+          overflow: hidden;
+          position: relative;
+        }
+        @media (max-width: 1024px) {
+          .map-leaflet-wrap { height: 380px; }
+        }
+        @media (max-width: 768px) {
+          .map-leaflet-wrap { height: 320px; }
+        }
+
+        .map-placeholder {
+          width: 100%;
+          height: 100%;
+          background: var(--color-paper);
+        }
+
+        /* ── Attribution ── */
+        .map-attribution {
+          margin-top: 0.5rem;
+          font-family: var(--font-body);
+          font-size: 0.6875rem;
+          color: var(--color-ink-faint);
+          line-height: 1.4;
+        }
+        .map-attribution a {
+          color: var(--color-ink-faint);
+          text-decoration: underline;
+          text-underline-offset: 2px;
+        }
+        .map-attribution a:hover {
+          color: var(--color-magenta);
+        }
+
+        /* ── Leaflet zoom control override ── */
+        .leaflet-control-zoom {
+          border: 1.5px solid var(--color-border) !important;
+          border-radius: 8px !important;
+          overflow: hidden;
+          box-shadow: 0 1px 4px rgba(0,0,0,0.06) !important;
+        }
+        .leaflet-control-zoom a {
+          background: var(--color-paper-card) !important;
+          color: var(--color-ink) !important;
+          border-color: var(--color-border) !important;
+          font-family: var(--font-body) !important;
+          font-size: 16px !important;
+          line-height: 26px !important;
+          width: 28px !important;
+          height: 28px !important;
+        }
+        .leaflet-control-zoom a:hover {
+          background: var(--color-magenta-pale) !important;
+          color: var(--color-magenta) !important;
+        }
+
+        /* ── Popup override ── */
+        .leaflet-popup-content-wrapper {
+          background: var(--color-paper-card) !important;
+          border: 1.5px solid var(--color-border) !important;
+          border-radius: 10px !important;
+          box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important;
+          padding: 0 !important;
+        }
+        .leaflet-popup-content {
+          margin: 0 !important;
+          line-height: 1 !important;
+        }
+        .leaflet-popup-tip-container {
+          display: none !important;
+        }
+        .map-popup-inner {
+          display: flex;
+          flex-direction: column;
+          padding: 10px 14px;
+          gap: 2px;
+          position: relative;
+          overflow: hidden;
+        }
+        .map-popup-accent {
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 3px;
+          background: var(--color-magenta);
+          border-radius: 2px 0 0 2px;
+        }
+        .map-popup-name {
+          font-family: var(--font-body);
+          font-size: 0.8125rem;
+          font-weight: 700;
+          color: var(--color-ink);
+          padding-left: 4px;
+        }
+        .map-popup-sub {
+          font-family: var(--font-body);
+          font-size: 0.6875rem;
+          color: var(--color-ink-faint);
+          padding-left: 4px;
+        }
+
+        /* ── Custom marker pin ── */
+        .map-pin-wrap {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 20px;
+        }
+        .map-pin-dot {
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          background: #2A4FE0;
+          border: 2px solid #ffffff;
+          box-shadow: 0 1px 4px rgba(42,79,224,0.35);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: transform 0.18s ease;
+          position: relative;
+          z-index: 2;
+        }
+        .map-pin-dot--active {
+          background: #1B36AE;
+          transform: scale(1.25);
+        }
+        .map-pin-inner {
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background: rgba(255,255,255,0.85);
+        }
+        .map-pin-label {
+          margin-top: 3px;
+          background: #2A4FE0;
+          color: #ffffff;
+          font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+          font-size: 9px;
+          font-weight: 700;
+          line-height: 1;
+          padding: 2px 5px 3px;
+          border-radius: 100px;
+          white-space: nowrap;
+          letter-spacing: 0.01em;
+          box-shadow: 0 1px 3px rgba(42,79,224,0.25);
+          pointer-events: none;
+          position: relative;
+          z-index: 2;
+        }
+
+        /* ── Pulse ring (active marker) ── */
+        .map-pin-ring {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          border: 1.5px solid #2A4FE0;
+          animation: pin-pulse 1.2s ease-out infinite;
+          z-index: 1;
+        }
+        @keyframes pin-pulse {
+          0%   { transform: translate(-50%, -50%) scale(1);   opacity: 0.7; }
+          100% { transform: translate(-50%, -50%) scale(2.6); opacity: 0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .map-pin-ring { animation: none; }
         }
       `}</style>
     </section>
