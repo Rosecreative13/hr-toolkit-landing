@@ -50,12 +50,13 @@ export default function Hero() {
   const badgeParallax = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? [0, 0] : [0, 30])
 
   // Wipe variants for h1 lines — uneven stagger + skew
+  // Negative top/bottom insets allow CircledWord SVG to overflow the line bounds
   const lineVariant = (delay: number, skew = -3) => ({
     hidden: prefersReducedMotion
-      ? { clipPath: 'inset(0 0% 0 0)', skewX: 0 }
-      : { clipPath: 'inset(0 100% 0 0)', skewX: skew },
+      ? { clipPath: 'inset(-20px 0% -12px -4px)', skewX: 0 }
+      : { clipPath: 'inset(-20px 100% -12px -4px)', skewX: skew },
     visible: {
-      clipPath: 'inset(0 0% 0 0)',
+      clipPath: 'inset(-20px 0% -12px -4px)',
       skewX: 0,
       transition: { duration: 0.72, ease: EASE_OUT_EXPO, delay },
     },
