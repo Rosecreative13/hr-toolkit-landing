@@ -14,11 +14,13 @@
   },
   "hero": {
     "eyebrow": "Programul HR Toolkit pentru IMM-uri",
-    "line1": "Recrutare mai clară.",
-    "line2": "Integrare mai",
-    "line2Circled": "bună",
-    "line3": "Retenție mai puternică",
-    "subhead": "Suport HR practic pentru IMM-uri în recrutare, integrare și retenția timpurie a tinerilor angajați. Gratuit. 50 de locuri.",
+    "line1": "Suport practic pentru",
+    "line2": "îmbunătățirea",
+    "line2Circled": "recrutării",
+    "line3": "integrării și retenției",
+    "subhead": "Programul HR Toolkit sprijină întreprinderile mici și mijlocii din șase regiuni selectate ale Moldovei prin instrumente HR practice, ateliere aplicate și suport de mentorat.",
+    "body2": "Programul ajută IMM-urile să îmbunătățească modul în care identifică, atrag, integrează și rețin angajații, în special tinerii.",
+    "tagline": "Recrutare mai clară. Integrare mai bună. Retenție mai puternică.",
     "cta": "Exprimă interesul",
     "ctaSecondary": "Află mai multe",
     "note": "Numărul de locuri este limitat la 50 de IMM-uri.",
@@ -35,9 +37,10 @@
     "eyebrow": "Programul",
     "heading": "De ce este important acest",
     "headingCircled": "program",
-    "body1": "Multe întreprinderi mici și mijlocii din Moldova vor să crească, dar se confruntă cu aceleași obstacole: găsirea angajaților potriviți, menținerea lor după ce încep, și construirea unor practici consecvente fără o echipă HR dedicată.",
-    "body2": "Programul HR Toolkit abordează aceste provocări cu instrumente practice, nu cadre teoretice. Este conceput pentru companii care funcționează cu echipe reduse, expertiză HR limitată și presiuni reale de recrutare.",
-    "body3": "Participarea este gratuită. Instrumentele vă aparțin. Scopul este îmbunătățirea durabilă a modului în care compania atrage, primește și reține oamenii de care are nevoie pentru a crește.",
+    "subheading": "O angajare bună poate eșua dacă primele săptămâni sunt gestionate slab",
+    "body1": "Recrutarea nu se încheie în momentul în care candidatul acceptă oferta. Pentru multe companii, adevărata provocare începe după angajare.",
+    "body2": "Un nou angajat poate pleca nu pentru că locul de muncă nu există, ci pentru că așteptările nu sunt clare, prima zi de lucru este improvizată, supervisorul este prea ocupat sau feedbackul vine prea târziu.",
+    "body3": "Programul ajută IMM-urile să creeze practici simple și realiste, astfel încât primele zile, săptămâni și luni de muncă să fie mai structurate, mai clare și mai eficiente.",
     "tag": "Instrumente practice. Rezultate reale.",
     "topicRecruitment": "Recrutare",
     "topicOnboarding": "Integrare",
@@ -65,7 +68,7 @@
   "pains": {
     "heading": "Vă sunt cunoscute aceste",
     "headingCircled": "provocări?",
-    "subhead": "Aceste provocări sunt comune în rândul IMM-urilor din Moldova",
+    "subhead": "Aceste provocări sunt comune în rândul întreprinderilor mici și mijlocii din Moldova",
     "item1": {
       "title": "Este dificil să găsiți angajați potriviți.",
       "description": "Candidații potriviți există, dar procesul de a-i găsi este neclar și consumă mult timp."
@@ -87,7 +90,7 @@
       "description": "Ore pierdute pe interviuri și documente care ar putea fi simplificate cu șabloane mai clare."
     },
     "item6": {
-      "title": "Compania nu are un departament HR dedicat.",
+      "title": "Compania nu are un departament HR dedicat, dar problemele legate de oameni trebuie gestionate.",
       "description": "Deciziile legate de oameni revin proprietarului, managerului sau oricui este disponibil, fără un ghid de urmat."
     },
     "item7": {
@@ -105,56 +108,60 @@
     "photoAlt": "Manager discutând cu membrii echipei"
   },
   "receive": {
-    "heading": "Ce vor primi",
-    "headingColored": "IMM-urile",
-    "subhead": "Nouă livrabile concrete — instrumente, ateliere și suport între colegi — pentru IMM-uri fără departamente HR dedicate.",
-    "footer": "Conceput pentru IMM-uri fără departamente HR dedicate.",
+    "heading": "Ce va primi",
+    "headingColored": "compania dvs.",
+    "subhead": "IMM-urile participante vor primi acces la HR Toolkit practic, șabloane de recrutare, ateliere structurate și suport de mentorat.",
+    "footer": "Instrumente simple. Învățare practică. Suport pentru implementare.",
     "item1": {
       "title": "HR Toolkit practic",
-      "description": "Un set structurat de documente și șabloane pe care le puteți pune imediat în practică."
+      "description": "Un set structurat de instrumente și șabloane gata de utilizare din prima zi."
     },
     "item2": {
-      "title": "Modele pentru recrutare",
-      "description": "Formate gata de utilizare pentru descrierea posturilor și liste de verificare pentru selecție."
+      "title": "Modele de recrutare și instrumente pentru clarificarea posturilor",
+      "description": "Formate gata de utilizare pentru descrierea posturilor și instrumente pentru clarificarea cerințelor față de rol."
     },
     "item3": {
-      "title": "Instrumente pentru interviuri structurate",
-      "description": "Ghiduri cu întrebări și fișe de evaluare care fac compararea candidaților consecventă."
+      "title": "Ghiduri pentru interviuri structurate și formulare de evaluare a candidaților",
+      "description": "Ghiduri cu întrebări și fișe de evaluare pentru o selecție consecventă și obiectivă."
     },
     "item4": {
-      "title": "Checklist-uri pentru onboarding",
-      "description": "Liste pas cu pas care asigură că fiecare nou angajat are un start bun."
+      "title": "Checklist-uri de onboarding și ghidare pentru prima zi și prima săptămână",
+      "description": "Liste pas cu pas și ghidare practică pentru un start sigur al fiecărui nou angajat."
     },
     "item5": {
-      "title": "Ghidare pentru supervisori",
-      "description": "Materiale de referință simple care îi ajută pe liderii de echipă să stabilească așteptările clar."
+      "title": "Plan de onboarding 30–60–90 de zile și ghidare pentru supervisori",
+      "description": "O foaie de parcurs structurată pentru adaptare și materiale simple de referință pentru supervisori."
     },
     "item6": {
-      "title": "Instrumente pentru retenție și feedback",
-      "description": "Șabloane pentru întâlniri de verificare și indicatori de avertizare timpurie privind implicarea."
+      "title": "Modele pentru discuții de adaptare",
+      "description": "Formate gata de utilizare pentru întâlnirile din perioada de adaptare, pentru a sprijini angajatul în mod structurat."
     },
     "item7": {
-      "title": "Ateliere practice",
-      "description": "Sesiuni practice și facilitate, construite în jurul situațiilor reale ale companiei dvs."
+      "title": "Instrumente pentru feedback și checklist-uri de risc de plecare timpurie",
+      "description": "Formate pentru conversații de feedback și indicatori timpurii pentru identificarea și gestionarea riscurilor de plecare."
     },
     "item8": {
-      "title": "Cercuri de mentorat",
-      "description": "Sesiuni în grupuri mici cu facilitatori experți și IMM-uri partenere."
+      "title": "Ateliere practice",
+      "description": "Sesiuni aplicate și facilitate pe teme de recrutare, onboarding și retenție a angajaților."
     },
     "item9": {
-      "title": "Învățare de la colegi",
-      "description": "Oportunități structurate de a învăța de la companii în situații similare din regiune."
+      "title": "Cercuri de mentorat și învățare de la colegi",
+      "description": "Sesiuni de mentorat în grupuri mici și învățare de la alte IMM-uri din regiune."
     }
   },
   "map": {
     "heading": "Cine poate",
     "headingColored": "aplica?",
-    "subhead": "IMM-uri din șase regiuni selectate ale Moldovei. Criteriile sunt simple.",
-    "criteria1": "Angajează sau este dispusă să angajeze tineri",
-    "criteria2": "Are nevoi actuale sau planificate de recrutare",
-    "criteria3": "Dorește să îmbunătățească recrutarea și onboardingul",
-    "criteria4": "Este deschisă să utilizeze instrumente HR practice",
-    "criteria5": "Poate desemna o persoană de contact pentru program",
+    "subhead": "Întreprinderi mici și mijlocii din șase regiuni selectate ale Moldovei. Criteriile sunt simple.",
+    "criteriaPrefix": "Programul este relevant în special pentru companiile care:",
+    "criteria1": "Angajează sau sunt dispuse să angajeze tineri",
+    "criteria2": "Au nevoi actuale sau planificate de recrutare",
+    "criteria3": "Doresc să îmbunătățească recrutarea și onboardingul",
+    "criteria4": "Sunt deschise să utilizeze instrumente HR practice",
+    "criteria5": "Pot desemna o persoană de contact pentru program",
+    "criteria6": "Se confruntă cu fluctuație timpurie sau dificultăți de adaptare a noilor angajați",
+    "criteria7": "Nu au un departament HR dedicat",
+    "disclaimer": "Transmiterea unei expresii de interes nu garantează automat participarea. Selecția finală va ține cont de eligibilitate, echilibrul regional, relevanța pentru ocuparea tinerilor, motivația companiei și disponibilitatea de a participa la activitățile programului.",
     "tag1": "IMM-uri",
     "tag2": "Focus pe tineri angajați",
     "tag3": "Suport HR practic",
@@ -165,44 +172,47 @@
   "howItWorks": {
     "heading": "Cum funcționează",
     "headingColored": "programul",
+    "subheading": "De la exprimarea interesului la aplicarea practică",
     "subhead": "Șase etape. Suport practic, pas cu pas.",
     "step1": {
       "title": "Exprimarea interesului",
-      "description": "Compania completează un formular scurt de exprimare a interesului. Nu sunt necesare documente lungi în această etapă."
+      "description": "Compania completează un formular scurt de exprimare a interesului."
     },
     "step2": {
-      "title": "Selecție",
-      "description": "Echipa programului analizează candidaturile și selectează 50 de IMM-uri participante din cele șase regiuni."
+      "title": "Selecție și confirmare",
+      "description": "IMM-urile eligibile sunt analizate și selectate în baza criteriilor programului și a echilibrului regional."
     },
     "step3": {
       "title": "Evaluare inițială",
-      "description": "Un scurt diagnostic pentru a înțelege practicile actuale de recrutare și onboarding."
+      "description": "Echipa proiectului realizează o evaluare practică a practicilor actuale de recrutare, onboarding și retenție."
     },
     "step4": {
       "title": "Toolkit și ateliere",
-      "description": "Primiți HR Toolkit-ul personalizat și participați la ateliere practice facilitate."
+      "description": "IMM-urile participante primesc instrumente practice și participă la ateliere aplicate privind recrutarea, onboardingul și retenția."
     },
     "step5": {
       "title": "Suport de mentorat",
-      "description": "Acces la cercuri de mentorat cu facilitatori experți și IMM-uri partenere pe parcursul programului."
+      "description": "Companiile participă la activități de mentorat și învățare între colegi pentru a discuta provocările reale de implementare."
     },
     "step6": {
       "title": "Implementare practică",
-      "description": "Aplicați instrumentele în activitățile zilnice de recrutare și onboarding ale companiei, cu suport continuu."
+      "description": "IMM-urile adaptează și folosesc instrumentele selectate în contextul propriei companii."
     },
-    "footer": "Suport practic pentru IMM-uri la fiecare etapă."
+    "footer": "Suport practic pentru întreprinderi mici și mijlocii la fiecare etapă."
   },
   "notAbout": {
     "heading": "Ce nu este",
     "headingColored": "programul",
-    "subhead": "Claritatea contează. Aceste limite există pentru ca companiile să știe exact la ce se înscriu și să poată lua o decizie informată.",
-    "item1": "O inspecție sau un audit al practicilor dvs. HR",
-    "item2": "Un concurs de granturi cu criterii de punctaj",
-    "item3": "Un serviciu direct de recrutare",
-    "item4": "O garanție că vor fi furnizați candidați",
-    "item5": "Un proces complex de certificare HR",
-    "item6": "O instruire teoretică unică",
-    "restatement": "Este suport practic pentru provocările reale ale IMM-urilor.",
+    "subhead": "Așteptări clare de la început. Aceste limite există pentru ca companiile să știe exact la ce se înscriu.",
+    "item1": "O inspecție",
+    "item2": "Un audit formal cu sancțiuni",
+    "item3": "Un concurs de granturi",
+    "item4": "Un serviciu direct de recrutare",
+    "item5": "O garanție că vor fi furnizați candidați",
+    "item6": "Un program complex de certificare HR",
+    "item7": "O instruire teoretică unică",
+    "item8": "Un program destinat doar companiilor cu departamente HR",
+    "restatement": "Este un program de suport practic pentru IMM-urile care doresc să îmbunătățească recrutarea, onboardingul și retenția timpurie într-un mod realist și ușor de aplicat.",
     "restatementSub": "Aplicat. Orientat spre rezultate. Gratuit."
   },
   "faq": {
@@ -239,7 +249,7 @@
   },
   "footer": {
     "tagline": "Echipe mai puternice. Afaceri mai puternice. Comunități mai puternice.",
-    "description": "Suport HR practic pentru IMM-uri din Moldova.",
+    "description": "Programul HR Toolkit pentru IMM-uri sprijină companiile în dezvoltarea unor practici mai structurate, practice și suportive de recrutare, onboarding și retenție pentru tinerii angajați.",
     "regionsLabel": "Regiuni",
     "contactLabel": "Contact",
     "contactPending": "Detaliile de contact vor fi adăugate.",
@@ -250,10 +260,10 @@
     "participationNote": "Participarea este gratuită și voluntară."
   },
   "confidentiality": {
-    "heading": "Participare și confidențialitate",
+    "heading": "Confidențialitatea și utilizarea informațiilor",
     "subheading": "Informațiile dvs. sunt gestionate responsabil.",
     "para1": "Participarea în Programul HR Toolkit este complet voluntară. Companiile pot să se retragă în orice etapă fără consecințe.",
-    "para2": "Informațiile partajate în cadrul programului, inclusiv rezultatele evaluărilor și practicile interne HR, vor fi tratate ca confidențiale. Datele vor fi utilizate exclusiv pentru desfășurarea programului și raportare agregată. Nicio informație specifică unei companii nu va fi partajată extern fără consimțământul prealabil.",
+    "para2": "Informațiile furnizate de companii vor fi utilizate doar pentru selecția în program, evaluarea inițială, suportul de implementare și raportarea în formă agregată. Informațiile individuale ale companiilor nu vor fi divulgate public fără acordul prealabil al acestora.",
     "para3": "Constatările agregate pot fi utilizate pentru a informa viitoarele programe și discuții de politici, într-o formă care nu identifică companiile sau angajații individuali."
   }
 }

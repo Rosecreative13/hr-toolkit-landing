@@ -102,6 +102,8 @@ export default function Map() {
     t('map.criteria3'),
     t('map.criteria4'),
     t('map.criteria5'),
+    t('map.criteria6'),
+    t('map.criteria7'),
   ]
 
   useEffect(() => {
@@ -241,6 +243,27 @@ export default function Map() {
               </motion.li>
             ))}
           </ul>
+
+          {/* Disclaimer */}
+          <motion.p
+            initial={prefersReducedMotion ? {} : { opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={VIEWPORT_ONCE}
+            transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1], delay: 0.2 }}
+            style={{
+              fontFamily: 'var(--font-body)',
+              fontSize: '0.8125rem',
+              color: 'var(--color-ink-faint)',
+              lineHeight: 1.6,
+              marginBottom: '1.5rem',
+              padding: '0.75rem 1rem',
+              background: 'var(--color-paper-card)',
+              border: '1px solid var(--color-border)',
+              borderLeft: '3px solid var(--color-magenta-tint)',
+            }}
+          >
+            {t('map.disclaimer')}
+          </motion.p>
 
           {/* Tags */}
           <div style={{ display: 'flex', gap: '0.625rem', flexWrap: 'wrap' }}>

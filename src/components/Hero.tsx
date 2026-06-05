@@ -191,7 +191,7 @@ export default function Hero() {
             </h1>
           </div>
 
-          {/* Subhead */}
+          {/* Subhead — body1 */}
           <motion.p
             initial="hidden"
             animate="visible"
@@ -202,18 +202,63 @@ export default function Hero() {
               color: 'var(--color-ink-muted)',
               maxWidth: '46ch',
               lineHeight: 1.7,
-              marginBottom: '2rem',
+              marginBottom: '0.875rem',
             }}
           >
             {t('hero.subhead')}
           </motion.p>
+
+          {/* Body2 */}
+          <motion.p
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE_OUT_EXPO, delay: 0.52 } },
+            }}
+            style={{
+              fontFamily: 'var(--font-body)',
+              fontSize: 'clamp(0.9375rem, 1.4vw, 1.0625rem)',
+              color: 'var(--color-ink-muted)',
+              maxWidth: '46ch',
+              lineHeight: 1.7,
+              marginBottom: '1.25rem',
+            }}
+          >
+            {t('hero.body2')}
+          </motion.p>
+
+          {/* Tagline chip */}
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 10 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE_OUT_EXPO, delay: 0.6 } },
+            }}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              marginBottom: '1.75rem',
+              padding: '0.4rem 0.875rem',
+              background: 'var(--color-magenta-pale)',
+              border: '1px solid var(--color-magenta-tint)',
+              borderRadius: 100,
+            }}
+          >
+            <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--color-magenta)', flexShrink: 0 }} />
+            <span style={{ fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: '0.8125rem', color: 'var(--color-magenta-dark)', letterSpacing: '0.01em' }}>
+              {t('hero.tagline')}
+            </span>
+          </motion.div>
 
           {/* Email pill CTA — magnetic button */}
           <motion.div
             initial="hidden"
             animate="visible"
             variants={ctaVariant}
-            style={{ marginBottom: '1.75rem' }}
+            style={{ marginBottom: '1rem' }}
           >
             <form
               onSubmit={(e) => e.preventDefault()}
@@ -286,6 +331,33 @@ export default function Hero() {
                 )}
               </MagneticButton>
             </form>
+          </motion.div>
+
+          {/* Secondary CTA */}
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 10 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: EASE_OUT_EXPO, delay: 0.62 } },
+            }}
+            style={{ marginBottom: '1.75rem' }}
+          >
+            <a
+              href="#why"
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontWeight: 600,
+                fontSize: '0.9375rem',
+                color: 'var(--color-ink-muted)',
+                textDecoration: 'underline',
+                textUnderlineOffset: 3,
+                textDecorationColor: 'var(--color-border)',
+                cursor: 'pointer',
+              }}
+            >
+              {t('hero.ctaSecondary')}
+            </a>
           </motion.div>
 
           {/* Arrow + regions hint */}

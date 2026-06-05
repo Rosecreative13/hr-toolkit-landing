@@ -14,11 +14,13 @@
   },
   "hero": {
     "eyebrow": "HR Toolkit Programme for SMEs",
-    "line1": "Better hiring.",
-    "line2": "Better",
-    "line2Circled": "onboarding",
-    "line3": "Better retention",
-    "subhead": "Practical HR support for SMEs in recruitment, onboarding and early retention of young employees. Free of charge. 50 places.",
+    "line1": "Practical support to",
+    "line2": "improve",
+    "line2Circled": "recruitment",
+    "line3": "onboarding and retention",
+    "subhead": "The HR Toolkit Programme supports small and medium-sized enterprises from six selected regions of Moldova with practical HR tools, workshops and mentoring support.",
+    "body2": "The programme helps SMEs improve how they find, welcome, integrate and retain employees, especially young people.",
+    "tagline": "Better hiring. Better onboarding. Better retention.",
     "cta": "Express interest",
     "ctaSecondary": "Learn more",
     "note": "Places are limited to 50 SMEs.",
@@ -35,9 +37,10 @@
     "eyebrow": "The programme",
     "heading": "Why this programme",
     "headingCircled": "matters",
-    "body1": "Many small and medium enterprises across Moldova want to grow but face the same obstacles: finding suitable employees, keeping them engaged after they start, and building consistent practices without a dedicated HR team.",
-    "body2": "The HR Toolkit Programme addresses these challenges with practical tools, not theoretical frameworks. It is designed for companies that operate with lean teams, limited HR expertise and real hiring pressures.",
-    "body3": "Participation is free. The tools are yours to keep. The goal is lasting improvement in how your company attracts, welcomes and retains the people it needs to grow.",
+    "subheading": "A good hire can fail if the first weeks are poorly managed",
+    "body1": "Recruitment does not end when a candidate accepts the job. For many companies, the real challenge starts after hiring.",
+    "body2": "A new employee may leave not because the job does not exist, but because expectations are unclear, the first working day is improvised, the supervisor is too busy, or feedback comes too late.",
+    "body3": "The programme helps SMEs create simple and realistic practices that make the first days, weeks and months of employment more structured, supportive and effective.",
     "tag": "Practical tools. Real results.",
     "topicRecruitment": "Recruitment",
     "topicOnboarding": "Onboarding",
@@ -65,7 +68,7 @@
   "pains": {
     "heading": "Do these challenges sound",
     "headingCircled": "familiar?",
-    "subhead": "These challenges are common across Moldova's SMEs",
+    "subhead": "These challenges are common across Moldova's small and medium-sized enterprises",
     "item1": {
       "title": "It is difficult to find suitable employees.",
       "description": "The right candidates are out there, but the process of reaching them is unclear and time-consuming."
@@ -87,7 +90,7 @@
       "description": "Hours spent on interviews and paperwork that could be streamlined with clearer templates."
     },
     "item6": {
-      "title": "The company does not have a dedicated HR department.",
+      "title": "The company does not have a dedicated HR department, but people issues still need to be managed.",
       "description": "People decisions fall to an owner, manager or whoever is available, with no playbook to follow."
     },
     "item7": {
@@ -105,56 +108,60 @@
     "photoAlt": "Manager talking to team members"
   },
   "receive": {
-    "heading": "What SMEs",
-    "headingColored": "receive",
-    "subhead": "Nine concrete deliverables — tools, workshops, and peer support — for SMEs without dedicated HR departments.",
-    "footer": "Designed for SMEs without dedicated HR departments.",
+    "heading": "What your company",
+    "headingColored": "will receive",
+    "subhead": "Participating SMEs will receive access to a practical HR Toolkit, recruitment templates, structured workshops and mentoring support.",
+    "footer": "Simple tools. Practical learning. Implementation support.",
     "item1": {
       "title": "Practical HR Toolkit",
-      "description": "A structured set of documents and templates you can put to work immediately."
+      "description": "A structured set of tools and templates ready to put to work from day one."
     },
     "item2": {
-      "title": "Recruitment templates",
-      "description": "Ready-to-use job description formats and screening checklists."
+      "title": "Recruitment templates and vacancy clarification tools",
+      "description": "Ready-to-use job description formats and tools to clarify role requirements."
     },
     "item3": {
-      "title": "Structured interview tools",
-      "description": "Question guides and scoring sheets that make candidate comparison consistent."
+      "title": "Structured interview guides and candidate evaluation forms",
+      "description": "Question guides and scoring sheets that make candidate comparison consistent and objective."
     },
     "item4": {
-      "title": "Onboarding checklists",
-      "description": "Step-by-step lists that ensure every new hire starts well."
+      "title": "Onboarding checklists and first-day / first-week guidance",
+      "description": "Step-by-step lists and practical guidance for a confident start for every new hire."
     },
     "item5": {
-      "title": "Supervisor guidance",
-      "description": "Simple reference materials that help team leaders set expectations clearly."
+      "title": "30–60–90 day onboarding plan and supervisor guidance",
+      "description": "A structured adaptation roadmap and simple reference materials for supervisors."
     },
     "item6": {
-      "title": "Retention and feedback tools",
-      "description": "Check-in templates and early-warning indicators for engagement."
+      "title": "Adaptation meeting templates",
+      "description": "Ready-to-use meeting formats for the adaptation period to support new employees in a structured way."
     },
     "item7": {
-      "title": "Workshops",
-      "description": "Practical, facilitated sessions built around your company's real situations."
+      "title": "Feedback conversation tools and early retention risk checklists",
+      "description": "Feedback conversation formats and early indicators to identify and address retention risks."
     },
     "item8": {
-      "title": "Mentoring circles",
-      "description": "Small-group sessions with expert facilitators and peer SMEs."
+      "title": "Practical workshops",
+      "description": "Applied, facilitated sessions on recruitment, onboarding and retention of employees."
     },
     "item9": {
-      "title": "Peer learning",
-      "description": "Structured opportunities to learn from companies in similar situations across the region."
+      "title": "Mentoring circles and peer learning",
+      "description": "Small-group mentoring sessions and peer learning with other SMEs across the region."
     }
   },
   "map": {
     "heading": "Who",
     "headingColored": "can apply?",
-    "subhead": "SMEs from six selected regions of Moldova. The criteria are straightforward.",
-    "criteria1": "Employs or is willing to employ young people",
-    "criteria2": "Has current or planned hiring needs",
-    "criteria3": "Wants to improve recruitment and onboarding practices",
-    "criteria4": "Is open to testing practical HR tools",
+    "subhead": "Small and medium-sized enterprises from six selected regions of Moldova. The criteria are straightforward.",
+    "criteriaPrefix": "The programme is especially relevant for companies that:",
+    "criteria1": "Employ or are willing to employ young people",
+    "criteria2": "Have current or planned hiring needs",
+    "criteria3": "Want to improve recruitment and onboarding practices",
+    "criteria4": "Are open to using practical HR tools",
     "criteria5": "Can designate a contact person for the programme",
+    "criteria6": "Face early turnover or adaptation challenges",
+    "criteria7": "Do not have a dedicated HR department",
+    "disclaimer": "Submitting an expression of interest does not automatically guarantee participation. Final selection will consider eligibility, regional balance, relevance to youth employment, company motivation and readiness to participate in programme activities.",
     "tag1": "SMEs",
     "tag2": "Young employee focus",
     "tag3": "Practical HR support",
@@ -165,44 +172,47 @@
   "howItWorks": {
     "heading": "How the programme",
     "headingColored": "works",
+    "subheading": "From expression of interest to practical implementation",
     "subhead": "Six steps. Practical support, step by step.",
     "step1": {
       "title": "Express interest",
-      "description": "Submit a short expression of interest form. No lengthy paperwork required at this stage."
+      "description": "Your company submits a short expression of interest form."
     },
     "step2": {
-      "title": "Selection",
-      "description": "The programme team reviews applications and selects 50 participating SMEs across the six regions."
+      "title": "Selection and confirmation",
+      "description": "Eligible SMEs are reviewed and selected based on programme criteria and regional balance."
     },
     "step3": {
       "title": "Baseline assessment",
-      "description": "A brief diagnostic to understand your current recruitment and onboarding practices."
+      "description": "The project team conducts a practical assessment of current recruitment, onboarding and retention practices."
     },
     "step4": {
       "title": "Toolkit and workshops",
-      "description": "You receive your customised HR Toolkit and participate in facilitated practical workshops."
+      "description": "Participating SMEs receive practical tools and join applied workshops focused on recruitment, onboarding and retention."
     },
     "step5": {
       "title": "Mentoring support",
-      "description": "Access to mentoring circles with expert facilitators and peer SMEs throughout the programme."
+      "description": "Companies participate in mentoring and peer-learning activities to discuss real implementation challenges."
     },
     "step6": {
       "title": "Practical implementation",
-      "description": "You apply the tools in your company's day-to-day hiring and onboarding with ongoing support."
+      "description": "SMEs adapt and use selected tools in their own company context."
     },
-    "footer": "Practical support for SMEs at every stage."
+    "footer": "Practical support for small and medium-sized enterprises at every stage."
   },
   "notAbout": {
     "heading": "What the programme is",
     "headingColored": "not",
-    "subhead": "Clarity matters. These boundaries are here so companies know exactly what they are joining and can make an informed decision.",
-    "item1": "An inspection or audit of your HR practices",
-    "item2": "A grant competition with scoring criteria",
-    "item3": "A direct recruitment service",
-    "item4": "A guarantee that candidates will be provided",
-    "item5": "A complex HR certification process",
-    "item6": "A one-time theoretical training session",
-    "restatement": "It is practical support for real SME challenges.",
+    "subhead": "Clear expectations from the beginning. These boundaries exist so companies know exactly what they are joining.",
+    "item1": "An inspection",
+    "item2": "A formal audit with sanctions",
+    "item3": "A grant competition",
+    "item4": "A direct recruitment service",
+    "item5": "A guarantee that candidates will be provided",
+    "item6": "A complex HR certification programme",
+    "item7": "A one-time theoretical training",
+    "item8": "A programme only for companies with HR departments",
+    "restatement": "It is a practical support programme for SMEs that want to improve recruitment, onboarding and early retention in a realistic and manageable way.",
     "restatementSub": "Hands-on. Results-focused. Free."
   },
   "faq": {
@@ -239,7 +249,7 @@
   },
   "footer": {
     "tagline": "Stronger teams. Stronger businesses. Stronger communities.",
-    "description": "Practical HR support for SMEs in Moldova.",
+    "description": "The HR Toolkit Programme for SMEs supports companies in building more structured, practical and supportive recruitment, onboarding and retention practices for young employees.",
     "regionsLabel": "Regions",
     "contactLabel": "Contact",
     "contactPending": "Contact details to be added.",
@@ -250,10 +260,10 @@
     "participationNote": "Participation is free and voluntary."
   },
   "confidentiality": {
-    "heading": "Participation and confidentiality",
+    "heading": "Confidentiality and use of information",
     "subheading": "Your information is handled responsibly.",
     "para1": "Participation in the HR Toolkit Programme is entirely voluntary. Companies may withdraw at any stage without consequences.",
-    "para2": "Information shared during the programme, including assessment results and internal HR practices, will be treated as confidential. Data will be used solely for programme delivery and aggregate reporting. No company-specific information will be shared externally without prior consent.",
+    "para2": "Information provided by companies will be used only for programme selection, baseline assessment, implementation support and reporting in aggregated form. Individual company information will not be publicly disclosed without prior agreement.",
     "para3": "Aggregate findings may be used to inform future programme design and policy discussions, in a form that does not identify individual companies or employees."
   }
 }

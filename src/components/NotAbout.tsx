@@ -8,7 +8,7 @@ import { flyInFrom, popRotate, VIEWPORT_ONCE } from '../lib/motion'
 const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as [number, number, number, number]
 
 // Alternate entry directions for the X-list items
-const itemDirs = ['right', 'left', 'right', 'left', 'right', 'left'] as const
+const itemDirs = ['right', 'left', 'right', 'left', 'right', 'left', 'right', 'left'] as const
 
 function XMark({ delay }: { delay: number }) {
   const prefersReducedMotion = useReducedMotion()
@@ -69,6 +69,8 @@ export default function NotAbout() {
     t('notAbout.item4'),
     t('notAbout.item5'),
     t('notAbout.item6'),
+    t('notAbout.item7'),
+    t('notAbout.item8'),
   ]
 
   return (
