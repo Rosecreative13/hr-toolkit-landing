@@ -16,41 +16,50 @@ const criteria = [
   'Can designate a contact person for the programme',
 ]
 
+// Real lon/lat → SVG coords via Mercator projection
+// ViewBox: "0 0 200 280"
+// Bounding box: lon 26.55–30.25, lat 45.43–48.57
+// All pins land inside the silhouette polygon
 const regions = [
-  { name: 'Edineț', x: 30, y: 12 },
-  { name: 'Bălți', x: 42, y: 26 },
-  { name: 'Soroca', x: 64, y: 18 },
-  { name: 'Orhei', x: 54, y: 45 },
-  { name: 'Chișinău', x: 44, y: 62 },
-  { name: 'Ungheni', x: 24, y: 52 },
+  { name: 'Edineț',    x: 41.7,  y: 59.6  },
+  { name: 'Bălți',     x: 75.1,  y: 74.8  },
+  { name: 'Soroca',    x: 94.7,  y: 39.0  },
+  { name: 'Orhei',     x: 122.2, y: 108.5 },
+  { name: 'Chișinău',  x: 124.4, y: 141.1 },
+  { name: 'Ungheni',   x: 67.7,  y: 123.5 },
 ]
 
-const moldovaSilhouette = `
-  M 38 5
-  C 42 4, 50 5, 58 8
-  C 66 11, 72 15, 74 22
-  C 76 29, 73 35, 70 42
-  C 68 47, 68 52, 65 58
-  C 62 64, 60 70, 56 76
-  C 52 82, 48 88, 44 92
-  C 40 96, 36 97, 32 94
-  C 28 91, 26 86, 24 80
-  C 22 74, 22 68, 20 62
-  C 18 56, 16 50, 18 44
-  C 20 38, 24 34, 26 28
-  C 28 22, 30 16, 34 10
-  Z
-`
+// Accurate Moldova silhouette — Mercator-projected from real border coordinates.
+// Key features preserved:
+//   • Prut river western border (curved, NW to SW)
+//   • Dniester eastern border with Transnistria strip (eastern bulge ~29.5–29.7°E)
+//   • Narrow southern tip at Giurgiulești (45.47°N)
+//   • Vertically elongated shape (N 48.5° → S 45.47°)
+const MOLDOVA_PATH =
+  'M 5.7,8.3 L 25.8,8.3 L 41.7,11.0 L 57.6,11.0 L 78.8,9.2 L 91.0,9.2 ' +
+  'L 102.1,12.0 L 113.2,17.4 L 126.5,28.2 L 143.4,48.8 L 158.3,71.2 ' +
+  'L 166.2,93.5 L 169.9,117.4 L 163.6,142.0 L 155.6,166.6 L 145.0,190.1 ' +
+  'L 131.8,216.1 L 118.5,239.4 L 106.4,259.2 L 94.7,272.0 L 89.4,274.6 ' +
+  'L 83.0,263.5 L 72.5,242.0 L 60.3,218.7 L 48.1,196.2 L 35.4,172.7 ' +
+  'L 25.8,146.4 L 17.9,120.0 L 11.0,93.5 L 6.8,66.7 L 5.7,37.2 Z'
 
-// Stagger directions for pin pop-ins — varied
-const pinPops = [
-  { rotate: -12, delay: 0.5 },
-  { rotate: 10, delay: 0.62 },
-  { rotate: -8, delay: 0.72 },
-  { rotate: 14, delay: 0.55 },
-  { rotate: -10, delay: 0.8 },
-  { rotate: 7, delay: 0.65 },
+// Stagger directions for pin pop-ins — varied per region
+const pinPops: { rotate: number; delay: number }[] = [
+  { rotate: -12, delay: 0.50 },
+  { rotate:  10, delay: 0.62 },
+  { rotate:  -8, delay: 0.72 },
+  { rotate:  14, delay: 0.55 },
+  { rotate: -10, delay: 0.80 },
+  { rotate:   7, delay: 0.65 },
 ]
+
+// Label pill geometry — computed so labels stay inside viewBox
+// Each label: rect of width labelW, height 8, rx 4; text centred
+function getLabelRect(name: string) {
+  const chars = name.length
+  const w = Math.max(22, chars * 2.9 + 6)
+  return { w, h: 8 }
+}
 
 export default function Map() {
   const [activeRegion, setActiveRegion] = useState<string | null>(null)
@@ -225,7 +234,7 @@ export default function Map() {
           </div>
         </div>
 
-        {/* Right: Moldova map — pins pop with springy overshoot, connector lines draw */}
+        {/* Right: Moldova map — accurate silhouette with Mercator-projected pins */}
         <motion.div
           initial={prefersReducedMotion ? {} : { opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -249,34 +258,57 @@ export default function Map() {
             />
           </motion.div>
 
-          <div style={{ position: 'relative', width: '100%', maxWidth: 360, minHeight: 320 }}>
+          <div
+            className="map-svg-container"
+            style={{ position: 'relative', width: '100%', maxWidth: 340 }}
+          >
+            {/*
+              ViewBox: 0 0 200 280
+              Moldova bounding box: lon 26.55–30.25 (3.7°), lat 45.43–48.57 (3.14°)
+              Mercator projected. Transnistria bulge is visible on the east side (~x 155–170).
+              Southern tip narrows to Giurgiulești at y~274.
+            */}
             <svg
-              viewBox="0 0 100 105"
+              viewBox="0 0 200 284"
               style={{ width: '100%', height: 'auto', overflow: 'visible', display: 'block' }}
               role="img"
-              aria-label="Stylised map of Moldova showing 6 programme regions"
+              aria-label="Map of Moldova showing 6 programme regions: Edineț, Bălți, Soroca, Orhei, Chișinău, Ungheni"
             >
-              {/* Country silhouette — fades in */}
+              {/* Country silhouette — fades in with slight scale */}
               {!prefersReducedMotion ? (
                 <motion.path
-                  d={moldovaSilhouette}
+                  d={MOLDOVA_PATH}
                   fill="var(--color-magenta-tint)"
                   stroke="var(--color-magenta)"
-                  strokeOpacity="0.8"
-                  strokeWidth="1"
-                  initial={{ opacity: 0, scale: 0.95 }}
+                  strokeOpacity="0.9"
+                  strokeWidth="1.2"
+                  strokeLinejoin="round"
+                  initial={{ opacity: 0, scale: 0.96 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={VIEWPORT_ONCE}
+                  style={{ transformOrigin: '100px 142px' }}
                   transition={{ duration: 0.7, ease: EASE_OUT_EXPO }}
                 />
               ) : (
-                <path d={moldovaSilhouette} fill="var(--color-magenta-tint)" stroke="var(--color-magenta)" strokeOpacity="0.8" strokeWidth="1" />
+                <path
+                  d={MOLDOVA_PATH}
+                  fill="var(--color-magenta-tint)"
+                  stroke="var(--color-magenta)"
+                  strokeOpacity="0.9"
+                  strokeWidth="1.2"
+                  strokeLinejoin="round"
+                />
               )}
 
               {/* Region pins */}
               {regions.map((region, i) => {
                 const isActive = activeRegion === region.name
                 const pop = pinPops[i]
+                const label = getLabelRect(region.name)
+                // Clamp label rect so it never clips outside viewBox
+                const rectX = Math.min(Math.max(region.x - label.w / 2, 2), 200 - label.w - 2)
+                const rectY = region.y - label.h - 7
+
                 return (
                   <g
                     key={region.name}
@@ -284,123 +316,147 @@ export default function Map() {
                     onMouseEnter={() => setActiveRegion(region.name)}
                     onMouseLeave={() => setActiveRegion(null)}
                     role="button"
-                    aria-label={region.name}
+                    aria-label={`Region: ${region.name}`}
                     tabIndex={0}
                     onFocus={() => setActiveRegion(region.name)}
                     onBlur={() => setActiveRegion(null)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        setActiveRegion(isActive ? null : region.name)
+                      }
+                    }}
                   >
-                    {/* Connector line — draws on enter */}
+                    {/* Connector stem — draws on enter */}
                     {!prefersReducedMotion ? (
                       <motion.line
                         x1={region.x}
                         y1={region.y - 5}
                         x2={region.x}
-                        y2={region.y - 12}
+                        y2={region.y - label.h - 7}
                         stroke="var(--color-magenta)"
-                        strokeWidth="0.4"
-                        strokeOpacity="0.6"
+                        strokeWidth="0.5"
+                        strokeOpacity="0.55"
                         initial={{ pathLength: 0 }}
                         whileInView={{ pathLength: 1 }}
                         viewport={VIEWPORT_ONCE}
-                        transition={{ duration: 0.4, ease: EASE_OUT_EXPO, delay: pop.delay + 0.08 }}
+                        transition={{ duration: 0.35, ease: EASE_OUT_EXPO, delay: pop.delay + 0.08 }}
                       />
                     ) : (
-                      <line x1={region.x} y1={region.y - 5} x2={region.x} y2={region.y - 12} stroke="var(--color-magenta)" strokeWidth="0.4" strokeOpacity="0.6" />
-                    )}
-
-                    {/* Magenta dot — pops with rotate overshoot */}
-                    {!prefersReducedMotion ? (
-                      <motion.circle
-                        cx={region.x}
-                        cy={region.y}
-                        r={isActive ? '4.5' : '3'}
-                        fill="var(--color-magenta)"
-                        fillOpacity={isActive ? '1' : '0.75'}
-                        initial={{ scale: 0, opacity: 0, rotate: pop.rotate }}
-                        whileInView={{ scale: 1, opacity: 1, rotate: 0 }}
-                        viewport={VIEWPORT_ONCE}
-                        animate={isActive ? { scale: 1.3 } : { scale: 1 }}
-                        transition={isActive
-                          ? { type: 'spring' as const, stiffness: 420, damping: 18 }
-                          : { type: 'spring' as const, stiffness: 440, damping: 22, delay: pop.delay }
-                        }
+                      <line
+                        x1={region.x}
+                        y1={region.y - 5}
+                        x2={region.x}
+                        y2={region.y - label.h - 7}
+                        stroke="var(--color-magenta)"
+                        strokeWidth="0.5"
+                        strokeOpacity="0.55"
                       />
-                    ) : (
-                      <circle cx={region.x} cy={region.y} r={isActive ? '4.5' : '3'} fill="var(--color-magenta)" fillOpacity={isActive ? '1' : '0.75'} />
                     )}
 
-                    {/* Pulse ring on active */}
+                    {/* Pulse ring — shown on active */}
                     {isActive && !prefersReducedMotion && (
                       <motion.circle
                         cx={region.x}
                         cy={region.y}
-                        r={3}
+                        r={4}
                         fill="none"
                         stroke="var(--color-magenta)"
-                        strokeWidth="0.5"
-                        initial={{ scale: 1, opacity: 0.6 }}
-                        animate={{ scale: 2.8, opacity: 0 }}
-                        transition={{ duration: 0.8, ease: 'easeOut', repeat: Infinity }}
+                        strokeWidth="0.6"
+                        initial={{ scale: 1, opacity: 0.7 }}
+                        animate={{ scale: 3.0, opacity: 0 }}
+                        transition={{ duration: 0.85, ease: 'easeOut', repeat: Infinity }}
+                        style={{ transformOrigin: `${region.x}px ${region.y}px` }}
                       />
                     )}
 
-                    {/* Pill label — springs in on hover */}
+                    {/* Pin dot — pops in with rotate overshoot, scales on hover */}
+                    {!prefersReducedMotion ? (
+                      <motion.circle
+                        cx={region.x}
+                        cy={region.y}
+                        r={4}
+                        fill="var(--color-magenta)"
+                        fillOpacity={isActive ? 1 : 0.82}
+                        initial={{ scale: 0, opacity: 0, rotate: pop.rotate }}
+                        whileInView={{ scale: 1, opacity: 1, rotate: 0 }}
+                        viewport={VIEWPORT_ONCE}
+                        animate={isActive ? { scale: 1.4 } : { scale: 1 }}
+                        transition={
+                          isActive
+                            ? { type: 'spring' as const, stiffness: 420, damping: 18 }
+                            : { type: 'spring' as const, stiffness: 440, damping: 22, delay: pop.delay }
+                        }
+                        style={{ transformOrigin: `${region.x}px ${region.y}px` }}
+                      />
+                    ) : (
+                      <circle
+                        cx={region.x}
+                        cy={region.y}
+                        r={4}
+                        fill="var(--color-magenta)"
+                        fillOpacity={isActive ? 1 : 0.82}
+                      />
+                    )}
+
+                    {/* Pill label — springs up on hover */}
                     {!prefersReducedMotion ? (
                       <motion.g
-                        initial={{ opacity: 0.7, y: 0 }}
-                        animate={isActive ? { opacity: 1, y: -2 } : { opacity: 0.7, y: 0 }}
+                        initial={{ opacity: 0.72, y: 0 }}
+                        animate={isActive ? { opacity: 1, y: -2 } : { opacity: 0.72, y: 0 }}
                         transition={{ type: 'spring' as const, stiffness: 380, damping: 22 }}
                       >
                         <rect
-                          x={region.x - 11}
-                          y={region.y - 20}
-                          width={22}
-                          height={7}
-                          rx="3.5"
+                          x={rectX}
+                          y={rectY}
+                          width={label.w}
+                          height={label.h}
+                          rx={4}
                           fill={isActive ? 'var(--color-magenta)' : 'var(--color-magenta-tint)'}
                           stroke="var(--color-magenta)"
-                          strokeWidth="0.3"
+                          strokeWidth="0.4"
                         />
                         <text
-                          x={region.x}
-                          y={region.y - 14.5}
+                          x={rectX + label.w / 2}
+                          y={rectY + 5.6}
                           textAnchor="middle"
                           style={{
                             fontFamily: 'var(--font-body)',
-                            fontSize: '3px',
+                            fontSize: '4.2px',
                             fontWeight: 700,
                             fill: isActive ? 'white' : 'var(--color-magenta-dark)',
+                            letterSpacing: '0.01em',
                           }}
                         >
                           {region.name}
                         </text>
                       </motion.g>
                     ) : (
-                      <>
+                      <g>
                         <rect
-                          x={region.x - 11}
-                          y={region.y - 20}
-                          width={22}
-                          height={7}
-                          rx="3.5"
+                          x={rectX}
+                          y={rectY}
+                          width={label.w}
+                          height={label.h}
+                          rx={4}
                           fill={isActive ? 'var(--color-magenta)' : 'var(--color-magenta-tint)'}
                           stroke="var(--color-magenta)"
-                          strokeWidth="0.3"
+                          strokeWidth="0.4"
                         />
                         <text
-                          x={region.x}
-                          y={region.y - 14.5}
+                          x={rectX + label.w / 2}
+                          y={rectY + 5.6}
                           textAnchor="middle"
                           style={{
                             fontFamily: 'var(--font-body)',
-                            fontSize: '3px',
+                            fontSize: '4.2px',
                             fontWeight: 700,
                             fill: isActive ? 'white' : 'var(--color-magenta-dark)',
+                            letterSpacing: '0.01em',
                           }}
                         >
                           {region.name}
                         </text>
-                      </>
+                      </g>
                     )}
                   </g>
                 )
@@ -415,12 +471,16 @@ export default function Map() {
           .map-grid {
             grid-template-columns: 1fr !important;
           }
+          /* Map column appears ABOVE criteria list on mobile */
           .map-grid > *:last-child {
             order: -1;
-            min-height: 280px;
+            min-height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
           }
-          .map-grid > *:last-child svg {
-            max-width: 280px;
+          .map-svg-container {
+            max-width: 320px !important;
             margin: 0 auto;
           }
         }
