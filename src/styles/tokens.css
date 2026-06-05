@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Paper + Ink ── */
+  --color-paper: #F4F2EC;
+  --color-paper-card: #FFFFFF;
+  --color-paper-alt: #FAF9F4;
+  --color-grid-line: #E4E1D7;
+  --color-ink: #161616;
+  --color-ink-muted: #3A3832;
+  --color-ink-faint: #6B6760;
+  --color-border: #D8D4C8;
+  --color-border-light: #E8E4DA;
+
+  /* ── Accent system (token names kept as -magenta for compat; values = electric cobalt blue) ── */
+  --color-magenta: #2A4FE0;
+  --color-magenta-dark: #1B36AE;
+  --color-magenta-tint: #C3CDF7;
+  --color-magenta-pale: #EDF1FE;
+
+  /* aliases */
+  --color-accent: #2A4FE0;
+  --color-accent-dark: #1B36AE;
+  --color-accent-tint: #C3CDF7;
+  --color-accent-pale: #EDF1FE;
+
+  /* ── Illustration palette (teal/navy/amber — Why, HowItWorks, Receive only) ── */
+  --ill-navy: #0B2A5B;
+  --ill-teal: #1FA8A0;
+  --ill-teal-bright: #23B5AE;
+  --ill-amber: #F5A623;
+  --ill-teal-pale: #E6F4F3;
+  --ill-navy-pale: #EFF3FA;
+  --ill-amber-pale: #FDF1DC;
+  --ill-skin: #F2C9A0;
+  --ill-skin-dark: #D9A678;
+
+  /* ── Surface ── */
+  --color-surface: #EDEAE0;
+  --color-white: #FFFFFF;
+
+  /* ── Typography ── */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  /* ── Motion easing ── */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}

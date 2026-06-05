@@ -1,0 +1,265 @@
+import { useState } from 'react'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
+import GridBg from './marks/GridBg'
+import Star from './marks/Star'
+import CircledWord from './marks/CircledWord'
+import { faqContentVariants, scatterIn, VIEWPORT_ONCE } from '../lib/motion'
+
+
+const faqs = [
+  {
+    question: 'Is participation free of charge?',
+    answer: 'Yes, participation is fully free of charge for selected SMEs. There are no fees at any stage of the programme, from application through to the final implementation phase. The programme is donor-funded and designed to be accessible to companies of all sizes.',
+  },
+  {
+    question: 'Who can apply?',
+    answer: 'Any small or medium enterprise operating in one of the six programme regions (Bălți, Chișinău, Edineț, Orhei, Soroca, or Ungheni) that has current or planned hiring needs and is willing to employ young people. Companies do not need prior experience with structured HR processes.',
+  },
+  {
+    question: 'Does the company need to have an HR department?',
+    answer: 'No. The programme is specifically designed for companies that do not have a dedicated HR function. If HR tasks currently fall to a manager, director, or whoever is available, this programme is for you. You will need to designate one contact person to coordinate participation.',
+  },
+  {
+    question: 'Will the programme provide employees or candidates?',
+    answer: 'No. The programme does not source or provide candidates. It gives your company the tools and knowledge to improve your own recruitment process, so you can find and keep the right people more effectively. Candidate sourcing remains the responsibility of the company.',
+  },
+  {
+    question: 'What time commitment is required?',
+    answer: "The programme is designed to fit around a working company's schedule. Expect a modest commitment of a few hours per month, mainly for workshops and check-in sessions. The toolkit materials can be implemented gradually, at your own pace.",
+  },
+  {
+    question: 'What information will be collected?',
+    answer: 'Basic company information and current HR practices will be gathered through a short baseline assessment at the start. All data is treated as confidential and used only for programme delivery. Results are reported in aggregate form only, so no individual company can be identified.',
+  },
+  {
+    question: 'Will the materials be available in Romanian and Russian?',
+    answer: 'Yes. All programme materials, including the HR Toolkit, workshop guides, and documentation, are planned to be available in both Romanian and Russian to ensure accessibility across participating regions.',
+  },
+  {
+    question: 'What happens after submitting the expression of interest?',
+    answer: 'The programme team will review all expressions of interest and contact applicants within approximately 10 working days. If your company is selected, you will receive details about the next steps, including the baseline assessment and programme schedule.',
+  },
+]
+
+function FAQItem({ faq, index }: { faq: typeof faqs[0]; index: number }) {
+  const [open, setOpen] = useState(false)
+  const prefersReducedMotion = useReducedMotion()
+  const scatter = scatterIn(index)
+
+  return (
+    <motion.div
+      variants={scatter}
+      initial="hidden"
+      whileInView="visible"
+      viewport={VIEWPORT_ONCE}
+      whileHover={prefersReducedMotion ? {} : {
+        y: open ? 0 : -2,
+        transition: { duration: 0.18, ease: [0.25, 1, 0.5, 1] },
+      }}
+      style={{
+        background: 'var(--color-paper-card)',
+        border: '1.5px solid var(--color-border)',
+        marginBottom: '0.5rem',
+        overflow: 'hidden',
+      }}
+    >
+      <button
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        style={{
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '1.5rem',
+          padding: '1.125rem 1.375rem',
+          background: open ? 'var(--color-magenta-pale)' : 'none',
+          border: 'none',
+          cursor: 'pointer',
+          textAlign: 'left',
+          transition: 'background 0.2s ease',
+        }}
+      >
+        <span
+          style={{
+            fontFamily: 'var(--font-display)',
+            fontWeight: 700,
+            fontSize: 'clamp(0.9375rem, 1.3vw, 1.0625rem)',
+            color: 'var(--color-ink)',
+            lineHeight: 1.35,
+            letterSpacing: '-0.015em',
+          }}
+        >
+          {faq.question}
+        </span>
+
+        {/* +/× toggle — animates bg + border, vertical bar rotates 45deg on open */}
+        <motion.span
+          aria-hidden="true"
+          animate={prefersReducedMotion ? {} : {
+            background: open ? 'var(--color-magenta)' : 'transparent',
+            borderColor: open ? 'var(--color-magenta)' : 'var(--color-border)',
+            rotate: open ? 45 : 0,
+          }}
+          transition={{ duration: 0.25, ease: [0.25, 1, 0.5, 1] }}
+          style={{
+            width: 28,
+            height: 28,
+            border: `1.5px solid`,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0,
+          }}
+        >
+          <span
+            style={{
+              position: 'relative',
+              width: 12,
+              height: 12,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            {/* Cross (+ becomes × via parent rotate) */}
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <line x1="2" y1="6" x2="10" y2="6" stroke={open ? 'white' : 'var(--color-magenta)'} strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="6" y1="2" x2="6" y2="10" stroke={open ? 'white' : 'var(--color-magenta)'} strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+          </span>
+        </motion.span>
+      </button>
+
+      {/* Answer — spring open + clip reveal */}
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            variants={faqContentVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            style={{ overflow: 'hidden' }}
+          >
+            <p
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: '0.9375rem',
+                color: 'var(--color-ink-muted)',
+                lineHeight: 1.75,
+                padding: '0 1.375rem 1.375rem',
+                margin: 0,
+                maxWidth: '68ch',
+              }}
+            >
+              {faq.answer}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  )
+}
+
+export default function FAQ() {
+  const prefersReducedMotion = useReducedMotion()
+
+  return (
+    <section
+      id="faq"
+      style={{
+        background: 'var(--color-surface)',
+        paddingTop: 'clamp(5rem, 10vw, 8rem)',
+        paddingBottom: 'clamp(5rem, 10vw, 8rem)',
+        position: 'relative',
+      }}
+    >
+      <GridBg style={{ opacity: 0.3 }} />
+
+      <div
+        style={{
+          position: 'relative',
+          zIndex: 1,
+          maxWidth: 1280,
+          margin: '0 auto',
+          padding: '0 clamp(1.25rem, 5vw, 4rem)',
+        }}
+      >
+        {/* Section rule */}
+        <motion.div
+          initial={prefersReducedMotion ? {} : { scaleX: 0, originX: '0%' }}
+          whileInView={{ scaleX: 1 }}
+          viewport={VIEWPORT_ONCE}
+          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+          style={{ height: '1px', background: 'var(--color-border)', marginBottom: 'clamp(2.5rem, 5vw, 4rem)', transformOrigin: 'left' }}
+        />
+
+        {/* Header — left */}
+        <div style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
+          <motion.div
+            initial={prefersReducedMotion ? {} : { opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={VIEWPORT_ONCE}
+            transition={{ duration: 0.45, ease: [0.25, 1, 0.5, 1] }}
+            style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}
+          >
+            <Star size={12} color="var(--color-magenta)" points={8} idle="twinkle" />
+            <span
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontWeight: 700,
+                fontSize: '0.6875rem',
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                color: 'var(--color-ink-faint)',
+              }}
+            >
+              Questions
+            </span>
+          </motion.div>
+          <div style={{ overflow: 'hidden' }}>
+            <motion.h2
+              initial={prefersReducedMotion ? {} : { clipPath: 'inset(0 100% 0 0)', skewX: -2 }}
+              whileInView={{ clipPath: 'inset(0 0% 0 0)', skewX: 0 }}
+              viewport={VIEWPORT_ONCE}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'clamp(2.25rem, 4.5vw, 3.5rem)',
+                fontWeight: 700,
+                lineHeight: 1.02,
+                letterSpacing: '-0.035em',
+                color: 'var(--color-ink)',
+              }}
+            >
+              Frequently{' '}
+              <CircledWord inView>asked</CircledWord>
+            </motion.h2>
+          </div>
+        </div>
+
+        {/* Accordion — items scatter in with per-index variety */}
+        <div style={{ maxWidth: 860 }}>
+          {faqs.map((faq, i) => (
+            <FAQItem key={i} faq={faq} index={i} />
+          ))}
+        </div>
+
+        <motion.p
+          initial={prefersReducedMotion ? {} : { opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={VIEWPORT_ONCE}
+          transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1], delay: 0.3 }}
+          style={{
+            fontFamily: 'var(--font-body)',
+            fontSize: '0.875rem',
+            color: 'var(--color-ink-faint)',
+            marginTop: '1.5rem',
+          }}
+        >
+          If your question is not answered here, contact the programme team directly.
+        </motion.p>
+      </div>
+    </section>
+  )
+}
