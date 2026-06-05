@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import GridBg from './marks/GridBg'
 import Star from './marks/Star'
 import CircledWord from './marks/CircledWord'
-import { faqContentVariants, scatterIn, VIEWPORT_ONCE } from '../lib/motion'
+import { circledHeadingClipHidden, circledHeadingClipVisible, faqContentVariants, scatterIn, VIEWPORT_ONCE } from '../lib/motion'
 
 
 function FAQItem({ faq, index }: { faq: { question: string; answer: string }; index: number }) {
@@ -195,17 +195,17 @@ export default function FAQ() {
               {t('faq.eyebrow')}
             </span>
           </motion.div>
-          <div style={{ overflow: 'hidden' }}>
+          <div style={{ overflow: 'visible' }}>
             <motion.h2
-              initial={prefersReducedMotion ? {} : { clipPath: 'inset(0 100% 0 0)', skewX: -2 }}
-              whileInView={{ clipPath: 'inset(0 0% 0 0)', skewX: 0 }}
-              viewport={VIEWPORT_ONCE}
+              className="circled-heading"
+              initial={prefersReducedMotion ? {} : circledHeadingClipHidden(-2)}
+              animate={circledHeadingClipVisible}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
               style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: 'clamp(2.25rem, 4.5vw, 3.5rem)',
                 fontWeight: 700,
-                lineHeight: 1.02,
+                lineHeight: 1.1,
                 letterSpacing: '-0.035em',
                 color: 'var(--color-ink)',
               }}

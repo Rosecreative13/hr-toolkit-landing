@@ -9,7 +9,7 @@ import Arrow from './marks/Arrow'
 import CircledWord from './marks/CircledWord'
 import DotGrid from './marks/DotGrid'
 import CountUp from './CountUp'
-import { VIEWPORT_ONCE, flyInFrom, popRotate } from '../lib/motion'
+import { VIEWPORT_ONCE, circledHeadingClipHidden, circledHeadingClipVisible, flyInFrom, popRotate } from '../lib/motion'
 import { Blob, MentoringPair, TwoPeopleTalking } from './illustrations'
 import type { Transition } from 'framer-motion'
 
@@ -324,17 +324,17 @@ export default function Why() {
                 </span>
               </motion.div>
 
-              <div style={{ overflow: 'hidden' }}>
+              <div style={{ overflow: 'visible' }}>
                 <motion.h2
-                  initial={prefersReducedMotion ? {} : { clipPath: 'inset(0 100% 0 0)', skewX: -2 }}
-                  whileInView={{ clipPath: 'inset(0 0% 0 0)', skewX: 0 }}
-                  viewport={VIEWPORT_ONCE}
+                  className="circled-heading"
+                  initial={prefersReducedMotion ? {} : circledHeadingClipHidden(-2)}
+                  animate={circledHeadingClipVisible}
                   transition={{ duration: 0.72, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
                   style={{
                     fontFamily: 'var(--font-display)',
                     fontSize: 'clamp(2.25rem, 4vw, 3.75rem)',
                     fontWeight: 700,
-                    lineHeight: 1.02,
+                    lineHeight: 1.1,
                     letterSpacing: '-0.035em',
                     color: 'var(--color-ink)',
                     marginBottom: '1.5rem',
@@ -342,7 +342,7 @@ export default function Why() {
                   }}
                 >
                   {t('why.heading')}{' '}
-                  <CircledWord inView color="var(--ill-teal)">
+                  <CircledWord inView color="var(--color-magenta)">
                     {t('why.headingCircled')}
                   </CircledWord>
                 </motion.h2>

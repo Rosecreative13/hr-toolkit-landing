@@ -49,6 +49,29 @@ a {
   min-height: 100dvh;
 }
 
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+@media (max-width: 768px) {
+  .circled-heading {
+    line-height: 1.2 !important;
+  }
+
+  .pains-heading .circled-word {
+    display: block !important;
+    width: max-content;
+    max-width: 100%;
+    margin-top: 0.08em;
+  }
+}
+
+@keyframes circleDrawOn {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 :focus-visible {
   outline: 2px solid var(--color-magenta);
   outline-offset: 3px;
@@ -60,5 +83,10 @@ a {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  path[data-circle] {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
   }
 }

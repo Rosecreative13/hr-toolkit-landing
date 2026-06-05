@@ -59,6 +59,18 @@ export const lineWipeVariants: Variants = {
   }),
 }
 
+// Headings with CircledWord need extra clip room; the SVG intentionally extends
+// beyond the text line and gets visibly flattened by a normal inset(0) wipe.
+export const CIRCLED_HEADING_CLIP = 'inset(-28px -40px -24px -28px)'
+export const circledHeadingClipHidden = (skew = -2) => ({
+  clipPath: 'inset(-28px 100% -24px -28px)',
+  skewX: skew,
+})
+export const circledHeadingClipVisible = {
+  clipPath: CIRCLED_HEADING_CLIP,
+  skewX: 0,
+}
+
 /** Diagonal clip-wipe for photos / image masks */
 export const diagWipeVariants: Variants = {
   hidden: { clipPath: 'inset(0 0 100% 0)' },

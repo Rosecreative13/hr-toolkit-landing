@@ -9,7 +9,7 @@ interface CircledWordProps {
 }
 
 /**
- * Wraps its text child with a rough hand-drawn magenta ellipse SVG.
+ * Wraps its text child with a rough hand-drawn cobalt ellipse SVG.
  * Pass `inView={true}` to trigger the draw-on animation when the section enters view.
  */
 export default function CircledWord({
@@ -74,9 +74,11 @@ export default function CircledWord({
   return (
     <span
       ref={spanRef}
+      className="circled-word"
       style={{
         position: 'relative',
-        display: 'inline',
+        display: 'inline-block',
+        verticalAlign: 'baseline',
         whiteSpace: 'nowrap',
       }}
     >
@@ -94,6 +96,7 @@ export default function CircledWord({
         viewBox={`0 0 ${svgW} ${svgH}`}
       >
         <path
+          data-circle
           d={ellipsePath}
           fill="none"
           stroke={color}
@@ -113,14 +116,6 @@ export default function CircledWord({
           }}
         />
       </svg>
-      <style>{`
-        @keyframes circleDrawOn {
-          to { stroke-dashoffset: 0; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          path[data-circle] { animation: none !important; stroke-dashoffset: 0 !important; }
-        }
-      `}</style>
       {children}
     </span>
   )

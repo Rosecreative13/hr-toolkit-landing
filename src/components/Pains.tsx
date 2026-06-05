@@ -6,7 +6,7 @@ import Star from './marks/Star'
 import Arrow from './marks/Arrow'
 import DotGrid from './marks/DotGrid'
 import CircledWord from './marks/CircledWord'
-import { scatterIn, VIEWPORT_ONCE, flyInFrom, popRotate } from '../lib/motion'
+import { circledHeadingClipHidden, circledHeadingClipVisible, scatterIn, VIEWPORT_ONCE, flyInFrom, popRotate } from '../lib/motion'
 import type { Transition } from 'framer-motion'
 
 // Verified 200 OK
@@ -78,20 +78,21 @@ export default function Pains() {
               style={{ height: '1px', background: 'var(--color-border)', marginBottom: '2.5rem', transformOrigin: 'left' }}
             />
 
-            <div style={{ overflow: 'hidden', marginBottom: '2.5rem' }}>
+            <div style={{ overflow: 'visible', marginBottom: '2.5rem' }}>
               <motion.h2
-                initial={prefersReducedMotion ? {} : { clipPath: 'inset(0 100% 0 0)', skewX: -3 }}
-                whileInView={{ clipPath: 'inset(0 0% 0 0)', skewX: 0 }}
-                viewport={VIEWPORT_ONCE}
+                className="circled-heading pains-heading"
+                initial={prefersReducedMotion ? {} : circledHeadingClipHidden(-3)}
+                animate={circledHeadingClipVisible}
                 transition={{ duration: 0.7, ease: EASE_OUT_EXPO, delay: 0.05 }}
                 style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: 'clamp(2.25rem, 4.5vw, 3.5rem)',
                   fontWeight: 700,
-                  lineHeight: 1.04,
+                  lineHeight: 1.1,
                   letterSpacing: '-0.035em',
                   color: 'var(--color-ink)',
                   marginBottom: '0.75rem',
+                  textWrap: 'balance' as React.CSSProperties['textWrap'],
                 }}
               >
                 {t('pains.heading')}{' '}

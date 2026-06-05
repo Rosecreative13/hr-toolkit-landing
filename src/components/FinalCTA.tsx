@@ -5,7 +5,7 @@ import Arrow from './marks/Arrow'
 import DotGrid from './marks/DotGrid'
 import CircledWord from './marks/CircledWord'
 import RotatingBadge from './marks/RotatingBadge'
-import { useMagnetic, popRotate, flyInFrom, VIEWPORT_ONCE } from '../lib/motion'
+import { circledHeadingClipHidden, circledHeadingClipVisible, useMagnetic, popRotate, flyInFrom, VIEWPORT_ONCE } from '../lib/motion'
 
 const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as [number, number, number, number]
 
@@ -183,17 +183,17 @@ export default function FinalCTA() {
             </motion.div>
 
             {/* Headline — clip wipe on dark bg */}
-            <div style={{ overflow: 'hidden', marginBottom: '1.25rem' }}>
+            <div style={{ overflow: 'visible', marginBottom: '1.25rem' }}>
               <motion.h2
-                initial={prefersReducedMotion ? {} : { clipPath: 'inset(0 100% 0 0)', skewX: -2 }}
-                whileInView={{ clipPath: 'inset(0 0% 0 0)', skewX: 0 }}
-                viewport={VIEWPORT_ONCE}
+                className="circled-heading"
+                initial={prefersReducedMotion ? {} : circledHeadingClipHidden(-2)}
+                animate={circledHeadingClipVisible}
                 transition={{ duration: 0.75, ease: EASE_OUT_EXPO, delay: 0.08 }}
                 style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: 'clamp(2.25rem, 5vw, 4.5rem)',
                   fontWeight: 700,
-                  lineHeight: 1.02,
+                  lineHeight: 1.1,
                   letterSpacing: '-0.04em',
                   color: '#fff',
                 }}
