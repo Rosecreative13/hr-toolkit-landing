@@ -101,15 +101,15 @@ export default function CircledWord({
           strokeLinecap="round"
           strokeLinejoin="round"
           style={shouldAnimate ? {
-            strokeDasharray: '600',
-            strokeDashoffset: '600',
+            strokeDasharray: '2000',
+            strokeDashoffset: '2000',
             animation: 'circleDrawOn 0.85s cubic-bezier(0.16,1,0.3,1) 0.15s forwards',
           } : prefersReducedMotion ? {
             strokeDasharray: 'none',
             strokeDashoffset: 0,
           } : {
-            strokeDasharray: '600',
-            strokeDashoffset: '600',
+            strokeDasharray: '2000',
+            strokeDashoffset: '2000',
           }}
         />
       </svg>
