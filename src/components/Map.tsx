@@ -249,10 +249,10 @@ export default function Map() {
             />
           </motion.div>
 
-          <div style={{ position: 'relative', width: '100%', maxWidth: 360 }}>
+          <div style={{ position: 'relative', width: '100%', maxWidth: 360, minHeight: 320 }}>
             <svg
-              viewBox="0 0 100 100"
-              style={{ width: '100%', height: 'auto', overflow: 'visible' }}
+              viewBox="0 0 100 105"
+              style={{ width: '100%', height: 'auto', overflow: 'visible', display: 'block' }}
               role="img"
               aria-label="Stylised map of Moldova showing 6 programme regions"
             >
@@ -260,17 +260,17 @@ export default function Map() {
               {!prefersReducedMotion ? (
                 <motion.path
                   d={moldovaSilhouette}
-                  fill="var(--color-magenta-pale)"
+                  fill="var(--color-magenta-tint)"
                   stroke="var(--color-magenta)"
-                  strokeOpacity="0.4"
-                  strokeWidth="0.5"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
+                  strokeOpacity="0.8"
+                  strokeWidth="1"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   viewport={VIEWPORT_ONCE}
-                  transition={{ duration: 0.6, ease: EASE_OUT_EXPO }}
+                  transition={{ duration: 0.7, ease: EASE_OUT_EXPO }}
                 />
               ) : (
-                <path d={moldovaSilhouette} fill="var(--color-magenta-pale)" stroke="var(--color-magenta)" strokeOpacity="0.4" strokeWidth="0.5" />
+                <path d={moldovaSilhouette} fill="var(--color-magenta-tint)" stroke="var(--color-magenta)" strokeOpacity="0.8" strokeWidth="1" />
               )}
 
               {/* Region pins */}
@@ -412,7 +412,17 @@ export default function Map() {
 
       <style>{`
         @media (max-width: 768px) {
-          .map-grid { grid-template-columns: 1fr !important; }
+          .map-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .map-grid > *:last-child {
+            order: -1;
+            min-height: 280px;
+          }
+          .map-grid > *:last-child svg {
+            max-width: 280px;
+            margin: 0 auto;
+          }
         }
       `}</style>
     </section>
