@@ -7,6 +7,7 @@ import DotGrid from './marks/DotGrid'
 import { flyInFrom, VIEWPORT_ONCE } from '../lib/motion'
 
 const regions = ['Bălți', 'Chișinău', 'Edineț', 'Orhei', 'Soroca', 'Ungheni']
+const PARTNERS_LOGOS = '/assets/partners.png'
 
 function FooterLink({ children, href = '#' }: { children: React.ReactNode; href?: string }) {
   const [hovered, setHovered] = useState(false)
@@ -287,15 +288,30 @@ export default function Footer() {
               {t('footer.contactPending')}
             </p>
           </motion.div>
+        </div>
 
-          {/* Partners */}
-          <motion.div
-            initial={prefersReducedMotion ? {} : { opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={VIEWPORT_ONCE}
-            transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1], delay: 0.2 }}
-          >
+        {/* Partners */}
+        <motion.section
+          aria-labelledby="footer-partners-title"
+          initial={prefersReducedMotion ? {} : { opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={VIEWPORT_ONCE}
+          transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1], delay: 0.12 }}
+          style={{
+            borderTop: '1px solid rgba(255,255,255,0.09)',
+            borderBottom: '1px solid rgba(255,255,255,0.09)',
+            padding: 'clamp(1.25rem, 3vw, 1.75rem) 0',
+            marginBottom: '1.5rem',
+            display: 'grid',
+            gridTemplateColumns: 'minmax(180px, 0.34fr) minmax(0, 1fr)',
+            gap: 'clamp(1.25rem, 4vw, 3rem)',
+            alignItems: 'center',
+          }}
+          className="footer-partners"
+        >
+          <div>
             <p
+              id="footer-partners-title"
               style={{
                 fontFamily: 'var(--font-body)',
                 fontSize: '0.6875rem',
@@ -303,36 +319,51 @@ export default function Footer() {
                 letterSpacing: '0.12em',
                 textTransform: 'uppercase',
                 color: 'rgba(255,255,255,0.25)',
-                marginBottom: '1rem',
+                marginBottom: '0.625rem',
               }}
             >
               {t('footer.partnersLabel')}
             </p>
-            <div
+            <p
               style={{
-                width: 120,
-                height: 40,
-                border: '1px dashed rgba(255,255,255,0.12)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '0.375rem',
+                fontFamily: 'var(--font-body)',
+                fontSize: '0.875rem',
+                color: 'rgba(255,255,255,0.42)',
+                lineHeight: 1.6,
+                maxWidth: '30ch',
               }}
             >
-              <Star size={10} color="rgba(255,255,255,0.2)" points={6} />
-              <span
-                style={{
-                  fontFamily: 'var(--font-body)',
-                  fontSize: '0.75rem',
-                  color: 'rgba(255,255,255,0.2)',
-                  fontStyle: 'italic',
-                }}
-              >
-                {t('footer.partnerLogo')}
-              </span>
-            </div>
-          </motion.div>
-        </div>
+              {t('footer.partnersDescription')}
+            </p>
+          </div>
+          <div
+            style={{
+              minWidth: 0,
+              background: 'rgba(0,0,0,0.24)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: 6,
+              padding: 'clamp(0.75rem, 2vw, 1.125rem) clamp(0.75rem, 3vw, 1.5rem)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <img
+              src={PARTNERS_LOGOS}
+              alt={t('footer.partnersAlt')}
+              loading="lazy"
+              decoding="async"
+              width={2000}
+              height={239}
+              style={{
+                width: '100%',
+                maxWidth: 900,
+                height: 'auto',
+                display: 'block',
+              }}
+            />
+          </div>
+        </motion.section>
 
         {/* Bottom bar */}
         <div
@@ -357,6 +388,11 @@ export default function Footer() {
 
       <style>{`
         .footer-link-hover { color: rgba(255,255,255,0.75) !important; }
+        @media (max-width: 760px) {
+          .footer-partners {
+            grid-template-columns: 1fr !important;
+          }
+        }
       `}</style>
     </footer>
   )

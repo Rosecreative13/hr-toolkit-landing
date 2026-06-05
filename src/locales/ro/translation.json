@@ -244,7 +244,8 @@
     "contactLabel": "Contact",
     "contactPending": "Detaliile de contact vor fi adăugate.",
     "partnersLabel": "Parteneri",
-    "partnerLogo": "Logo partener",
+    "partnersDescription": "Logotipurile partenerilor programului.",
+    "partnersAlt": "Logotipurile partenerilor HR Toolkit Programme",
     "copyright": "Programul HR Toolkit pentru IMM-uri. Moldova, 2025.",
     "participationNote": "Participarea este gratuită și voluntară."
   },

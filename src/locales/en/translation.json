@@ -244,7 +244,8 @@
     "contactLabel": "Contact",
     "contactPending": "Contact details to be added.",
     "partnersLabel": "Partners",
-    "partnerLogo": "Partner logo",
+    "partnersDescription": "Programme partner logos.",
+    "partnersAlt": "HR Toolkit Programme partner logos",
     "copyright": "HR Toolkit Programme for SMEs. Moldova, 2025.",
     "participationNote": "Participation is free and voluntary."
   },

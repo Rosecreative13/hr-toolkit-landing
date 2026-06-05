@@ -244,7 +244,8 @@
     "contactLabel": "Контакты",
     "contactPending": "Контактные данные будут добавлены.",
     "partnersLabel": "Партнёры",
-    "partnerLogo": "Логотип партнёра",
+    "partnersDescription": "Логотипы партнёров программы.",
+    "partnersAlt": "Логотипы партнёров HR Toolkit Programme",
     "copyright": "Программа HR Toolkit для МСП. Молдова, 2025.",
     "participationNote": "Участие бесплатное и добровольное."
   },
