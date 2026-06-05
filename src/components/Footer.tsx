@@ -368,27 +368,62 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div
+          className="footer-bottom"
           style={{
             borderTop: '1px solid rgba(255,255,255,0.07)',
             paddingTop: '1.5rem',
             display: 'flex',
             flexWrap: 'wrap',
-            gap: '1rem',
+            gap: '1rem 2rem',
             justifyContent: 'space-between',
-            alignItems: 'center',
+            alignItems: 'flex-start',
           }}
         >
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.8125rem', color: 'rgba(255,255,255,0.2)' }}>
             {t('footer.copyright')}
           </p>
-          <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.8125rem', color: 'rgba(255,255,255,0.2)' }}>
-            {t('footer.participationNote')}
-          </p>
+          <div className="footer-legal-stack">
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.8125rem', color: 'rgba(255,255,255,0.2)' }}>
+              {t('footer.participationNote')}
+            </p>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.8125rem', color: 'rgba(255,255,255,0.2)' }}>
+              {t('footer.supportPrefix')}{' '}
+              <a
+                href="https://claro.md"
+                target="_blank"
+                rel="noreferrer"
+                className="footer-support-link"
+              >
+                Claro Plus
+              </a>
+            </p>
+          </div>
         </div>
       </div>
 
       <style>{`
         .footer-link-hover { color: rgba(255,255,255,0.75) !important; }
+        .footer-legal-stack {
+          display: flex;
+          flex-direction: column;
+          gap: 0.375rem;
+          align-items: flex-end;
+          text-align: right;
+        }
+        .footer-support-link {
+          color: var(--color-magenta);
+          text-decoration: none;
+          font-weight: 700;
+          transition: color 0.18s ease, opacity 0.18s ease;
+        }
+        .footer-support-link:hover {
+          color: var(--color-magenta-light);
+        }
+        .footer-support-link:focus-visible {
+          outline: 2px solid var(--color-magenta);
+          outline-offset: 3px;
+          border-radius: 2px;
+        }
         .footer-partners-grid {
           display: grid;
           grid-template-columns: repeat(2, minmax(240px, 1fr));
@@ -438,6 +473,14 @@ export default function Footer() {
           .footer-partner-logo--compact,
           .footer-partner-logo--wide {
             max-width: 300px;
+          }
+          .footer-bottom {
+            flex-direction: column;
+            gap: 0.75rem !important;
+          }
+          .footer-legal-stack {
+            align-items: flex-start;
+            text-align: left;
           }
         }
       `}</style>
