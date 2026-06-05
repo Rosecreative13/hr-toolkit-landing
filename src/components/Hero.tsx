@@ -111,12 +111,14 @@ export default function Hero() {
 
         {/* ── LEFT COLUMN ── */}
         <div
+          className="hero-left"
           style={{
             position: 'relative',
             zIndex: 2,
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
+            minWidth: 0,
             padding: 'clamp(7rem, 10vw, 9rem) clamp(1.5rem, 4vw, 4rem) clamp(4rem, 6vw, 5rem) clamp(1.5rem, 6vw, 6rem)',
           }}
         >
@@ -147,10 +149,11 @@ export default function Hero() {
           {/* Headline — per-line mask wipe with uneven skew */}
           <div style={{ marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)' }}>
             <h1
+              className="hero-h1"
               style={{
                 fontFamily: 'var(--font-display)',
                 fontWeight: 700,
-                fontSize: 'clamp(2.5rem, 5.5vw, 4.5rem)',
+                fontSize: 'clamp(2rem, 5.5vw, 4.5rem)',
                 lineHeight: 1.02,
                 letterSpacing: '-0.03em',
                 color: 'var(--color-ink)',
@@ -194,6 +197,7 @@ export default function Hero() {
 
           {/* Subhead — body1 */}
           <motion.p
+            className="hero-body"
             initial="hidden"
             animate="visible"
             variants={subVariant}
@@ -211,6 +215,7 @@ export default function Hero() {
 
           {/* Body2 */}
           <motion.p
+            className="hero-body"
             initial="hidden"
             animate="visible"
             variants={{
@@ -231,6 +236,7 @@ export default function Hero() {
 
           {/* Tagline chip */}
           <motion.div
+            className="hero-tagline"
             initial="hidden"
             animate="visible"
             variants={{
@@ -239,6 +245,7 @@ export default function Hero() {
             }}
             style={{
               display: 'inline-flex',
+              alignSelf: 'flex-start',
               alignItems: 'center',
               gap: '0.5rem',
               marginBottom: '1.75rem',
@@ -246,6 +253,7 @@ export default function Hero() {
               background: 'var(--color-magenta-pale)',
               border: '1px solid var(--color-magenta-tint)',
               borderRadius: 100,
+              maxWidth: '100%',
             }}
           >
             <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--color-magenta)', flexShrink: 0 }} />
@@ -262,6 +270,7 @@ export default function Hero() {
             style={{ marginBottom: '1rem' }}
           >
             <form
+              className="hero-form"
               onSubmit={(e) => e.preventDefault()}
               style={{
                 display: 'flex',
@@ -271,6 +280,7 @@ export default function Hero() {
                 borderRadius: 100,
                 padding: '0.25rem 0.25rem 0.25rem 1.25rem',
                 gap: '0.5rem',
+                width: '100%',
                 maxWidth: 420,
                 boxShadow: '0 2px 12px rgba(22,22,22,0.06)',
               }}
@@ -640,6 +650,40 @@ export default function Hero() {
         @media (max-width: 768px) {
           .hero-section { grid-template-columns: 1fr !important; min-height: auto !important; }
           .hero-section > div:last-child { display: none !important; }
+          .hero-left {
+            padding: 5.5rem 1.25rem 3rem 1.25rem !important;
+          }
+          .hero-h1 {
+            font-size: clamp(1.875rem, 9vw, 2.5rem) !important;
+            word-break: break-word !important;
+          }
+          .hero-body {
+            max-width: 100% !important;
+            font-size: 0.9375rem !important;
+          }
+          .hero-tagline {
+            max-width: 100% !important;
+          }
+          .hero-tagline > span:last-child {
+            white-space: normal !important;
+            line-height: 1.4 !important;
+          }
+          .hero-form {
+            max-width: 100% !important;
+            flex-wrap: wrap !important;
+            padding: 0.5rem !important;
+          }
+          .hero-form input {
+            width: 100% !important;
+            padding: 0.5rem 0.75rem !important;
+            min-height: 2.5rem !important;
+          }
+          .hero-form button {
+            width: 100% !important;
+            white-space: normal !important;
+            text-align: center !important;
+            padding: 0.7rem 1rem !important;
+          }
         }
       `}</style>
     </>
