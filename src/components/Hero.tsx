@@ -19,6 +19,7 @@ const regions = ['Bălți', 'Chișinău', 'Edineț', 'Orhei', 'Soroca', 'Ungheni
 const HERO_PHOTO =
   'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1600&q=80&auto=format&fit=crop'
 
+const HERO_ARCH_PATH = 'M 40 434 L 40 174 A 170 170 0 0 1 380 174 L 380 434'
 const EASE_OUT_EXPO: Easing = [0.16, 1, 0.3, 1] as [number, number, number, number]
 
 function MagneticButton({ children, style, ...props }: React.ButtonHTMLAttributes<HTMLButtonElement>) {
@@ -342,13 +343,13 @@ export default function Hero() {
             >
               {/* Fill */}
               <path
-                d="M 40 420 L 40 160 A 170 170 0 0 1 380 160 L 380 420"
+                d={HERO_ARCH_PATH}
                 fill="var(--color-magenta-tint)"
               />
               {/* Stroked arc that draws on */}
               {!prefersReducedMotion ? (
                 <motion.path
-                  d="M 40 420 L 40 160 A 170 170 0 0 1 380 160 L 380 420"
+                  d={HERO_ARCH_PATH}
                   fill="none"
                   stroke="var(--color-magenta)"
                   strokeWidth="2"
@@ -358,7 +359,7 @@ export default function Hero() {
                 />
               ) : (
                 <path
-                  d="M 40 420 L 40 160 A 170 170 0 0 1 380 160 L 380 420"
+                  d={HERO_ARCH_PATH}
                   fill="none"
                   stroke="var(--color-magenta)"
                   strokeWidth="2"

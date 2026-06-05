@@ -13,6 +13,7 @@ import type { Transition } from 'framer-motion'
 const PAINS_PHOTO =
   'https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=900&q=80&auto=format&fit=crop'
 
+const PAINS_ARCH_PATH = 'M 12 480 L 12 170 A 168 168 0 0 1 348 170 L 348 480'
 const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as [number, number, number, number]
 
 export default function Pains() {
@@ -214,10 +215,10 @@ export default function Pains() {
                 viewBox="0 0 360 480"
                 style={{ position: 'absolute', inset: '-12px', width: 'calc(100% + 24px)', height: 'calc(100% + 24px)', zIndex: 0 }}
               >
-                <path d="M 12 480 L 12 140 A 168 168 0 0 1 348 140 L 348 480" fill="var(--color-magenta-tint)" />
+                <path d={PAINS_ARCH_PATH} fill="var(--color-magenta-tint)" />
                 {!prefersReducedMotion ? (
                   <motion.path
-                    d="M 12 480 L 12 140 A 168 168 0 0 1 348 140 L 348 480"
+                    d={PAINS_ARCH_PATH}
                     fill="none"
                     stroke="var(--color-magenta)"
                     strokeWidth="2"
@@ -227,7 +228,7 @@ export default function Pains() {
                     transition={{ duration: 1.0, ease: EASE_OUT_EXPO, delay: 0.2 } as Transition}
                   />
                 ) : (
-                  <path d="M 12 480 L 12 140 A 168 168 0 0 1 348 140 L 348 480" fill="none" stroke="var(--color-magenta)" strokeWidth="2" />
+                  <path d={PAINS_ARCH_PATH} fill="none" stroke="var(--color-magenta)" strokeWidth="2" />
                 )}
               </svg>
 
