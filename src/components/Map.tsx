@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
 import L from 'leaflet'
 import GridBg from './marks/GridBg'
@@ -9,14 +10,6 @@ import DotGrid from './marks/DotGrid'
 import { VIEWPORT_ONCE } from '../lib/motion'
 
 const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as [number, number, number, number]
-
-const criteria = [
-  'Employs or is willing to employ young people',
-  'Has current or planned hiring needs',
-  'Wants to improve recruitment and onboarding practices',
-  'Is open to testing practical HR tools',
-  'Can designate a contact person for the programme',
-]
 
 const regions: { name: string; lat: number; lng: number }[] = [
   { name: 'Edineț',   lat: 47.93, lng: 27.30 },
@@ -96,9 +89,18 @@ function MarkerLayer({
 }
 
 export default function Map() {
+  const { t } = useTranslation()
   const [activeRegion, setActiveRegion] = useState<string | null>(null)
   const [mounted, setMounted] = useState(false)
   const prefersReducedMotion = useReducedMotion()
+
+  const criteria = [
+    t('map.criteria1'),
+    t('map.criteria2'),
+    t('map.criteria3'),
+    t('map.criteria4'),
+    t('map.criteria5'),
+  ]
 
   useEffect(() => {
     setMounted(true)
@@ -164,9 +166,8 @@ export default function Map() {
                 color: 'var(--color-ink)',
               }}
             >
-              Who{' '}
-              <span style={{ color: 'var(--color-magenta)' }}>can</span>
-              {' '}apply?
+              {t('map.heading')}{' '}
+              <span style={{ color: 'var(--color-magenta)' }}>{t('map.headingColored')}</span>
             </motion.h2>
           </div>
 
@@ -193,7 +194,7 @@ export default function Map() {
               maxWidth: '42ch',
             }}
           >
-            SMEs from <strong style={{ color: 'var(--color-ink)', fontWeight: 700 }}>six</strong> selected regions of Moldova. The criteria are straightforward.
+            {t('map.subhead')}
           </motion.p>
 
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '2rem' }}>
@@ -240,7 +241,7 @@ export default function Map() {
 
           {/* Tags */}
           <div style={{ display: 'flex', gap: '0.625rem', flexWrap: 'wrap' }}>
-            {['SMEs', 'Young employee focus', 'Practical HR support'].map((tag, i) => (
+            {[t('map.tag1'), t('map.tag2'), t('map.tag3')].map((tag, i) => (
               <motion.span
                 key={tag}
                 initial={prefersReducedMotion ? {} : { opacity: 0, scale: 0.8, rotate: i % 2 === 0 ? -5 : 5 }}

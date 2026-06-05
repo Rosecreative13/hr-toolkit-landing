@@ -1,19 +1,11 @@
 import { motion, useReducedMotion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import GridBg from './marks/GridBg'
 import Star from './marks/Star'
 import Arrow from './marks/Arrow'
 import { flyInFrom, popRotate, VIEWPORT_ONCE } from '../lib/motion'
 
 const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as [number, number, number, number]
-
-const nots = [
-  'An inspection or audit of your HR practices',
-  'A grant competition with scoring criteria',
-  'A direct recruitment service',
-  'A guarantee that candidates will be provided',
-  'A complex HR certification process',
-  'A one-time theoretical training session',
-]
 
 // Alternate entry directions for the X-list items
 const itemDirs = ['right', 'left', 'right', 'left', 'right', 'left'] as const
@@ -67,7 +59,17 @@ function XMark({ delay }: { delay: number }) {
 }
 
 export default function NotAbout() {
+  const { t } = useTranslation()
   const prefersReducedMotion = useReducedMotion()
+
+  const nots = [
+    t('notAbout.item1'),
+    t('notAbout.item2'),
+    t('notAbout.item3'),
+    t('notAbout.item4'),
+    t('notAbout.item5'),
+    t('notAbout.item6'),
+  ]
 
   return (
     <section
@@ -142,8 +144,8 @@ export default function NotAbout() {
                   color: 'var(--color-ink)',
                 }}
               >
-                What the programme is{' '}
-                <span style={{ color: 'var(--color-magenta)' }}>not</span>
+                {t('notAbout.heading')}{' '}
+                <span style={{ color: 'var(--color-magenta)' }}>{t('notAbout.headingColored')}</span>
               </motion.h2>
             </div>
 
@@ -157,7 +159,7 @@ export default function NotAbout() {
                 marginBottom: '2rem',
               }}
             >
-              Clarity matters. These boundaries are here so companies know exactly what they are joining and can make an informed decision.
+              {t('notAbout.subhead')}
             </p>
 
             {/* Magenta-tint restatement box — pops in */}
@@ -184,9 +186,7 @@ export default function NotAbout() {
                     margin: 0,
                   }}
                 >
-                  It is practical support for{' '}
-                  <span style={{ color: 'var(--color-magenta)' }}>real</span>{' '}
-                  SME challenges.
+                  {t('notAbout.restatement')}
                 </p>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', paddingLeft: '1.625rem' }}>
@@ -199,7 +199,7 @@ export default function NotAbout() {
                     fontWeight: 600,
                   }}
                 >
-                  Hands-on. Results-focused. Free.
+                  {t('notAbout.restatementSub')}
                 </span>
               </div>
             </motion.div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import GridBg from './marks/GridBg'
 import Star from './marks/Star'
 import Arrow from './marks/Arrow'
@@ -14,35 +15,18 @@ const PAINS_PHOTO =
 
 const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as [number, number, number, number]
 
-const pains = [
-  {
-    title: 'We struggle to find suitable employees.',
-    description: 'The right candidates are out there, but the process of reaching them is unclear and time-consuming.',
-  },
-  {
-    title: 'New employees leave too soon.',
-    description: 'People join and leave within weeks, before they have had the chance to contribute.',
-  },
-  {
-    title: 'Onboarding is not structured.',
-    description: 'Each new hire is welcomed differently. There is no repeatable process.',
-  },
-  {
-    title: 'Supervisors do not have simple tools.',
-    description: 'Team leaders want to do better but are given no resources to guide them.',
-  },
-  {
-    title: 'Recruitment takes too much time.',
-    description: 'Hours spent on interviews and paperwork that could be streamlined with clearer templates.',
-  },
-  {
-    title: 'We do not have a dedicated HR department.',
-    description: 'People decisions fall to an owner, manager or whoever is available, with no playbook to follow.',
-  },
-]
-
 export default function Pains() {
+  const { t } = useTranslation()
   const prefersReducedMotion = useReducedMotion()
+
+  const pains = [
+    { title: t('pains.item1.title'), description: t('pains.item1.description') },
+    { title: t('pains.item2.title'), description: t('pains.item2.description') },
+    { title: t('pains.item3.title'), description: t('pains.item3.description') },
+    { title: t('pains.item4.title'), description: t('pains.item4.description') },
+    { title: t('pains.item5.title'), description: t('pains.item5.description') },
+    { title: t('pains.item6.title'), description: t('pains.item6.description') },
+  ]
 
   return (
     <section
@@ -109,8 +93,8 @@ export default function Pains() {
                   marginBottom: '0.75rem',
                 }}
               >
-                Is this{' '}
-                <CircledWord inView>familiar?</CircledWord>
+                {t('pains.heading')}{' '}
+                <CircledWord inView>{t('pains.headingCircled')}</CircledWord>
               </motion.h2>
               <motion.div
                 initial={prefersReducedMotion ? {} : { opacity: 0, x: -10 }}
@@ -127,7 +111,7 @@ export default function Pains() {
                     color: 'var(--color-ink-faint)',
                   }}
                 >
-                  These challenges are common across Moldova's SMEs
+                  {t('pains.subhead')}
                 </span>
               </motion.div>
             </div>
@@ -319,7 +303,7 @@ export default function Pains() {
                     letterSpacing: '-0.01em',
                   }}
                 >
-                  The HR Toolkit can help
+                  {t('pains.badge')}
                 </span>
                 <Arrow direction="right" length={20} color="#fff" strokeWidth={1.5} />
               </motion.div>

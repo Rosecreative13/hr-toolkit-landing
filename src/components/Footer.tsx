@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import Star from './marks/Star'
 import Arrow from './marks/Arrow'
 import DotGrid from './marks/DotGrid'
@@ -52,6 +53,7 @@ function FooterLink({ children, href = '#' }: { children: React.ReactNode; href?
 }
 
 export default function Footer() {
+  const { t } = useTranslation()
   const prefersReducedMotion = useReducedMotion()
 
   return (
@@ -121,7 +123,7 @@ export default function Footer() {
               letterSpacing: '-0.02em',
             }}
           >
-            Stronger teams. Stronger businesses. Stronger communities.
+            {t('footer.tagline')}
           </p>
         </div>
       </div>
@@ -197,7 +199,7 @@ export default function Footer() {
                 maxWidth: '26ch',
               }}
             >
-              Practical HR support for SMEs in Moldova.
+              {t('footer.description')}
             </p>
           </motion.div>
 

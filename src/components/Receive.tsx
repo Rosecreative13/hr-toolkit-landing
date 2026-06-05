@@ -1,4 +1,5 @@
 import { motion, useReducedMotion, type Transition } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import GridBg from './marks/GridBg'
 import Star from './marks/Star'
 import DotGrid from './marks/DotGrid'
@@ -8,19 +9,9 @@ import { RECEIVE_ICONS } from './illustrations'
 
 const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as [number, number, number, number]
 
-const deliverables = [
-  { num: 1, title: 'Practical HR Toolkit', description: 'A structured set of documents and templates you can put to work immediately.' },
-  { num: 2, title: 'Recruitment templates', description: 'Ready-to-use job description formats and screening checklists.' },
-  { num: 3, title: 'Structured interview tools', description: 'Question guides and scoring sheets that make candidate comparison consistent.' },
-  { num: 4, title: 'Onboarding checklists', description: 'Step-by-step lists that ensure every new hire starts well.' },
-  { num: 5, title: 'Supervisor guidance', description: 'Simple reference materials that help team leaders set expectations clearly.' },
-  { num: 6, title: 'Retention and feedback tools', description: 'Check-in templates and early-warning indicators for engagement.' },
-  { num: 7, title: 'Workshops', description: "Practical, facilitated sessions built around your company's real situations." },
-  { num: 8, title: 'Mentoring circles', description: 'Small-group sessions with expert facilitators and peer SMEs.' },
-  { num: 9, title: 'Peer learning', description: 'Structured opportunities to learn from companies in similar situations across the region.' },
-]
+type Deliverable = { num: number; title: string; description: string }
 
-function DeliverableCard({ item, i }: { item: typeof deliverables[0]; i: number }) {
+function DeliverableCard({ item, i }: { item: Deliverable; i: number }) {
   const prefersReducedMotion = useReducedMotion()
   const scatter = scatterIn(i)
   const { ref, motionStyle, onMouseMove, onMouseLeave } = useTiltOnHover(4, 700)
@@ -196,7 +187,20 @@ function DeliverableCard({ item, i }: { item: typeof deliverables[0]; i: number 
 }
 
 export default function Receive() {
+  const { t } = useTranslation()
   const prefersReducedMotion = useReducedMotion()
+
+  const deliverables = [
+    { num: 1, title: t('receive.item1.title'), description: t('receive.item1.description') },
+    { num: 2, title: t('receive.item2.title'), description: t('receive.item2.description') },
+    { num: 3, title: t('receive.item3.title'), description: t('receive.item3.description') },
+    { num: 4, title: t('receive.item4.title'), description: t('receive.item4.description') },
+    { num: 5, title: t('receive.item5.title'), description: t('receive.item5.description') },
+    { num: 6, title: t('receive.item6.title'), description: t('receive.item6.description') },
+    { num: 7, title: t('receive.item7.title'), description: t('receive.item7.description') },
+    { num: 8, title: t('receive.item8.title'), description: t('receive.item8.description') },
+    { num: 9, title: t('receive.item9.title'), description: t('receive.item9.description') },
+  ]
 
   return (
     <section
@@ -272,8 +276,8 @@ export default function Receive() {
                 color: 'var(--color-ink)',
               }}
             >
-              What SMEs{' '}
-              <span style={{ color: 'var(--ill-teal)' }}>receive</span>
+              {t('receive.heading')}{' '}
+              <span style={{ color: 'var(--ill-teal)' }}>{t('receive.headingColored')}</span>
             </motion.h2>
           </div>
 
@@ -292,7 +296,7 @@ export default function Receive() {
                 maxWidth: '42ch',
               }}
             >
-              Nine concrete deliverables — tools, workshops, and peer support — for SMEs without dedicated HR departments.
+              {t('receive.subhead')}
             </p>
           </motion.div>
         </div>
@@ -340,8 +344,7 @@ export default function Receive() {
               margin: 0,
             }}
           >
-            Designed for SMEs{' '}
-            <span style={{ color: 'var(--ill-teal)' }}>without dedicated HR departments</span>.
+            {t('receive.footer')}
           </p>
           <Arrow direction="right" length={36} color="var(--ill-teal)" strokeWidth={1.5} style={{ flexShrink: 0, marginLeft: 'auto' }} />
         </motion.div>

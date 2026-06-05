@@ -1,16 +1,12 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
+import i18n from '../i18n'
 import Star from './marks/Star'
 import { useMagnetic } from '../lib/motion'
 
-const navLinks = [
-  { label: 'Programme', href: '#why' },
-  { label: 'For SMEs', href: '#pains' },
-  { label: 'How it works', href: '#how-it-works' },
-  { label: 'FAQ', href: '#faq' },
-]
-
 function MagneticCTA() {
+  const { t } = useTranslation()
   const { ref, style: magStyle } = useMagnetic(0.28)
   const prefersReducedMotion = useReducedMotion()
 
@@ -20,7 +16,7 @@ function MagneticCTA() {
       ref={ref as React.RefObject<HTMLAnchorElement>}
       className="cta-btn"
       style={{
-        ...magStyle as any,
+        ...(magStyle as unknown as React.CSSProperties),
         fontFamily: 'var(--font-body)',
         fontWeight: 700,
         fontSize: '0.8125rem',
@@ -41,18 +37,86 @@ function MagneticCTA() {
       whileTap={prefersReducedMotion ? {} : { scale: 0.96 }}
       transition={{ type: 'spring', stiffness: 320, damping: 22 }}
     >
-      Express interest
+      {t('nav.expressInterest')}
     </motion.a>
   )
 }
 
-function NavLink({ link, isActive, onClick }: { link: typeof navLinks[0]; isActive: boolean; onClick: () => void }) {
+function LangSwitcher({ mobile = false }: { mobile?: boolean }) {
+  const { i18n: i18next } = useTranslation()
+  const langs = ['RO', 'RU', 'EN'] as const
+  const current = i18next.language?.slice(0, 2).toLowerCase()
+
+  return (
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '0.25rem',
+        ...(mobile
+          ? { marginTop: '0.75rem' }
+          : {}),
+      }}
+    >
+      {langs.map((lang) => {
+        const code = lang.toLowerCase()
+        const isActive = current === code
+        return (
+          <button
+            key={lang}
+            onClick={() => i18n.changeLanguage(code)}
+            style={{
+              fontFamily: 'var(--font-body)',
+              fontWeight: 700,
+              fontSize: '0.75rem',
+              padding: '0.25rem 0.625rem',
+              borderRadius: 100,
+              border: isActive ? 'none' : '1px solid var(--color-border)',
+              background: isActive ? 'var(--color-magenta)' : 'transparent',
+              color: isActive ? '#fff' : 'var(--color-ink-faint)',
+              cursor: 'pointer',
+              letterSpacing: '0.04em',
+              transition: 'all 0.18s ease',
+              lineHeight: 1,
+            }}
+            onMouseEnter={(e) => {
+              if (!isActive) {
+                (e.currentTarget as HTMLButtonElement).style.background = 'var(--color-magenta-pale)'
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (!isActive) {
+                (e.currentTarget as HTMLButtonElement).style.background = 'transparent'
+              }
+            }}
+            aria-label={`Switch to ${lang}`}
+            aria-pressed={isActive}
+          >
+            {lang}
+          </button>
+        )
+      })}
+    </div>
+  )
+}
+
+function NavLink({
+  label,
+  href,
+  isActive,
+  onClick,
+}: {
+  label: string
+  href: string
+  isActive: boolean
+  onClick: () => void
+}) {
   const prefersReducedMotion = useReducedMotion()
   const [hovered, setHovered] = useState(false)
 
   return (
     <a
-      href={link.href}
+      href={href}
       onClick={onClick}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -71,8 +135,7 @@ function NavLink({ link, isActive, onClick }: { link: typeof navLinks[0]; isActi
         position: 'relative',
       }}
     >
-      {link.label}
-      {/* Animated underline draw on hover (non-active) */}
+      {label}
       {!isActive && !prefersReducedMotion && (
         <motion.span
           aria-hidden="true"
@@ -96,10 +159,18 @@ function NavLink({ link, isActive, onClick }: { link: typeof navLinks[0]; isActi
 }
 
 export default function Header() {
+  const { t } = useTranslation()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeLink, setActiveLink] = useState<string | null>(null)
   const prefersReducedMotion = useReducedMotion()
+
+  const navLinks = [
+    { label: t('nav.programme'), href: '#why' },
+    { label: t('nav.forSMEs'), href: '#pains' },
+    { label: t('nav.howItWorks'), href: '#how-it-works' },
+    { label: t('nav.faq'), href: '#faq' },
+  ]
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 48)
@@ -184,7 +255,8 @@ export default function Header() {
             {navLinks.map((link) => (
               <NavLink
                 key={link.href}
-                link={link}
+                label={link.label}
+                href={link.href}
                 isActive={activeLink === link.href}
                 onClick={() => setActiveLink(link.href)}
               />
@@ -193,6 +265,7 @@ export default function Header() {
         </nav>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <LangSwitcher />
           <MagneticCTA />
 
           {/* Hamburger */}
@@ -266,8 +339,11 @@ export default function Header() {
                       borderRadius: 100,
                     }}
                   >
-                    Express interest
+                    {t('nav.expressInterest')}
                   </a>
+                </li>
+                <li>
+                  <LangSwitcher mobile />
                 </li>
               </ul>
             </nav>

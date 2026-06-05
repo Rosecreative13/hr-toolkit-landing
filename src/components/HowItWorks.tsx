@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion, useReducedMotion, type Transition } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import GridBg from './marks/GridBg'
 import Arrow from './marks/Arrow'
 import DotGrid from './marks/DotGrid'
@@ -16,38 +17,7 @@ import {
 
 const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as [number, number, number, number]
 
-const steps = [
-  {
-    number: 1,
-    title: 'Express interest',
-    description: 'Submit a short expression of interest form. No lengthy paperwork required at this stage.',
-  },
-  {
-    number: 2,
-    title: 'Selection',
-    description: 'The programme team reviews applications and selects 50 participating SMEs across the six regions.',
-  },
-  {
-    number: 3,
-    title: 'Baseline assessment',
-    description: 'A brief diagnostic to understand your current recruitment and onboarding practices.',
-  },
-  {
-    number: 4,
-    title: 'Toolkit and workshops',
-    description: 'You receive your customised HR Toolkit and participate in facilitated practical workshops.',
-  },
-  {
-    number: 5,
-    title: 'Mentoring support',
-    description: 'Access to mentoring circles with expert facilitators and peer SMEs throughout the programme.',
-  },
-  {
-    number: 6,
-    title: 'Practical implementation',
-    description: "You apply the tools in your company's day-to-day hiring and onboarding with ongoing support.",
-  },
-]
+type Step = { number: number; title: string; description: string }
 
 /** Illustration component per step */
 const STEP_ILLUSTRATIONS = [
@@ -117,7 +87,7 @@ function StepCircle({
   blobBorder,
   flyDir,
 }: {
-  step: typeof steps[0]
+  step: Step
   delay: number
   blobColor: string
   blobBorder: string
@@ -337,7 +307,17 @@ function CurvedDownArrow() {
 }
 
 export default function HowItWorks() {
+  const { t } = useTranslation()
   const prefersReducedMotion = useReducedMotion()
+
+  const steps = [
+    { number: 1, title: t('howItWorks.step1.title'), description: t('howItWorks.step1.description') },
+    { number: 2, title: t('howItWorks.step2.title'), description: t('howItWorks.step2.description') },
+    { number: 3, title: t('howItWorks.step3.title'), description: t('howItWorks.step3.description') },
+    { number: 4, title: t('howItWorks.step4.title'), description: t('howItWorks.step4.description') },
+    { number: 5, title: t('howItWorks.step5.title'), description: t('howItWorks.step5.description') },
+    { number: 6, title: t('howItWorks.step6.title'), description: t('howItWorks.step6.description') },
+  ]
 
   return (
     <section
@@ -439,8 +419,8 @@ export default function HowItWorks() {
                 marginBottom: '0.75rem',
               }}
             >
-              How the programme{' '}
-              <span style={{ color: 'var(--ill-teal)' }}>works</span>
+              {t('howItWorks.heading')}{' '}
+              <span style={{ color: 'var(--ill-teal)' }}>{t('howItWorks.headingColored')}</span>
             </motion.h2>
           </div>
 
@@ -453,7 +433,7 @@ export default function HowItWorks() {
           >
             <Arrow direction="right" length={48} color="var(--ill-teal)" strokeWidth={1.5} drawOn drawDelay={0.3} />
             <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.875rem', color: 'var(--color-ink-faint)' }}>
-              Six steps. Practical support, step by step.
+              {t('howItWorks.subhead')}
             </span>
           </motion.div>
         </div>
@@ -556,8 +536,7 @@ export default function HowItWorks() {
               margin: 0,
             }}
           >
-            Practical support for SMEs{' '}
-            <span style={{ color: 'var(--ill-teal)' }}>at every stage</span>.
+            {t('howItWorks.footer')}
           </p>
           <Arrow direction="right" length={36} color="var(--ill-teal)" strokeWidth={1.5} style={{ flexShrink: 0, marginLeft: 'auto' }} />
         </motion.div>

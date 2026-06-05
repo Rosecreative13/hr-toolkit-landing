@@ -1,47 +1,13 @@
 import { useState } from 'react'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import GridBg from './marks/GridBg'
 import Star from './marks/Star'
 import CircledWord from './marks/CircledWord'
 import { faqContentVariants, scatterIn, VIEWPORT_ONCE } from '../lib/motion'
 
 
-const faqs = [
-  {
-    question: 'Is participation free of charge?',
-    answer: 'Yes, participation is fully free of charge for selected SMEs. There are no fees at any stage of the programme, from application through to the final implementation phase. The programme is donor-funded and designed to be accessible to companies of all sizes.',
-  },
-  {
-    question: 'Who can apply?',
-    answer: 'Any small or medium enterprise operating in one of the six programme regions (Bălți, Chișinău, Edineț, Orhei, Soroca, or Ungheni) that has current or planned hiring needs and is willing to employ young people. Companies do not need prior experience with structured HR processes.',
-  },
-  {
-    question: 'Does the company need to have an HR department?',
-    answer: 'No. The programme is specifically designed for companies that do not have a dedicated HR function. If HR tasks currently fall to a manager, director, or whoever is available, this programme is for you. You will need to designate one contact person to coordinate participation.',
-  },
-  {
-    question: 'Will the programme provide employees or candidates?',
-    answer: 'No. The programme does not source or provide candidates. It gives your company the tools and knowledge to improve your own recruitment process, so you can find and keep the right people more effectively. Candidate sourcing remains the responsibility of the company.',
-  },
-  {
-    question: 'What time commitment is required?',
-    answer: "The programme is designed to fit around a working company's schedule. Expect a modest commitment of a few hours per month, mainly for workshops and check-in sessions. The toolkit materials can be implemented gradually, at your own pace.",
-  },
-  {
-    question: 'What information will be collected?',
-    answer: 'Basic company information and current HR practices will be gathered through a short baseline assessment at the start. All data is treated as confidential and used only for programme delivery. Results are reported in aggregate form only, so no individual company can be identified.',
-  },
-  {
-    question: 'Will the materials be available in Romanian and Russian?',
-    answer: 'Yes. All programme materials, including the HR Toolkit, workshop guides, and documentation, are planned to be available in both Romanian and Russian to ensure accessibility across participating regions.',
-  },
-  {
-    question: 'What happens after submitting the expression of interest?',
-    answer: 'The programme team will review all expressions of interest and contact applicants within approximately 10 working days. If your company is selected, you will receive details about the next steps, including the baseline assessment and programme schedule.',
-  },
-]
-
-function FAQItem({ faq, index }: { faq: typeof faqs[0]; index: number }) {
+function FAQItem({ faq, index }: { faq: { question: string; answer: string }; index: number }) {
   const [open, setOpen] = useState(false)
   const prefersReducedMotion = useReducedMotion()
   const scatter = scatterIn(index)
@@ -162,7 +128,19 @@ function FAQItem({ faq, index }: { faq: typeof faqs[0]; index: number }) {
 }
 
 export default function FAQ() {
+  const { t } = useTranslation()
   const prefersReducedMotion = useReducedMotion()
+
+  const faqs = [
+    { question: t('faq.q1'), answer: t('faq.a1') },
+    { question: t('faq.q2'), answer: t('faq.a2') },
+    { question: t('faq.q3'), answer: t('faq.a3') },
+    { question: t('faq.q4'), answer: t('faq.a4') },
+    { question: t('faq.q5'), answer: t('faq.a5') },
+    { question: t('faq.q6'), answer: t('faq.a6') },
+    { question: t('faq.q7'), answer: t('faq.a7') },
+    { question: t('faq.q8'), answer: t('faq.a8') },
+  ]
 
   return (
     <section
@@ -232,8 +210,8 @@ export default function FAQ() {
                 color: 'var(--color-ink)',
               }}
             >
-              Frequently{' '}
-              <CircledWord inView>asked</CircledWord>
+              {t('faq.heading')}{' '}
+              <CircledWord inView>{t('faq.headingCircled')}</CircledWord>
             </motion.h2>
           </div>
         </div>

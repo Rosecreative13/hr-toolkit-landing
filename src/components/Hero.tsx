@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import type { Easing } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import GridBg from './marks/GridBg'
 import Star from './marks/Star'
 import Arrow from './marks/Arrow'
@@ -37,6 +38,7 @@ function MagneticButton({ children, style, ...props }: React.ButtonHTMLAttribute
 }
 
 export default function Hero() {
+  const { t } = useTranslation()
   const prefersReducedMotion = useReducedMotion()
   const heroRef = useRef<HTMLElement>(null)
 
@@ -135,7 +137,7 @@ export default function Hero() {
                   color: 'var(--color-ink-muted)',
                 }}
               >
-                HR Toolkit Programme for SMEs
+                {t('hero.eyebrow')}
               </span>
             </div>
           </motion.div>
@@ -160,7 +162,7 @@ export default function Hero() {
                   variants={lineVariant(0.1, -4)}
                   style={{ display: 'block' }}
                 >
-                  Better hiring.
+                  {t('hero.line1')}
                 </motion.span>
               </span>
               <span style={{ display: 'block', overflow: 'hidden' }}>
@@ -170,8 +172,8 @@ export default function Hero() {
                   variants={lineVariant(0.24, -2)}
                   style={{ display: 'block' }}
                 >
-                  Better{' '}
-                  <CircledWord inView>onboarding</CircledWord>.
+                  {t('hero.line2')}{' '}
+                  <CircledWord inView>{t('hero.line2Circled')}</CircledWord>.
                 </motion.span>
               </span>
               <span style={{ display: 'block', overflow: 'hidden' }}>
@@ -181,7 +183,7 @@ export default function Hero() {
                   variants={lineVariant(0.38, -5)}
                   style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}
                 >
-                  Better retention
+                  {t('hero.line3')}
                   <DotTriplet color="var(--color-magenta)" size={7} />
                 </motion.span>
               </span>
@@ -202,7 +204,7 @@ export default function Hero() {
               marginBottom: '2rem',
             }}
           >
-            Practical HR support for SMEs in recruitment, onboarding and early retention of young employees. Free of charge. 50 places.
+            {t('hero.subhead')}
           </motion.p>
 
           {/* Email pill CTA — magnetic button */}
@@ -227,14 +229,14 @@ export default function Hero() {
               }}
             >
               <label htmlFor="hero-email" className="sr-only">
-                Your email address
+                {t('hero.emailPlaceholder')}
               </label>
               <input
                 id="hero-email"
                 type="email"
-                placeholder="Enter your email"
+                placeholder={t('hero.emailPlaceholder')}
                 required
-                aria-label="Email address"
+                aria-label={t('hero.emailPlaceholder')}
                 style={{
                   flex: 1,
                   border: 'none',
@@ -264,7 +266,7 @@ export default function Hero() {
                   overflow: 'hidden',
                 }}
               >
-                <span style={{ position: 'relative', zIndex: 1 }}>Express interest</span>
+                <span style={{ position: 'relative', zIndex: 1 }}>{t('hero.cta')}</span>
                 {/* Fill-slide on hover */}
                 {!prefersReducedMotion && (
                   <motion.span

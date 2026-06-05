@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import Star from './marks/Star'
 import GridBg from './marks/GridBg'
 import { flyInFrom, popRotate, VIEWPORT_ONCE } from '../lib/motion'
@@ -6,6 +7,7 @@ import { flyInFrom, popRotate, VIEWPORT_ONCE } from '../lib/motion'
 const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as [number, number, number, number]
 
 export default function Confidentiality() {
+  const { t } = useTranslation()
   const prefersReducedMotion = useReducedMotion()
 
   return (
@@ -129,7 +131,7 @@ export default function Confidentiality() {
                   lineHeight: 1.08,
                 }}
               >
-                Participation and confidentiality
+                {t('confidentiality.heading')}
               </motion.h2>
             </div>
 
@@ -151,7 +153,7 @@ export default function Confidentiality() {
                   margin: 0,
                 }}
               >
-                Your information is handled responsibly.
+                {t('confidentiality.subheading')}
               </p>
             </motion.div>
           </div>
@@ -170,9 +172,9 @@ export default function Confidentiality() {
             }}
           >
             {[
-              'Participation in the HR Toolkit Programme is entirely voluntary. Companies may withdraw at any stage without consequences.',
-              'Information shared during the programme, including assessment results and internal HR practices, will be treated as confidential. Data will be used solely for programme delivery and aggregate reporting. No company-specific information will be shared externally without prior consent.',
-              'Aggregate findings may be used to inform future programme design and policy discussions, in a form that does not identify individual companies or employees.',
+              t('confidentiality.para1'),
+              t('confidentiality.para2'),
+              t('confidentiality.para3'),
             ].map((text, i) => (
               <motion.p
                 key={i}

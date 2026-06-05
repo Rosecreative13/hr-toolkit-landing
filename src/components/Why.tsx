@@ -2,6 +2,7 @@ import React from 'react'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import GridBg from './marks/GridBg'
 import Star from './marks/Star'
 import Arrow from './marks/Arrow'
@@ -106,13 +107,7 @@ function StatBlock({
   )
 }
 
-const stats = [
-  { num: '50', label: 'SMEs selected', sub: 'across Moldova', numericVal: 50 },
-  { num: '6', label: 'Programme regions', sub: 'Bălți · Chișinău · Edineț · Orhei · Soroca · Ungheni', numericVal: 6 },
-  { num: '100%', label: 'Free of charge', sub: 'No fees at any stage', suffix: '%', numericVal: 100 },
-]
-
-const TOPIC_CHIPS = ['Recruitment', 'Onboarding', 'Retention']
+const TOPIC_CHIPS_KEYS = ['Recruitment', 'Onboarding', 'Retention']
 
 /** Amber hand-drawn squiggle SVG */
 function AmberSquiggle({ style }: { style?: React.CSSProperties }) {
@@ -191,7 +186,14 @@ function IllustrationBlobDivider() {
 }
 
 export default function Why() {
+  const { t } = useTranslation()
   const prefersReducedMotion = useReducedMotion()
+
+  const stats = [
+    { num: t('why.stat1.num'), label: t('why.stat1.label'), sub: t('why.stat1.sub'), numericVal: 50 },
+    { num: t('why.stat2.num'), label: t('why.stat2.label'), sub: t('why.stat2.sub'), numericVal: 6 },
+    { num: t('why.stat3.num'), label: t('why.stat3.label'), sub: t('why.stat3.sub'), suffix: '%', numericVal: 100 },
+  ]
 
   return (
     <section
@@ -318,7 +320,7 @@ export default function Why() {
                     color: 'var(--ill-teal)',
                   }}
                 >
-                  The programme
+                  {t('why.eyebrow')}
                 </span>
               </motion.div>
 
@@ -339,9 +341,9 @@ export default function Why() {
                     textWrap: 'balance' as React.CSSProperties['textWrap'],
                   }}
                 >
-                  Why this programme{' '}
+                  {t('why.heading')}{' '}
                   <CircledWord inView color="var(--ill-teal)">
-                    matters
+                    {t('why.headingCircled')}
                   </CircledWord>
                 </motion.h2>
               </div>
@@ -370,7 +372,7 @@ export default function Why() {
                     fontWeight: 500,
                   }}
                 >
-                  Practical tools. Real results.
+                  {t('why.tag')}
                 </span>
               </motion.div>
 
@@ -388,7 +390,7 @@ export default function Why() {
             >
               <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
                 <Sparkle size={9} style={{ flexShrink: 0 }} />
-                {TOPIC_CHIPS.map((chip, i) => (
+                {TOPIC_CHIPS_KEYS.map((chip, i) => (
                   <motion.span
                     key={chip}
                     initial={prefersReducedMotion ? {} : { scale: 0.8, opacity: 0 }}
@@ -538,15 +540,9 @@ export default function Why() {
                 paddingTop: '0.5rem',
               }}
             >
-              <p>
-                Many small and medium enterprises across Moldova want to grow but face the same obstacles: finding suitable employees, keeping them engaged after they start, and building consistent practices without a dedicated HR team.
-              </p>
-              <p>
-                The HR Toolkit Programme addresses these challenges with practical tools, not theoretical frameworks. It is designed for companies that operate with lean teams, limited HR expertise and real hiring pressures.
-              </p>
-              <p>
-                Participation is free. The tools are yours to keep. The goal is lasting improvement in how your company attracts, welcomes and retains the people it needs to grow.
-              </p>
+              <p>{t('why.body1')}</p>
+              <p>{t('why.body2')}</p>
+              <p>{t('why.body3')}</p>
             </motion.div>
 
             {/* Main illustration — MentoringPair, larger blob, prominent */}

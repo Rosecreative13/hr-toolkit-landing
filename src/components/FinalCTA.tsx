@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import Star from './marks/Star'
 import Arrow from './marks/Arrow'
 import DotGrid from './marks/DotGrid'
@@ -58,6 +59,7 @@ function MagneticSubmit({ children }: { children: React.ReactNode }) {
 }
 
 export default function FinalCTA() {
+  const { t } = useTranslation()
   const prefersReducedMotion = useReducedMotion()
 
   return (
@@ -176,7 +178,7 @@ export default function FinalCTA() {
                   color: 'rgba(255,255,255,0.45)',
                 }}
               >
-                Expressions of interest now open
+                {t('cta.eyebrow')}
               </span>
             </motion.div>
 
@@ -196,11 +198,10 @@ export default function FinalCTA() {
                   color: '#fff',
                 }}
               >
-                Interested in{' '}
+                {t('cta.heading')}{' '}
                 <CircledWord inView color="var(--color-magenta)">
-                  joining
-                </CircledWord>{' '}
-                the programme?
+                  {t('cta.headingCircled')}
+                </CircledWord>
               </motion.h2>
             </div>
 
@@ -218,7 +219,7 @@ export default function FinalCTA() {
                 marginBottom: '2rem',
               }}
             >
-              Join the programme and build stronger people practices. Submit your expression of interest and our team will contact you within 10 working days.
+              {t('cta.body')}
             </motion.p>
 
             {/* Email pill CTA — magnetic button */}
@@ -246,7 +247,7 @@ export default function FinalCTA() {
                 <input
                   id="cta-email"
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder={t('cta.emailPlaceholder')}
                   required
                   style={{
                     flex: 1,
@@ -259,7 +260,7 @@ export default function FinalCTA() {
                     minWidth: 0,
                   }}
                 />
-                <MagneticSubmit>Apply now</MagneticSubmit>
+                <MagneticSubmit>{t('cta.button')}</MagneticSubmit>
               </form>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem' }}>
@@ -271,7 +272,7 @@ export default function FinalCTA() {
                     color: 'rgba(255,255,255,0.35)',
                   }}
                 >
-                  Places are limited to 50 SMEs.
+                  {t('cta.note')}
                 </span>
               </div>
             </motion.div>

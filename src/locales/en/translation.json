@@ -1,0 +1,140 @@
+{
+  "nav": {
+    "programme": "Programme",
+    "forSMEs": "For SMEs",
+    "howItWorks": "How it works",
+    "faq": "FAQ",
+    "expressInterest": "Express interest"
+  },
+  "hero": {
+    "eyebrow": "HR Toolkit Programme for SMEs",
+    "line1": "Better hiring.",
+    "line2": "Better",
+    "line2Circled": "onboarding",
+    "line3": "Better retention",
+    "subhead": "Practical HR support for SMEs in recruitment, onboarding and early retention of young employees. Free of charge. 50 places.",
+    "cta": "Express interest",
+    "ctaSecondary": "Learn more",
+    "note": "Places are limited to 50 SMEs.",
+    "emailPlaceholder": "Enter your email"
+  },
+  "why": {
+    "eyebrow": "The programme",
+    "heading": "Why this programme",
+    "headingCircled": "matters",
+    "body1": "Many small and medium enterprises across Moldova want to grow but face the same obstacles: finding suitable employees, keeping them engaged after they start, and building consistent practices without a dedicated HR team.",
+    "body2": "The HR Toolkit Programme addresses these challenges with practical tools, not theoretical frameworks. It is designed for companies that operate with lean teams, limited HR expertise and real hiring pressures.",
+    "body3": "Participation is free. The tools are yours to keep. The goal is lasting improvement in how your company attracts, welcomes and retains the people it needs to grow.",
+    "tag": "Practical tools. Real results.",
+    "stat1": { "num": "50", "label": "SMEs selected", "sub": "across Moldova" },
+    "stat2": { "num": "6", "label": "Programme regions", "sub": "Bălți · Chișinău · Edineț · Orhei · Soroca · Ungheni" },
+    "stat3": { "num": "100%", "label": "Free of charge", "sub": "No fees at any stage" }
+  },
+  "pains": {
+    "heading": "Do these challenges sound",
+    "headingCircled": "familiar?",
+    "subhead": "These challenges are common across Moldova's SMEs",
+    "item1": { "title": "It is difficult to find suitable employees.", "description": "The right candidates are out there, but the process of reaching them is unclear and time-consuming." },
+    "item2": { "title": "New employees leave after a few weeks or months.", "description": "People join and leave within weeks, before they have had the chance to contribute." },
+    "item3": { "title": "Onboarding is informal or improvised.", "description": "Each new hire is welcomed differently. There is no repeatable process." },
+    "item4": { "title": "Supervisors do not have simple tools to support new employees.", "description": "Team leaders want to do better but are given no resources to guide them." },
+    "item5": { "title": "Recruitment takes too much time.", "description": "Hours spent on interviews and paperwork that could be streamlined with clearer templates." },
+    "item6": { "title": "The company does not have a dedicated HR department.", "description": "People decisions fall to an owner, manager or whoever is available, with no playbook to follow." },
+    "item7": { "title": "Young employees need more guidance during adaptation.", "description": "Young new hires need additional support to successfully adapt to the workplace." },
+    "item8": { "title": "Job expectations are not always clear.", "description": "Without a clear job description and expectations, employees do not know what is required of them." },
+    "badge": "The HR Toolkit Programme can help"
+  },
+  "receive": {
+    "heading": "What SMEs",
+    "headingColored": "receive",
+    "subhead": "Nine concrete deliverables — tools, workshops, and peer support — for SMEs without dedicated HR departments.",
+    "footer": "Designed for SMEs without dedicated HR departments.",
+    "item1": { "title": "Practical HR Toolkit", "description": "A structured set of documents and templates you can put to work immediately." },
+    "item2": { "title": "Recruitment templates", "description": "Ready-to-use job description formats and screening checklists." },
+    "item3": { "title": "Structured interview tools", "description": "Question guides and scoring sheets that make candidate comparison consistent." },
+    "item4": { "title": "Onboarding checklists", "description": "Step-by-step lists that ensure every new hire starts well." },
+    "item5": { "title": "Supervisor guidance", "description": "Simple reference materials that help team leaders set expectations clearly." },
+    "item6": { "title": "Retention and feedback tools", "description": "Check-in templates and early-warning indicators for engagement." },
+    "item7": { "title": "Workshops", "description": "Practical, facilitated sessions built around your company's real situations." },
+    "item8": { "title": "Mentoring circles", "description": "Small-group sessions with expert facilitators and peer SMEs." },
+    "item9": { "title": "Peer learning", "description": "Structured opportunities to learn from companies in similar situations across the region." }
+  },
+  "map": {
+    "heading": "Who",
+    "headingColored": "can apply?",
+    "subhead": "SMEs from six selected regions of Moldova. The criteria are straightforward.",
+    "criteria1": "Employs or is willing to employ young people",
+    "criteria2": "Has current or planned hiring needs",
+    "criteria3": "Wants to improve recruitment and onboarding practices",
+    "criteria4": "Is open to testing practical HR tools",
+    "criteria5": "Can designate a contact person for the programme",
+    "tag1": "SMEs",
+    "tag2": "Young employee focus",
+    "tag3": "Practical HR support"
+  },
+  "howItWorks": {
+    "heading": "How the programme",
+    "headingColored": "works",
+    "subhead": "Six steps. Practical support, step by step.",
+    "step1": { "title": "Express interest", "description": "Submit a short expression of interest form. No lengthy paperwork required at this stage." },
+    "step2": { "title": "Selection", "description": "The programme team reviews applications and selects 50 participating SMEs across the six regions." },
+    "step3": { "title": "Baseline assessment", "description": "A brief diagnostic to understand your current recruitment and onboarding practices." },
+    "step4": { "title": "Toolkit and workshops", "description": "You receive your customised HR Toolkit and participate in facilitated practical workshops." },
+    "step5": { "title": "Mentoring support", "description": "Access to mentoring circles with expert facilitators and peer SMEs throughout the programme." },
+    "step6": { "title": "Practical implementation", "description": "You apply the tools in your company's day-to-day hiring and onboarding with ongoing support." },
+    "footer": "Practical support for SMEs at every stage."
+  },
+  "notAbout": {
+    "heading": "What the programme is",
+    "headingColored": "not",
+    "subhead": "Clarity matters. These boundaries are here so companies know exactly what they are joining and can make an informed decision.",
+    "item1": "An inspection or audit of your HR practices",
+    "item2": "A grant competition with scoring criteria",
+    "item3": "A direct recruitment service",
+    "item4": "A guarantee that candidates will be provided",
+    "item5": "A complex HR certification process",
+    "item6": "A one-time theoretical training session",
+    "restatement": "It is practical support for real SME challenges.",
+    "restatementSub": "Hands-on. Results-focused. Free."
+  },
+  "faq": {
+    "heading": "Frequently",
+    "headingCircled": "asked",
+    "q1": "Is participation free of charge?",
+    "a1": "Participation conditions will be confirmed in the official invitation and registration information.",
+    "q2": "Does my company need to have an HR department?",
+    "a2": "No. The programme is specifically designed for SMEs that may not have dedicated HR departments.",
+    "q3": "Will the programme provide employees or candidates?",
+    "a3": "No. The programme is not a recruitment service. It helps companies improve how they recruit, onboard and retain employees.",
+    "q4": "Can we apply if we do not have current vacancies?",
+    "a4": "Yes, if your company is planning to hire or wants to improve recruitment, onboarding and retention practices.",
+    "q5": "How much time will participation require?",
+    "a5": "Participating SMEs should be ready to complete a short baseline assessment, attend practical workshops and take part in mentoring or implementation support activities.",
+    "q6": "Who should participate from the company?",
+    "a6": "The best participants are owners, directors, managers, supervisors or people responsible for recruitment, onboarding or employee management.",
+    "q7": "Will company information remain confidential?",
+    "a7": "Yes. Information will be used for project purposes and reporting in aggregated form. Individual company information will not be publicly disclosed without prior agreement.",
+    "q8": "What happens after we submit the expression of interest?",
+    "a8": "The project team will review submitted forms and contact eligible companies with the next steps."
+  },
+  "cta": {
+    "heading": "Interested in",
+    "headingCircled": "joining",
+    "body": "Submit your expression of interest and our team will contact you with the next steps.",
+    "button": "Express interest now",
+    "note": "Places are limited to 50 SMEs from Bălți, Chișinău, Edineț, Orhei, Soroca and Ungheni.",
+    "emailPlaceholder": "Enter your email",
+    "eyebrow": "Expressions of interest now open"
+  },
+  "footer": {
+    "tagline": "Stronger teams. Stronger businesses. Stronger communities.",
+    "description": "Practical HR support for SMEs in Moldova."
+  },
+  "confidentiality": {
+    "heading": "Participation and confidentiality",
+    "subheading": "Your information is handled responsibly.",
+    "para1": "Participation in the HR Toolkit Programme is entirely voluntary. Companies may withdraw at any stage without consequences.",
+    "para2": "Information shared during the programme, including assessment results and internal HR practices, will be treated as confidential. Data will be used solely for programme delivery and aggregate reporting. No company-specific information will be shared externally without prior consent.",
+    "para3": "Aggregate findings may be used to inform future programme design and policy discussions, in a form that does not identify individual companies or employees."
+  }
+}
