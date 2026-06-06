@@ -23,7 +23,7 @@
     "tagline": "Recrutare mai clară. Integrare mai bună. Retenție mai puternică.",
     "cta": "Exprimă interesul",
     "ctaSecondary": "Află mai multe",
-    "note": "Numărul de locuri este limitat la 50 de IMM-uri.",
+    "note": "Notă: Numărul de locuri este limitat la 50 de IMM-uri.",
     "emailPlaceholder": "Introduceți adresa de email",
     "icon1": "Instrumente HR practice",
     "icon2": "Ateliere",
@@ -32,6 +32,13 @@
     "regionsLabel": "REGIUNI",
     "imageAlt": "Echipă de afaceri colaborând într-un birou",
     "rotatingBadge": "SUPORT HR PRACTIC PENTRU IMM-URI"
+  },
+  "summary": {
+    "eyebrow": "Rezumatul programului",
+    "heading": "Suport HR practic pentru provocările reale ale IMM-urilor",
+    "subheading": "Suport practic, nu birocrație complicată",
+    "body1": "Multe IMM-uri se confruntă cu provocări similare: este dificil să găsească angajați potriviți, noii angajați pot pleca prea repede, integrarea este adesea informală, iar managerii nu au întotdeauna instrumente simple pentru a sprijini angajații încă din prima zi de lucru.",
+    "body2": "Acest program oferă suport practic, nu birocrație complicată. IMM-urile participante vor primi instrumente gata de utilizare, ghidare, ateliere și suport de mentorat pentru îmbunătățirea recrutării, integrării, adaptării și retenției timpurii."
   },
   "why": {
     "eyebrow": "Programul",

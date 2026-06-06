@@ -268,7 +268,7 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
             variants={ctaVariant}
-            style={{ marginBottom: '1rem' }}
+            style={{ marginBottom: '0.75rem' }}
           >
             <form
               className="hero-form"
@@ -343,6 +343,36 @@ export default function Hero() {
                 )}
               </MagneticButton>
             </form>
+          </motion.div>
+
+          {/* Programme capacity note */}
+          <motion.div
+            className="hero-note"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 8 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.42, ease: EASE_OUT_EXPO, delay: 0.6 } },
+            }}
+            style={{
+              display: 'flex',
+              alignItems: 'flex-start',
+              gap: '0.625rem',
+              maxWidth: 460,
+              marginBottom: '1.25rem',
+            }}
+          >
+            <Arrow direction="right" length={28} color="var(--color-magenta)" strokeWidth={1.5} drawOn drawDelay={0.65} />
+            <span
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: '0.8125rem',
+                lineHeight: 1.55,
+                color: 'var(--color-ink-faint)',
+              }}
+            >
+              {t('hero.note')}
+            </span>
           </motion.div>
 
           {/* Secondary CTA */}
@@ -685,6 +715,9 @@ export default function Hero() {
             white-space: normal !important;
             text-align: center !important;
             padding: 0.7rem 1rem !important;
+          }
+          .hero-note {
+            max-width: 100% !important;
           }
         }
       `}</style>

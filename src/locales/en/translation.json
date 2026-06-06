@@ -23,7 +23,7 @@
     "tagline": "Better hiring. Better onboarding. Better retention.",
     "cta": "Express interest",
     "ctaSecondary": "Learn more",
-    "note": "Places are limited to 50 SMEs.",
+    "note": "Note: Places are limited to 50 SMEs.",
     "emailPlaceholder": "Enter your email",
     "icon1": "Practical HR tools",
     "icon2": "Workshops",
@@ -32,6 +32,13 @@
     "regionsLabel": "REGIONS",
     "imageAlt": "Business team collaborating in an office",
     "rotatingBadge": "PRACTICAL HR SUPPORT FOR SMES"
+  },
+  "summary": {
+    "eyebrow": "Short programme summary",
+    "heading": "Practical HR support for real SME challenges",
+    "subheading": "Practical support, not complex bureaucracy",
+    "body1": "Many SMEs face similar challenges: it is difficult to find suitable employees, new hires may leave too quickly, onboarding is often informal, and managers may not always have simple tools to support employees from the first day at work.",
+    "body2": "This programme provides practical support, not complex bureaucracy. Participating SMEs will receive ready-to-use tools, guidance, workshops and mentoring to improve recruitment, onboarding, integration and early retention."
   },
   "why": {
     "eyebrow": "The programme",

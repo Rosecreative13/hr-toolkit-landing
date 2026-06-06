@@ -1,6 +1,7 @@
 import './index.css'
 import Header from './components/Header'
 import Hero from './components/Hero'
+import ProgrammeSummary from './components/ProgrammeSummary'
 import Why from './components/Why'
 import Pains from './components/Pains'
 import Receive from './components/Receive'
@@ -18,6 +19,7 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <ProgrammeSummary />
         <Why />
         <Pains />
         <Receive />
