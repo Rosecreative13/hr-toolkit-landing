@@ -75,8 +75,12 @@ export default function LanguagesMaterials() {
               {t('languagesMaterials.eyebrow')}
             </span>
           </div>
-          <h2
+          <motion.h2
             className="lm-heading"
+            initial={prefersReducedMotion ? {} : { opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={VIEWPORT_ONCE}
+            transition={{ duration: 0.55, ease: [0.25, 1, 0.5, 1], delay: 0.05 }}
             style={{
               fontFamily: 'var(--font-display)',
               fontWeight: 700,
@@ -88,7 +92,7 @@ export default function LanguagesMaterials() {
             }}
           >
             {t('languagesMaterials.heading')}
-          </h2>
+          </motion.h2>
         </motion.div>
 
         <motion.div

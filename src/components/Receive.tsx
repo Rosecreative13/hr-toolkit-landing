@@ -7,8 +7,6 @@ import Arrow from './marks/Arrow'
 import { scatterIn, useTiltOnHover, VIEWPORT_ONCE } from '../lib/motion'
 import { RECEIVE_ICONS } from './illustrations'
 
-const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as [number, number, number, number]
-
 type Deliverable = { num: number; title: string; description: string }
 
 function DeliverableCard({ item, i }: { item: Deliverable; i: number }) {
@@ -261,25 +259,23 @@ export default function Receive() {
           }}
           className="receive-header"
         >
-          <div style={{ overflow: 'hidden' }}>
-            <motion.h2
-              initial={prefersReducedMotion ? {} : { clipPath: 'inset(0 100% 0 0)', skewX: -2 }}
-              whileInView={{ clipPath: 'inset(0 0% 0 0)', skewX: 0 }}
-              viewport={VIEWPORT_ONCE}
-              transition={{ duration: 0.72, ease: EASE_OUT_EXPO, delay: 0.05 }}
-              style={{
-                fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(2.25rem, 4.5vw, 3.75rem)',
-                fontWeight: 700,
-                lineHeight: 1.02,
-                letterSpacing: '-0.035em',
-                color: 'var(--color-ink)',
-              }}
-            >
-              {t('receive.heading')}{' '}
-              <span style={{ color: 'var(--ill-teal)' }}>{t('receive.headingColored')}</span>
-            </motion.h2>
-          </div>
+          <motion.h2
+            initial={prefersReducedMotion ? {} : { opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={VIEWPORT_ONCE}
+            transition={{ duration: 0.55, ease: [0.25, 1, 0.5, 1], delay: 0.05 }}
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(2.25rem, 4.5vw, 3.75rem)',
+              fontWeight: 700,
+              lineHeight: 1.02,
+              letterSpacing: 0,
+              color: 'var(--color-ink)',
+            }}
+          >
+            {t('receive.heading')}{' '}
+            <span style={{ color: 'var(--ill-teal)' }}>{t('receive.headingColored')}</span>
+          </motion.h2>
 
           <motion.div
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 16 }}
