@@ -8,6 +8,7 @@ import Receive from './components/Receive'
 import Map from './components/Map'
 import HowItWorks from './components/HowItWorks'
 import NotAbout from './components/NotAbout'
+import LanguagesMaterials from './components/LanguagesMaterials'
 import Confidentiality from './components/Confidentiality'
 import FAQ from './components/FAQ'
 import FinalCTA from './components/FinalCTA'
@@ -26,6 +27,7 @@ function App() {
         <Map />
         <HowItWorks />
         <NotAbout />
+        <LanguagesMaterials />
         <Confidentiality />
         <FAQ />
         <FinalCTA />

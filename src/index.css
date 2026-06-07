@@ -50,10 +50,14 @@ a {
 }
 
 section[id] {
-  scroll-margin-top: 5.5rem;
+  scroll-margin-top: clamp(7rem, 10vw, 9rem);
 }
 
 @media (max-width: 768px) {
+  section[id] {
+    scroll-margin-top: 8.5rem;
+  }
+
   .circled-heading {
     line-height: 1.2 !important;
   }
