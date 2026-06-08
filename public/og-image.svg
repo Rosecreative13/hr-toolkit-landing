@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <!-- Navy background -->
+  <rect width="1200" height="630" fill="#0B2A5B"/>
+
+  <!-- Teal grid dots — top right decoration -->
+  <g opacity="0.18">
+    <circle cx="900" cy="60"  r="4" fill="#1FA8A0"/><circle cx="940" cy="60"  r="4" fill="#1FA8A0"/><circle cx="980" cy="60"  r="4" fill="#1FA8A0"/><circle cx="1020" cy="60" r="4" fill="#1FA8A0"/><circle cx="1060" cy="60" r="4" fill="#1FA8A0"/><circle cx="1100" cy="60" r="4" fill="#1FA8A0"/><circle cx="1140" cy="60" r="4" fill="#1FA8A0"/>
+    <circle cx="900" cy="100" r="4" fill="#1FA8A0"/><circle cx="940" cy="100" r="4" fill="#1FA8A0"/><circle cx="980" cy="100" r="4" fill="#1FA8A0"/><circle cx="1020" cy="100" r="4" fill="#1FA8A0"/><circle cx="1060" cy="100" r="4" fill="#1FA8A0"/><circle cx="1100" cy="100" r="4" fill="#1FA8A0"/><circle cx="1140" cy="100" r="4" fill="#1FA8A0"/>
+    <circle cx="900" cy="140" r="4" fill="#1FA8A0"/><circle cx="940" cy="140" r="4" fill="#1FA8A0"/><circle cx="980" cy="140" r="4" fill="#1FA8A0"/><circle cx="1020" cy="140" r="4" fill="#1FA8A0"/><circle cx="1060" cy="140" r="4" fill="#1FA8A0"/><circle cx="1100" cy="140" r="4" fill="#1FA8A0"/><circle cx="1140" cy="140" r="4" fill="#1FA8A0"/>
+    <circle cx="900" cy="180" r="4" fill="#1FA8A0"/><circle cx="940" cy="180" r="4" fill="#1FA8A0"/><circle cx="980" cy="180" r="4" fill="#1FA8A0"/><circle cx="1020" cy="180" r="4" fill="#1FA8A0"/><circle cx="1060" cy="180" r="4" fill="#1FA8A0"/><circle cx="1100" cy="180" r="4" fill="#1FA8A0"/><circle cx="1140" cy="180" r="4" fill="#1FA8A0"/>
+  </g>
+
+  <!-- Amber dots — bottom left decoration -->
+  <g opacity="0.22">
+    <circle cx="60"  cy="480" r="4" fill="#F5A623"/><circle cx="100" cy="480" r="4" fill="#F5A623"/><circle cx="140" cy="480" r="4" fill="#F5A623"/>
+    <circle cx="60"  cy="520" r="4" fill="#F5A623"/><circle cx="100" cy="520" r="4" fill="#F5A623"/><circle cx="140" cy="520" r="4" fill="#F5A623"/>
+    <circle cx="60"  cy="560" r="4" fill="#F5A623"/><circle cx="100" cy="560" r="4" fill="#F5A623"/><circle cx="140" cy="560" r="4" fill="#F5A623"/>
+  </g>
+
+  <!-- Big HR monogram — left side -->
+  <g transform="translate(80, 155)">
+    <!-- H -->
+    <rect x="0"   y="0" width="28" height="160" rx="8" fill="#1FA8A0"/>
+    <rect x="72"  y="0" width="28" height="160" rx="8" fill="#1FA8A0"/>
+    <rect x="0"   y="66" width="100" height="28" rx="8" fill="#1FA8A0"/>
+    <!-- R -->
+    <rect x="120" y="0" width="28" height="160" rx="8" fill="#1FA8A0"/>
+    <!-- R bump -->
+    <path d="M148 0 H188 A36 36 0 0 1 188 72 H148 Z" fill="#1FA8A0"/>
+    <!-- R leg -->
+    <path d="M188 72 L220 160 H188 L160 72 Z" fill="#1FA8A0"/>
+  </g>
+
+  <!-- Vertical divider -->
+  <rect x="400" y="120" width="2" height="390" fill="#1FA8A0" opacity="0.35"/>
+
+  <!-- Right side text content -->
+  <!-- Eyebrow tag -->
+  <rect x="440" y="140" width="220" height="36" rx="18" fill="#1FA8A0" opacity="0.18"/>
+  <text x="550" y="164" font-family="system-ui, Arial, sans-serif" font-size="18" font-weight="600" fill="#1FA8A0" text-anchor="middle" letter-spacing="2">MOLDOVA · IMM</text>
+
+  <!-- Main title -->
+  <text x="440" y="250" font-family="system-ui, Arial Black, sans-serif" font-size="72" font-weight="900" fill="white" letter-spacing="-2">HR Toolkit</text>
+  <text x="440" y="330" font-family="system-ui, Arial Black, sans-serif" font-size="72" font-weight="900" fill="white" letter-spacing="-2">Programme</text>
+
+  <!-- Teal accent underline -->
+  <rect x="440" y="350" width="120" height="5" rx="2.5" fill="#1FA8A0"/>
+
+  <!-- Subtitle -->
+  <text x="440" y="410" font-family="system-ui, Arial, sans-serif" font-size="26" fill="white" opacity="0.7">Suport HR practic pentru IMM-uri</text>
+  <text x="440" y="448" font-family="system-ui, Arial, sans-serif" font-size="26" fill="white" opacity="0.7">din 6 regiuni ale Moldovei</text>
+
+  <!-- 3 stat pills -->
+  <rect x="440" y="490" width="130" height="42" rx="21" fill="#1FA8A0" opacity="0.18" stroke="#1FA8A0" stroke-width="1.5"/>
+  <text x="505" y="517" font-family="system-ui, Arial, sans-serif" font-size="16" font-weight="700" fill="#1FA8A0" text-anchor="middle">50 IMM-uri</text>
+
+  <rect x="590" y="490" width="110" height="42" rx="21" fill="#1FA8A0" opacity="0.18" stroke="#1FA8A0" stroke-width="1.5"/>
+  <text x="645" y="517" font-family="system-ui, Arial, sans-serif" font-size="16" font-weight="700" fill="#1FA8A0" text-anchor="middle">6 regiuni</text>
+
+  <rect x="720" y="490" width="110" height="42" rx="21" fill="#F5A623" opacity="0.18" stroke="#F5A623" stroke-width="1.5"/>
+  <text x="775" y="517" font-family="system-ui, Arial, sans-serif" font-size="16" font-weight="700" fill="#F5A623" text-anchor="middle">100% gratuit</text>
+
+  <!-- Bottom teal bar -->
+  <rect y="590" width="1200" height="40" fill="#1FA8A0" opacity="0.15"/>
+  <text x="600" y="618" font-family="system-ui, Arial, sans-serif" font-size="20" font-weight="600" fill="#1FA8A0" text-anchor="middle" opacity="0.8">hrtoolkit.info</text>
+</svg>
