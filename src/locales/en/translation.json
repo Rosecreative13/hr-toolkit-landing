@@ -119,42 +119,22 @@
     "headingColored": "will receive",
     "subhead": "Participating SMEs will receive access to a practical HR Toolkit, recruitment templates, structured workshops and mentoring support.",
     "footer": "Simple tools. Practical learning. Implementation support.",
-    "item1": {
-      "title": "Practical HR Toolkit",
-      "description": "A structured set of tools and templates ready to put to work from day one."
-    },
-    "item2": {
-      "title": "Recruitment templates and vacancy clarification tools",
-      "description": "Ready-to-use job description formats and tools to clarify role requirements."
-    },
-    "item3": {
-      "title": "Structured interview guides and candidate evaluation forms",
-      "description": "Question guides and scoring sheets that make candidate comparison consistent and objective."
-    },
-    "item4": {
-      "title": "Onboarding checklists and first-day / first-week guidance",
-      "description": "Step-by-step lists and practical guidance for a confident start for every new hire."
-    },
-    "item5": {
-      "title": "30–60–90 day onboarding plan and supervisor guidance",
-      "description": "A structured adaptation roadmap and simple reference materials for supervisors."
-    },
-    "item6": {
-      "title": "Adaptation meeting templates",
-      "description": "Ready-to-use meeting formats for the adaptation period to support new employees in a structured way."
-    },
-    "item7": {
-      "title": "Feedback conversation tools and early retention risk checklists",
-      "description": "Feedback conversation formats and early indicators to identify and address retention risks."
-    },
-    "item8": {
-      "title": "Practical workshops",
-      "description": "Applied, facilitated sessions on recruitment, onboarding and retention of employees."
-    },
-    "item9": {
-      "title": "Mentoring circles and peer learning",
-      "description": "Small-group mentoring sessions and peer learning with other SMEs across the region."
-    }
+    "item1": "Practical HR Toolkit",
+    "item2": "Recruitment templates",
+    "item3": "Vacancy clarification tools",
+    "item4": "Structured interview guides",
+    "item5": "Candidate evaluation forms",
+    "item6": "Onboarding checklists",
+    "item7": "First-day and first-week guidance",
+    "item8": "30-60-90 day onboarding plan",
+    "item9": "Supervisor guidance",
+    "item10": "Adaptation meeting templates",
+    "item11": "Feedback conversation tools",
+    "item12": "Early retention risk checklists",
+    "item13": "Practical workshops",
+    "item14": "Mentoring circles",
+    "item15": "Peer learning with other SMEs",
+    "item16": "Support in adapting selected tools to the company’s reality"
   },
   "map": {
     "heading": "Who",

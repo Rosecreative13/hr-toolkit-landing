@@ -119,42 +119,22 @@
     "headingColored": "compania dvs.",
     "subhead": "IMM-urile participante vor primi acces la HR Toolkit practic, șabloane de recrutare, ateliere structurate și suport de mentorat.",
     "footer": "Instrumente simple. Învățare practică. Suport pentru implementare.",
-    "item1": {
-      "title": "HR Toolkit practic",
-      "description": "Un set structurat de instrumente și șabloane gata de utilizare din prima zi."
-    },
-    "item2": {
-      "title": "Modele de recrutare și instrumente pentru clarificarea posturilor",
-      "description": "Formate gata de utilizare pentru descrierea posturilor și instrumente pentru clarificarea cerințelor față de rol."
-    },
-    "item3": {
-      "title": "Ghiduri pentru interviuri structurate și formulare de evaluare a candidaților",
-      "description": "Ghiduri cu întrebări și fișe de evaluare pentru o selecție consecventă și obiectivă."
-    },
-    "item4": {
-      "title": "Checklist-uri de onboarding și ghidare pentru prima zi și prima săptămână",
-      "description": "Liste pas cu pas și ghidare practică pentru un start sigur al fiecărui nou angajat."
-    },
-    "item5": {
-      "title": "Plan de onboarding 30–60–90 de zile și ghidare pentru supervisori",
-      "description": "O foaie de parcurs structurată pentru adaptare și materiale simple de referință pentru supervisori."
-    },
-    "item6": {
-      "title": "Modele pentru discuții de adaptare",
-      "description": "Formate gata de utilizare pentru întâlnirile din perioada de adaptare, pentru a sprijini angajatul în mod structurat."
-    },
-    "item7": {
-      "title": "Instrumente pentru feedback și checklist-uri de risc de plecare timpurie",
-      "description": "Formate pentru conversații de feedback și indicatori timpurii pentru identificarea și gestionarea riscurilor de plecare."
-    },
-    "item8": {
-      "title": "Ateliere practice",
-      "description": "Sesiuni aplicate și facilitate pe teme de recrutare, onboarding și retenție a angajaților."
-    },
-    "item9": {
-      "title": "Cercuri de mentorat și învățare de la colegi",
-      "description": "Sesiuni de mentorat în grupuri mici și învățare de la alte IMM-uri din regiune."
-    }
+    "item1": "HR Toolkit practic",
+    "item2": "Modele pentru recrutare",
+    "item3": "Instrumente pentru clarificarea posturilor vacante",
+    "item4": "Ghiduri pentru interviuri structurate",
+    "item5": "Formulare de evaluare a candidaților",
+    "item6": "Checklist-uri pentru onboarding",
+    "item7": "Ghidare pentru prima zi și prima săptămână de lucru",
+    "item8": "Plan de onboarding pentru 30-60-90 de zile",
+    "item9": "Ghidare pentru supervisori",
+    "item10": "Modele pentru discuții de adaptare",
+    "item11": "Instrumente pentru conversații de feedback",
+    "item12": "Checklist-uri pentru identificarea riscurilor de plecare timpurie",
+    "item13": "Ateliere practice",
+    "item14": "Cercuri de mentorat",
+    "item15": "Învățare de la alte IMM-uri",
+    "item16": "Suport în adaptarea instrumentelor selectate la realitatea companiei"
   },
   "map": {
     "heading": "Cine poate",

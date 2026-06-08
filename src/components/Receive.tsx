@@ -1,4 +1,4 @@
-import { motion, useReducedMotion, type Transition } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import GridBg from './marks/GridBg'
 import Star from './marks/Star'
@@ -7,17 +7,20 @@ import Arrow from './marks/Arrow'
 import { scatterIn, useTiltOnHover, VIEWPORT_ONCE } from '../lib/motion'
 import { RECEIVE_ICONS } from './illustrations'
 
-type Deliverable = { num: number; title: string; description: string }
+const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as [number, number, number, number]
 
-function DeliverableCard({ item, i }: { item: Deliverable; i: number }) {
+type Deliverable = { num: number; title: string }
+
+function DeliverableCard({ item, i, total }: { item: Deliverable; i: number; total: number }) {
   const prefersReducedMotion = useReducedMotion()
   const scatter = scatterIn(i)
   const { ref, motionStyle, onMouseMove, onMouseLeave } = useTiltOnHover(4, 700)
 
-  const IconComponent = RECEIVE_ICONS[i]
+  // Cycle the available illustrated icons across all deliverables
+  const IconComponent = RECEIVE_ICONS[i % RECEIVE_ICONS.length]
 
-  // Card uses amber-pale tint for last row to break the grid monotony
-  const isHighlight = i === 6 || i === 7 || i === 8
+  // Tint the final row (last 4 in the 4-col grid) to break monotony
+  const isHighlight = i >= total - 4
   const cardBg = isHighlight ? 'var(--ill-teal-pale)' : 'var(--color-paper-card)'
   const cardBorder = isHighlight ? 'var(--ill-teal)' : 'var(--color-border)'
 
@@ -33,12 +36,12 @@ function DeliverableCard({ item, i }: { item: Deliverable; i: number }) {
       style={{
         ...(prefersReducedMotion ? {} : motionStyle),
         background: cardBg,
-        padding: 'clamp(1.25rem, 2vw, 1.75rem)',
+        padding: 'clamp(1.1rem, 1.6vw, 1.5rem)',
         display: 'flex',
         flexDirection: 'column',
         gap: '0.875rem',
         position: 'relative',
-        minHeight: 180,
+        minHeight: 138,
         cursor: 'default',
         transformStyle: 'preserve-3d' as const,
         borderRight: `1px solid ${cardBorder}`,
@@ -52,10 +55,10 @@ function DeliverableCard({ item, i }: { item: Deliverable; i: number }) {
           initial={prefersReducedMotion ? {} : { scale: 0.5, opacity: 0, rotate: -12 }}
           whileInView={{ scale: 1, opacity: 1, rotate: 0 }}
           viewport={VIEWPORT_ONCE}
-          transition={{ type: 'spring' as const, stiffness: 440, damping: 20, delay: i * 0.05 + 0.1 }}
+          transition={{ type: 'spring' as const, stiffness: 440, damping: 20, delay: i * 0.03 + 0.05 }}
           style={{
-            width: 32,
-            height: 32,
+            width: 30,
+            height: 30,
             borderRadius: '50%',
             background: 'var(--ill-teal)',
             display: 'flex',
@@ -68,7 +71,7 @@ function DeliverableCard({ item, i }: { item: Deliverable; i: number }) {
             style={{
               fontFamily: 'var(--font-display)',
               fontWeight: 700,
-              fontSize: '0.75rem',
+              fontSize: '0.6875rem',
               color: '#fff',
               lineHeight: 1,
             }}
@@ -82,90 +85,66 @@ function DeliverableCard({ item, i }: { item: Deliverable; i: number }) {
           initial={prefersReducedMotion ? {} : { scale: 0.7, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={VIEWPORT_ONCE}
-          transition={{ type: 'spring' as const, stiffness: 380, damping: 22, delay: i * 0.05 + 0.15 }}
+          transition={{ type: 'spring' as const, stiffness: 380, damping: 22, delay: i * 0.03 + 0.1 }}
           style={{
             background: 'var(--ill-navy-pale)',
             borderRadius: '50%',
-            width: 44,
-            height: 44,
+            width: 40,
+            height: 40,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             flexShrink: 0,
           }}
         >
-          <IconComponent size={28} />
+          <IconComponent size={26} />
         </motion.div>
       </div>
 
-      <div>
+      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
+        {/* Teal tick accent */}
+        <motion.span
+          initial={prefersReducedMotion ? {} : { scale: 0, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={VIEWPORT_ONCE}
+          transition={{ type: 'spring' as const, stiffness: 460, damping: 20, delay: i * 0.03 + 0.12 }}
+          aria-hidden="true"
+          style={{ flexShrink: 0, marginTop: 4 }}
+        >
+          <Star size={9} color="var(--ill-teal)" points={8} idle="twinkle" />
+        </motion.span>
         <h3
           style={{
             fontFamily: 'var(--font-display)',
             fontWeight: 700,
-            fontSize: 'clamp(0.9375rem, 1.3vw, 1.0625rem)',
+            fontSize: 'clamp(0.875rem, 1.05vw, 0.9375rem)',
             color: 'var(--ill-navy)',
-            lineHeight: 1.25,
+            lineHeight: 1.3,
             letterSpacing: '-0.01em',
-            marginBottom: '0.5rem',
+            margin: 0,
+            overflowWrap: 'break-word',
+            minWidth: 0,
           }}
         >
           {item.title}
         </h3>
-        {/* Teal underline accent — draws on */}
-        <motion.div
-          initial={prefersReducedMotion ? {} : { scaleX: 0, originX: '0%' }}
-          whileInView={{ scaleX: 1 }}
-          viewport={VIEWPORT_ONCE}
-          transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1], delay: i * 0.05 + 0.1 } as Transition}
-          style={{
-            width: 28,
-            height: 2,
-            background: 'var(--ill-teal)',
-            marginBottom: '0.625rem',
-            transformOrigin: 'left',
-          }}
-        />
-        <p
-          style={{
-            fontFamily: 'var(--font-body)',
-            fontSize: '0.875rem',
-            color: 'var(--color-ink-muted)',
-            lineHeight: 1.65,
-            margin: 0,
-          }}
-        >
-          {item.description}
-        </p>
       </div>
 
-      {/* Teal dotgrid decoration (replacing cobalt) */}
+      {/* Teal dotgrid decoration */}
       <DotGrid
         cols={3}
         rows={3}
         gap={6}
         dotR={1.5}
         color="var(--ill-teal)"
-        style={{
-          position: 'absolute',
-          bottom: 12,
-          right: 12,
-          opacity: 0.28,
-        }}
+        style={{ position: 'absolute', bottom: 10, right: 10, opacity: 0.22 }}
       />
 
       {/* Border-draw stroke on hover */}
       {!prefersReducedMotion && (
         <svg
           aria-hidden="true"
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            pointerEvents: 'none',
-            overflow: 'visible',
-          }}
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none', overflow: 'visible' }}
           className="card-border-svg"
         >
           <rect
@@ -188,17 +167,11 @@ export default function Receive() {
   const { t } = useTranslation()
   const prefersReducedMotion = useReducedMotion()
 
-  const deliverables = [
-    { num: 1, title: t('receive.item1.title'), description: t('receive.item1.description') },
-    { num: 2, title: t('receive.item2.title'), description: t('receive.item2.description') },
-    { num: 3, title: t('receive.item3.title'), description: t('receive.item3.description') },
-    { num: 4, title: t('receive.item4.title'), description: t('receive.item4.description') },
-    { num: 5, title: t('receive.item5.title'), description: t('receive.item5.description') },
-    { num: 6, title: t('receive.item6.title'), description: t('receive.item6.description') },
-    { num: 7, title: t('receive.item7.title'), description: t('receive.item7.description') },
-    { num: 8, title: t('receive.item8.title'), description: t('receive.item8.description') },
-    { num: 9, title: t('receive.item9.title'), description: t('receive.item9.description') },
-  ]
+  // All 16 deliverables, verbatim from the programme docx (section 5)
+  const deliverables: Deliverable[] = Array.from({ length: 16 }, (_, idx) => ({
+    num: idx + 1,
+    title: t(`receive.item${idx + 1}`),
+  }))
 
   return (
     <section
@@ -244,7 +217,7 @@ export default function Receive() {
           initial={prefersReducedMotion ? {} : { scaleX: 0, originX: '0%' }}
           whileInView={{ scaleX: 1 }}
           viewport={VIEWPORT_ONCE}
-          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.65, ease: EASE_OUT_EXPO }}
           style={{ height: '1px', background: 'var(--color-border)', marginBottom: 'clamp(3rem, 6vw, 5rem)', transformOrigin: 'left' }}
         />
 
@@ -297,11 +270,11 @@ export default function Receive() {
           </motion.div>
         </div>
 
-        {/* 3×3 card grid — scatter entrance */}
+        {/* 4×4 card grid — scatter entrance */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
+            gridTemplateColumns: 'repeat(4, 1fr)',
             gap: '0',
             border: '1px solid var(--color-border)',
             background: 'var(--color-border)',
@@ -309,11 +282,11 @@ export default function Receive() {
           className="receive-grid"
         >
           {deliverables.map((item, i) => (
-            <DeliverableCard key={item.num} item={item} i={i} />
+            <DeliverableCard key={item.num} item={item} i={i} total={deliverables.length} />
           ))}
         </div>
 
-        {/* Bottom annotation strip — teal palette now */}
+        {/* Bottom annotation strip — teal palette */}
         <motion.div
           initial={prefersReducedMotion ? {} : { opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -356,11 +329,14 @@ export default function Receive() {
       />
 
       <style>{`
-        @media (max-width: 900px) {
+        @media (max-width: 1100px) {
+          .receive-grid { grid-template-columns: repeat(3, 1fr) !important; }
+        }
+        @media (max-width: 820px) {
           .receive-grid { grid-template-columns: repeat(2, 1fr) !important; }
           .receive-header { grid-template-columns: 1fr !important; }
         }
-        @media (max-width: 600px) {
+        @media (max-width: 520px) {
           .receive-grid { grid-template-columns: 1fr !important; }
         }
         /* Border-draw on card hover */
