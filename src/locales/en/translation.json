@@ -222,6 +222,35 @@
     "restatement": "It is a practical support programme for SMEs that want to improve recruitment, onboarding and early retention in a realistic and manageable way.",
     "restatementSub": "Hands-on. Results-focused. Free."
   },
+  "benefitsSME": {
+    "eyebrow": "9. Benefits for SMEs",
+    "heading": "Why participate?",
+    "subhead": "The programme can help your company:",
+    "item1": "make vacancies clearer and more realistic;",
+    "item2": "improve candidate-job fit;",
+    "item3": "conduct interviews more consistently;",
+    "item4": "prepare the first working day better;",
+    "item5": "support new employees during adaptation;",
+    "item6": "involve supervisors more effectively;",
+    "item7": "reduce misunderstandings during probation;",
+    "item8": "notice early retention risks;",
+    "item9": "improve communication with young employees;",
+    "item10": "use simple tools without creating unnecessary bureaucracy.",
+    "note": "Small improvements in recruitment clarity, onboarding structure and feedback routines can make a real difference."
+  },
+  "benefitsYouth": {
+    "eyebrow": "10. Benefits for young employees",
+    "heading": "A better start at work",
+    "subhead": "By improving employer practices, the programme can help young employees experience:",
+    "item1": "clearer job expectations;",
+    "item2": "better first-day and first-week support;",
+    "item3": "more structured adaptation;",
+    "item4": "more constructive communication with supervisors;",
+    "item5": "more regular feedback;",
+    "item6": "stronger sense of belonging;",
+    "item7": "lower risk of early employment failure.",
+    "note": "A young person’s first work experience can influence not only retention in one company, but also confidence, motivation and future employability."
+  },
   "languagesMaterials": {
     "eyebrow": "11. Languages and materials",
     "heading": "Practical materials in Romanian and Russian",

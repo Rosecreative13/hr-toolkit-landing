@@ -222,6 +222,35 @@
     "restatement": "Este un program de suport practic pentru IMM-urile care doresc să îmbunătățească recrutarea, onboardingul și retenția timpurie într-un mod realist și ușor de aplicat.",
     "restatementSub": "Aplicat. Orientat spre rezultate. Gratuit."
   },
+  "benefitsSME": {
+    "eyebrow": "9. Beneficii pentru IMM-uri",
+    "heading": "De ce să participați?",
+    "subhead": "Programul poate ajuta compania dumneavoastră să:",
+    "item1": "formuleze posturile vacante mai clar și mai realist;",
+    "item2": "îmbunătățească potrivirea dintre candidat și rol;",
+    "item3": "desfășoare interviuri mai structurate;",
+    "item4": "pregătească mai bine prima zi de lucru;",
+    "item5": "sprijine noii angajați în perioada de adaptare;",
+    "item6": "implice supervisorii mai eficient;",
+    "item7": "reducă neînțelegerile în perioada de probă;",
+    "item8": "observe mai devreme riscurile de plecare;",
+    "item9": "îmbunătățească comunicarea cu tinerii angajați;",
+    "item10": "utilizeze instrumente simple fără a crea birocrație inutilă.",
+    "note": "Îmbunătățirile mici în claritatea recrutării, structura onboardingului și rutina de feedback pot avea un impact real."
+  },
+  "benefitsYouth": {
+    "eyebrow": "10. Beneficii pentru tinerii angajați",
+    "heading": "Un început mai bun la locul de muncă",
+    "subhead": "Prin îmbunătățirea practicilor angajatorilor, programul poate ajuta tinerii angajați să beneficieze de:",
+    "item1": "așteptări mai clare privind rolul;",
+    "item2": "suport mai bun în prima zi și prima săptămână;",
+    "item3": "adaptare mai structurată;",
+    "item4": "comunicare mai constructivă cu supervisorii;",
+    "item5": "feedback mai regulat;",
+    "item6": "un sentiment mai puternic de apartenență;",
+    "item7": "risc mai redus de eșec timpuriu în angajare.",
+    "note": "Prima experiență de muncă a unui tânăr poate influența nu doar retenția într-o companie, ci și încrederea, motivația și angajabilitatea viitoare."
+  },
   "languagesMaterials": {
     "eyebrow": "11. Limbi și materiale",
     "heading": "Materiale practice în română și rusă",
