@@ -90,7 +90,12 @@ function BenefitSection({
           className={`benefits-grid ${reverse ? 'benefits-grid--reverse' : ''}`}
           style={{
             display: 'grid',
-            gridTemplateColumns: 'minmax(0, 1fr) minmax(280px, 0.42fr)',
+            // Text column must always be the wide track. With `reverse`, the
+            // illustration (order:1) auto-places into col 1, so col 1 must be
+            // the narrow track and col 2 (text, order:2) the wide one.
+            gridTemplateColumns: reverse
+              ? 'minmax(280px, 0.42fr) minmax(0, 1fr)'
+              : 'minmax(0, 1fr) minmax(280px, 0.42fr)',
             gap: 'clamp(2rem, 6vw, 5rem)',
             alignItems: 'center',
           }}
@@ -185,6 +190,7 @@ function BenefitSection({
                       border: `1px solid ${isTeal ? 'var(--ill-teal)' : 'var(--ill-amber)'}`,
                       background: accentTint,
                       minHeight: 72,
+                      minWidth: 0,
                     }}
                   >
                     <Star size={10} color={accentColor} points={8} idle="twinkle" style={{ flexShrink: 0, marginTop: 4 }} />
@@ -194,6 +200,8 @@ function BenefitSection({
                         fontSize: '0.9rem',
                         color: noteText,
                         lineHeight: 1.55,
+                        minWidth: 0,
+                        overflowWrap: 'break-word',
                       }}
                     >
                       {item}

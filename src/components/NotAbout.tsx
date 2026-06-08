@@ -131,12 +131,12 @@ export default function NotAbout() {
             }}
             className="notabout-left"
           >
-            <div style={{ overflow: 'hidden', marginBottom: '1.25rem' }}>
+            <div style={{ marginBottom: '1.25rem' }}>
               <motion.h2
-                initial={prefersReducedMotion ? {} : { clipPath: 'inset(0 100% 0 0)', skewX: -2 }}
-                whileInView={{ clipPath: 'inset(0 0% 0 0)', skewX: 0 }}
+                initial={prefersReducedMotion ? {} : { opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT_ONCE}
-                transition={{ duration: 0.7, ease: EASE_OUT_EXPO, delay: 0.05 }}
+                transition={{ duration: 0.6, ease: EASE_OUT_EXPO, delay: 0.05 }}
                 style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: 'clamp(2rem, 4vw, 3.25rem)',
