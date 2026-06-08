@@ -153,8 +153,8 @@ export default function Hero() {
               style={{
                 fontFamily: 'var(--font-display)',
                 fontWeight: 700,
-                fontSize: 'clamp(1.75rem, 4vw, 3.5rem)',
-                lineHeight: 1.02,
+                fontSize: 'clamp(1.75rem, 3.2vw, 3rem)',
+                lineHeight: 1.04,
                 letterSpacing: '-0.03em',
                 color: 'var(--color-ink)',
                 marginBottom: 0,
@@ -282,7 +282,7 @@ export default function Hero() {
                 padding: '0.25rem 0.25rem 0.25rem 1.25rem',
                 gap: '0.5rem',
                 width: '100%',
-                maxWidth: 420,
+                maxWidth: 470,
                 boxShadow: '0 2px 12px rgba(22,22,22,0.06)',
               }}
             >
