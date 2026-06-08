@@ -220,44 +220,28 @@ function StepCircle({
   )
 }
 
-/** Navy curved connector arrow going right between two top steps */
-function RightConnector({ delay }: { delay: number }) {
+/** Small ↓ chevron connector between steps */
+function ChevronConnector({ delay }: { delay: number }) {
   const prefersReducedMotion = useReducedMotion()
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingBottom: '3rem' }}>
-      {prefersReducedMotion ? (
-        <Arrow direction="right" length={48} color="var(--ill-navy)" strokeWidth={1.5} />
-      ) : (
-        <motion.div
-          initial={{ opacity: 0, scaleX: 0.4 }}
-          whileInView={{ opacity: 1, scaleX: 1 }}
-          viewport={VIEWPORT_ONCE}
-          transition={{ duration: 0.5, ease: EASE_OUT_EXPO, delay }}
-        >
-          <Arrow direction="right" length={48} color="var(--ill-navy)" strokeWidth={1.5} drawOn drawDelay={delay} drawDuration={0.45} />
-        </motion.div>
-      )}
-    </div>
-  )
-}
-
-/** Left connector for bottom row (R→L flow) */
-function LeftConnector({ delay }: { delay: number }) {
-  const prefersReducedMotion = useReducedMotion()
-  return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '3rem' }}>
-      {prefersReducedMotion ? (
-        <Arrow direction="left" length={48} color="var(--ill-navy)" strokeWidth={1.5} />
-      ) : (
-        <motion.div
-          initial={{ opacity: 0, scaleX: 0.4 }}
-          whileInView={{ opacity: 1, scaleX: 1 }}
-          viewport={VIEWPORT_ONCE}
-          transition={{ duration: 0.5, ease: EASE_OUT_EXPO, delay }}
-        >
-          <Arrow direction="left" length={48} color="var(--ill-navy)" strokeWidth={1.5} drawOn drawDelay={delay} drawDuration={0.45} />
-        </motion.div>
-      )}
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <motion.svg
+        width="22" height="14" viewBox="0 0 22 14" fill="none"
+        aria-hidden="true"
+        initial={prefersReducedMotion ? {} : { opacity: 0, y: -4 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={VIEWPORT_ONCE}
+        transition={{ duration: 0.35, ease: EASE_OUT_EXPO, delay }}
+      >
+        <polyline
+          points="2,2 11,11 20,2"
+          stroke="var(--ill-navy)"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
+      </motion.svg>
     </div>
   )
 }
@@ -443,7 +427,7 @@ export default function HowItWorks() {
           style={{
             display: 'grid',
             gridTemplateColumns: '1fr auto 1fr auto 1fr',
-            alignItems: 'end',
+            alignItems: 'center',
             gap: '0 clamp(0.5rem, 2vw, 2rem)',
             marginBottom: '0.5rem',
           }}
@@ -457,7 +441,7 @@ export default function HowItWorks() {
                 blobBorder={BLOB_BORDERS[i]}
                 flyDir={FLY_DIRS[i]}
               />
-              {i < 2 && <RightConnector delay={i * 0.1 + 0.2} />}
+              {i < 2 && <ChevronConnector delay={i * 0.1 + 0.2} />}
             </React.Fragment>
           ))}
         </div>
@@ -471,13 +455,13 @@ export default function HowItWorks() {
           style={{
             display: 'grid',
             gridTemplateColumns: '1fr auto 1fr auto 1fr',
-            alignItems: 'start',
+            alignItems: 'center',
             gap: '0 clamp(0.5rem, 2vw, 2rem)',
           }}
         >
           {steps.slice(3).map((step, i) => (
             <React.Fragment key={step.number}>
-              {i > 0 && <LeftConnector delay={0.32 + i * 0.1} />}
+              {i > 0 && <ChevronConnector delay={0.32 + i * 0.1} />}
               <StepCircle
                 step={step}
                 delay={0.32 + i * 0.1}

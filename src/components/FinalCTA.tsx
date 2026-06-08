@@ -9,30 +9,38 @@ import { circledHeadingClipHidden, circledHeadingClipVisible, useMagnetic, popRo
 
 const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as [number, number, number, number]
 
-function MagneticSubmit({ children }: { children: React.ReactNode }) {
+function MagneticSubmit({ children, href }: { children: React.ReactNode; href?: string }) {
   const { ref, style: magStyle } = useMagnetic(0.32)
   const prefersReducedMotion = useReducedMotion()
 
+  const commonStyle: React.CSSProperties = {
+    ...(magStyle as unknown as React.CSSProperties),
+    background: 'var(--color-magenta)',
+    color: '#fff',
+    border: 'none',
+    borderRadius: 100,
+    padding: '0.8rem 2rem',
+    fontFamily: 'var(--font-body)',
+    fontWeight: 700,
+    fontSize: '0.9375rem',
+    cursor: 'pointer',
+    whiteSpace: 'nowrap' as const,
+    flexShrink: 0,
+    position: 'relative' as const,
+    overflow: 'hidden' as const,
+    textDecoration: 'none',
+    display: 'inline-flex',
+    alignItems: 'center',
+    marginBottom: '1rem',
+  }
+
   return (
-    <motion.button
-      ref={ref as React.RefObject<HTMLButtonElement>}
-      type="submit"
-      style={{
-        ...(magStyle as unknown as React.CSSProperties),
-        background: 'var(--color-magenta)',
-        color: '#fff',
-        border: 'none',
-        borderRadius: 100,
-        padding: '0.65rem 1.375rem',
-        fontFamily: 'var(--font-body)',
-        fontWeight: 700,
-        fontSize: '0.8125rem',
-        cursor: 'pointer',
-        whiteSpace: 'nowrap',
-        flexShrink: 0,
-        position: 'relative',
-        overflow: 'hidden',
-      }}
+    <motion.a
+      ref={ref as React.RefObject<HTMLAnchorElement>}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={commonStyle}
       whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
       whileTap={prefersReducedMotion ? {} : { scale: 0.94 }}
       transition={{ type: 'spring' as const, stiffness: 360, damping: 22 }}
@@ -54,7 +62,7 @@ function MagneticSubmit({ children }: { children: React.ReactNode }) {
           }}
         />
       )}
-    </motion.button>
+    </motion.a>
   )
 }
 
@@ -229,39 +237,7 @@ export default function FinalCTA() {
               whileInView="visible"
               viewport={VIEWPORT_ONCE}
             >
-              <form
-                onSubmit={(e) => e.preventDefault()}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  background: 'rgba(255,255,255,0.08)',
-                  border: '1.5px solid rgba(255,255,255,0.15)',
-                  borderRadius: 100,
-                  padding: '0.25rem 0.25rem 0.25rem 1.25rem',
-                  gap: '0.5rem',
-                  maxWidth: 460,
-                  marginBottom: '1rem',
-                }}
-              >
-                <label htmlFor="cta-email" className="sr-only">{t('cta.emailLabel')}</label>
-                <input
-                  id="cta-email"
-                  type="email"
-                  placeholder={t('cta.emailPlaceholder')}
-                  required
-                  style={{
-                    flex: 1,
-                    border: 'none',
-                    outline: 'none',
-                    background: 'transparent',
-                    fontFamily: 'var(--font-body)',
-                    fontSize: '0.9375rem',
-                    color: '#fff',
-                    minWidth: 0,
-                  }}
-                />
-                <MagneticSubmit>{t('cta.button')}</MagneticSubmit>
-              </form>
+              <MagneticSubmit href={t('formUrl')}>{t('cta.button')}</MagneticSubmit>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem' }}>
                 <Arrow direction="right" length={28} color="var(--color-magenta)" strokeWidth={1.5} drawOn drawDelay={0.3} />

@@ -22,19 +22,22 @@ const HERO_PHOTO =
 const HERO_ARCH_PATH = 'M 40 434 L 40 174 A 170 170 0 0 1 380 174 L 380 434'
 const EASE_OUT_EXPO: Easing = [0.16, 1, 0.3, 1] as [number, number, number, number]
 
-function MagneticButton({ children, style, ...props }: React.ButtonHTMLAttributes<HTMLButtonElement>) {
+function MagneticLink({ children, href, style }: { children: React.ReactNode; href: string; style?: React.CSSProperties }) {
   const { ref, style: magStyle } = useMagnetic(0.3)
+  const prefersReducedMotion = useReducedMotion()
   return (
-    <motion.button
-      ref={ref as React.RefObject<HTMLButtonElement>}
-      style={{ ...style, ...magStyle }}
-      whileHover={{ scale: 1.04 }}
-      whileTap={{ scale: 0.95 }}
+    <motion.a
+      ref={ref as React.RefObject<HTMLAnchorElement>}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ ...style, ...(magStyle as unknown as React.CSSProperties) }}
+      whileHover={prefersReducedMotion ? {} : { scale: 1.04 }}
+      whileTap={prefersReducedMotion ? {} : { scale: 0.95 }}
       transition={{ type: 'spring' as const, stiffness: 360, damping: 22 }}
-      {...(props as Parameters<typeof motion.button>[0])}
     >
       {children}
-    </motion.button>
+    </motion.a>
   )
 }
 
@@ -270,79 +273,26 @@ export default function Hero() {
             variants={ctaVariant}
             style={{ marginBottom: '0.75rem' }}
           >
-            <form
-              className="hero-form"
-              onSubmit={(e) => e.preventDefault()}
+            <MagneticLink
+              href={t('formUrl')}
               style={{
-                display: 'flex',
+                display: 'inline-flex',
                 alignItems: 'center',
-                background: '#fff',
-                border: '1.5px solid var(--color-border)',
+                background: 'var(--color-magenta)',
+                color: '#fff',
                 borderRadius: 100,
-                padding: '0.25rem 0.25rem 0.25rem 1.25rem',
-                gap: '0.5rem',
-                width: '100%',
-                maxWidth: 470,
-                boxShadow: '0 2px 12px rgba(22,22,22,0.06)',
+                padding: '0.8rem 2rem',
+                fontFamily: 'var(--font-body)',
+                fontWeight: 700,
+                fontSize: '0.9375rem',
+                cursor: 'pointer',
+                whiteSpace: 'nowrap',
+                textDecoration: 'none',
+                boxShadow: '0 2px 12px rgba(42,79,224,0.18)',
               }}
             >
-              <label htmlFor="hero-email" className="sr-only">
-                {t('hero.emailPlaceholder')}
-              </label>
-              <input
-                id="hero-email"
-                type="email"
-                placeholder={t('hero.emailPlaceholder')}
-                required
-                aria-label={t('hero.emailPlaceholder')}
-                style={{
-                  flex: 1,
-                  border: 'none',
-                  outline: 'none',
-                  background: 'transparent',
-                  fontFamily: 'var(--font-body)',
-                  fontSize: '0.9375rem',
-                  color: 'var(--color-ink)',
-                  minWidth: 0,
-                }}
-              />
-              <MagneticButton
-                type="submit"
-                style={{
-                  background: 'var(--color-magenta)',
-                  color: '#fff',
-                  border: 'none',
-                  borderRadius: 100,
-                  padding: '0.6rem 1.25rem',
-                  fontFamily: 'var(--font-body)',
-                  fontWeight: 700,
-                  fontSize: '0.8125rem',
-                  cursor: 'pointer',
-                  whiteSpace: 'nowrap',
-                  flexShrink: 0,
-                  position: 'relative',
-                  overflow: 'hidden',
-                }}
-              >
-                <span style={{ position: 'relative', zIndex: 1 }}>{t('hero.cta')}</span>
-                {/* Fill-slide on hover */}
-                {!prefersReducedMotion && (
-                  <motion.span
-                    aria-hidden="true"
-                    initial={{ scaleX: 0, originX: '0%' }}
-                    whileHover={{ scaleX: 1 }}
-                    transition={{ duration: 0.28, ease: EASE_OUT_EXPO }}
-                    style={{
-                      position: 'absolute',
-                      inset: 0,
-                      background: 'rgba(255,255,255,0.15)',
-                      borderRadius: 100,
-                      pointerEvents: 'none',
-                    }}
-                  />
-                )}
-              </MagneticButton>
-            </form>
+              {t('hero.cta')}
+            </MagneticLink>
           </motion.div>
 
           {/* Programme capacity note */}
@@ -700,21 +650,10 @@ export default function Hero() {
             white-space: normal !important;
             line-height: 1.4 !important;
           }
-          .hero-form {
-            max-width: 100% !important;
-            flex-wrap: wrap !important;
-            padding: 0.5rem !important;
-          }
-          .hero-form input {
+          .hero-cta-link {
             width: 100% !important;
-            padding: 0.5rem 0.75rem !important;
-            min-height: 2.5rem !important;
-          }
-          .hero-form button {
-            width: 100% !important;
-            white-space: normal !important;
+            justify-content: center !important;
             text-align: center !important;
-            padding: 0.7rem 1rem !important;
           }
           .hero-note {
             max-width: 100% !important;
