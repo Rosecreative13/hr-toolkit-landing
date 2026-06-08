@@ -242,7 +242,7 @@
     "heading": "Frecvent",
     "headingCircled": "întrebat",
     "q1": "Participarea este gratuită?",
-    "a1": "Condițiile de participare vor fi confirmate în invitația oficială și în informațiile de înregistrare.",
+    "a1": "Da, participarea este absolut gratuită.",
     "q2": "Compania trebuie să aibă un departament HR?",
     "a2": "Nu. Programul este conceput special pentru IMM-uri care pot să nu aibă departamente HR dedicate.",
     "q3": "Programul va furniza angajați sau candidați?",
@@ -289,7 +289,6 @@
   "confidentiality": {
     "heading": "Confidențialitatea și utilizarea informațiilor",
     "subheading": "Informațiile dvs. sunt gestionate responsabil.",
-    "para1": "Participarea în Programul HR Toolkit este complet voluntară. Companiile pot să se retragă în orice etapă fără consecințe.",
     "para2": "Informațiile furnizate de companii vor fi utilizate doar pentru selecția în program, evaluarea inițială, suportul de implementare și raportarea în formă agregată. Informațiile individuale ale companiilor nu vor fi divulgate public fără acordul prealabil al acestora.",
     "para3": "Constatările agregate pot fi utilizate pentru a informa viitoarele programe și discuții de politici, într-o formă care nu identifică companiile sau angajații individuali."
   }

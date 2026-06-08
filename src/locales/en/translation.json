@@ -242,7 +242,7 @@
     "heading": "Frequently",
     "headingCircled": "asked",
     "q1": "Is participation free of charge?",
-    "a1": "Participation conditions will be confirmed in the official invitation and registration information.",
+    "a1": "Yes, participation is completely free of charge.",
     "q2": "Does my company need to have an HR department?",
     "a2": "No. The programme is specifically designed for SMEs that may not have dedicated HR departments.",
     "q3": "Will the programme provide employees or candidates?",
@@ -289,7 +289,6 @@
   "confidentiality": {
     "heading": "Confidentiality and use of information",
     "subheading": "Your information is handled responsibly.",
-    "para1": "Participation in the HR Toolkit Programme is entirely voluntary. Companies may withdraw at any stage without consequences.",
     "para2": "Information provided by companies will be used only for programme selection, baseline assessment, implementation support and reporting in aggregated form. Individual company information will not be publicly disclosed without prior agreement.",
     "para3": "Aggregate findings may be used to inform future programme design and policy discussions, in a form that does not identify individual companies or employees."
   }

@@ -53,8 +53,7 @@ function DeliverableCard({ item, i, total }: { item: Deliverable; i: number; tot
         {/* Teal circle number badge */}
         <motion.div
           initial={prefersReducedMotion ? {} : { scale: 0.5, opacity: 0, rotate: -12 }}
-          whileInView={{ scale: 1, opacity: 1, rotate: 0 }}
-          viewport={VIEWPORT_ONCE}
+          animate={{ scale: 1, opacity: 1, rotate: 0 }}
           transition={{ type: 'spring' as const, stiffness: 440, damping: 20, delay: i * 0.03 + 0.05 }}
           style={{
             width: 30,
@@ -83,8 +82,7 @@ function DeliverableCard({ item, i, total }: { item: Deliverable; i: number; tot
         {/* Teal+navy mini illustration icon */}
         <motion.div
           initial={prefersReducedMotion ? {} : { scale: 0.7, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          viewport={VIEWPORT_ONCE}
+          animate={{ scale: 1, opacity: 1 }}
           transition={{ type: 'spring' as const, stiffness: 380, damping: 22, delay: i * 0.03 + 0.1 }}
           style={{
             background: 'var(--ill-navy-pale)',
@@ -105,8 +103,7 @@ function DeliverableCard({ item, i, total }: { item: Deliverable; i: number; tot
         {/* Teal tick accent */}
         <motion.span
           initial={prefersReducedMotion ? {} : { scale: 0, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          viewport={VIEWPORT_ONCE}
+          animate={{ scale: 1, opacity: 1 }}
           transition={{ type: 'spring' as const, stiffness: 460, damping: 20, delay: i * 0.03 + 0.12 }}
           aria-hidden="true"
           style={{ flexShrink: 0, marginTop: 4 }}

@@ -172,7 +172,6 @@ export default function Confidentiality() {
             }}
           >
             {[
-              t('confidentiality.para1'),
               t('confidentiality.para2'),
               t('confidentiality.para3'),
             ].map((text, i) => (
