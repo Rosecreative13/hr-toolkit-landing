@@ -53,13 +53,6 @@ export default function LanguagesMaterials() {
           viewport={VIEWPORT_ONCE}
           transition={{ duration: 0.55, ease: EASE_OUT_EXPO }}
         >
-          <motion.div
-            initial={prefersReducedMotion ? {} : { scaleX: 0, originX: '0%' }}
-            whileInView={{ scaleX: 1 }}
-            viewport={VIEWPORT_ONCE}
-            transition={{ duration: 0.65, ease: EASE_OUT_EXPO }}
-            style={{ height: 1, background: 'var(--color-border)', marginBottom: '1.75rem', transformOrigin: 'left' }}
-          />
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.875rem' }}>
             <Star size={12} color="var(--color-magenta)" points={8} idle="twinkle" />
             <span

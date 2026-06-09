@@ -10,8 +10,6 @@ import MentoringPair from './illustrations/MentoringPair'
 import TwoPeopleTalking from './illustrations/TwoPeopleTalking'
 import { scatterIn, VIEWPORT_ONCE } from '../lib/motion'
 
-const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as [number, number, number, number]
-
 type BenefitSectionProps = {
   id: string
   eyebrow: string
@@ -78,14 +76,6 @@ function BenefitSection({
           padding: '0 clamp(1.25rem, 5vw, 4rem)',
         }}
       >
-        <motion.div
-          initial={prefersReducedMotion ? {} : { scaleX: 0, originX: '0%' }}
-          whileInView={{ scaleX: 1 }}
-          viewport={VIEWPORT_ONCE}
-          transition={{ duration: 0.65, ease: EASE_OUT_EXPO }}
-          style={{ height: 1, background: 'var(--color-border)', marginBottom: 'clamp(3rem, 6vw, 5rem)', transformOrigin: 'left' }}
-        />
-
         <div
           className={`benefits-grid ${reverse ? 'benefits-grid--reverse' : ''}`}
           style={{
