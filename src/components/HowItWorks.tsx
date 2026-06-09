@@ -255,8 +255,8 @@ export default function HowItWorks() {
       id="how-it-works"
       style={{
         background: 'var(--color-paper)',
-        paddingTop: 'clamp(3rem, 10vw, 8rem)',
-        paddingBottom: 'clamp(3rem, 10vw, 8rem)',
+        paddingTop: 'clamp(2.5rem, 6vw, 5rem)',
+        paddingBottom: 'clamp(2.5rem, 6vw, 5rem)',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -320,14 +320,6 @@ export default function HowItWorks() {
           padding: '0 clamp(1.25rem, 5vw, 4rem)',
         }}
       >
-        {/* Section rule */}
-        <motion.div
-          initial={prefersReducedMotion ? {} : { scaleX: 0, originX: '0%' }}
-          whileInView={{ scaleX: 1 }}
-          viewport={VIEWPORT_ONCE}
-          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          style={{ height: '1px', background: 'var(--color-border)', marginBottom: 'clamp(3rem, 6vw, 5rem)', transformOrigin: 'left' }}
-        />
 
         {/* Header */}
         <div style={{ marginBottom: 'clamp(3rem, 6vw, 5rem)' }}>

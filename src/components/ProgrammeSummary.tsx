@@ -19,7 +19,7 @@ export default function ProgrammeSummary() {
         background: 'var(--color-paper)',
         position: 'relative',
         overflow: 'hidden',
-        padding: 'clamp(3rem, 8vw, 7rem) 0',
+        padding: 'clamp(2.5rem, 6vw, 5rem) 0',
         borderTop: '1px solid var(--color-border)',
         borderBottom: '1px solid var(--color-border)',
       }}

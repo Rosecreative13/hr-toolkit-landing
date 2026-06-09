@@ -116,8 +116,8 @@ export default function Map() {
       id="who-can-apply"
       style={{
         background: 'var(--color-surface)',
-        paddingTop: 'clamp(3rem, 10vw, 8rem)',
-        paddingBottom: 'clamp(3rem, 10vw, 8rem)',
+        paddingTop: 'clamp(2.5rem, 6vw, 5rem)',
+        paddingBottom: 'clamp(2.5rem, 6vw, 5rem)',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -147,14 +147,6 @@ export default function Map() {
       >
         {/* Left: criteria */}
         <div>
-          {/* Section rule */}
-          <motion.div
-            initial={prefersReducedMotion ? {} : { scaleX: 0, originX: '0%' }}
-            whileInView={{ scaleX: 1 }}
-            viewport={VIEWPORT_ONCE}
-            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-            style={{ height: '1px', background: 'var(--color-border)', marginBottom: '2.5rem', transformOrigin: 'left' }}
-          />
 
           <motion.h2
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 12 }}

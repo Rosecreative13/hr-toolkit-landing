@@ -15,8 +15,8 @@ export default function Confidentiality() {
       id="confidentiality"
       style={{
         background: 'var(--color-paper)',
-        paddingTop: 'clamp(2.75rem, 8vw, 6rem)',
-        paddingBottom: 'clamp(2.75rem, 8vw, 6rem)',
+        paddingTop: 'clamp(2.5rem, 6vw, 5rem)',
+        paddingBottom: 'clamp(2.5rem, 6vw, 5rem)',
         position: 'relative',
       }}
     >
@@ -31,14 +31,6 @@ export default function Confidentiality() {
           padding: '0 clamp(1.25rem, 5vw, 4rem)',
         }}
       >
-        {/* Section rule draw */}
-        <motion.div
-          initial={prefersReducedMotion ? {} : { scaleX: 0, originX: '0%' }}
-          whileInView={{ scaleX: 1 }}
-          viewport={VIEWPORT_ONCE}
-          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          style={{ height: '1px', background: 'var(--color-border)', marginBottom: 'clamp(2.5rem, 5vw, 4rem)', transformOrigin: 'left' }}
-        />
 
         {/* Card — wipes in from bottom */}
         <motion.div

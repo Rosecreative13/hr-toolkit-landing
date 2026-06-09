@@ -7,8 +7,6 @@ import Arrow from './marks/Arrow'
 import { scatterIn, useTiltOnHover, VIEWPORT_ONCE } from '../lib/motion'
 import { RECEIVE_ICONS } from './illustrations'
 
-const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as [number, number, number, number]
-
 type Deliverable = { num: number; title: string }
 
 function DeliverableCard({ item, i, total }: { item: Deliverable; i: number; total: number }) {
@@ -175,8 +173,8 @@ export default function Receive() {
       id="receive"
       style={{
         background: 'var(--color-paper)',
-        paddingTop: 'clamp(3rem, 10vw, 8rem)',
-        paddingBottom: 'clamp(3rem, 10vw, 8rem)',
+        paddingTop: 'clamp(2.5rem, 6vw, 5rem)',
+        paddingBottom: 'clamp(2.5rem, 6vw, 5rem)',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -209,14 +207,6 @@ export default function Receive() {
           padding: '0 clamp(1.25rem, 5vw, 4rem)',
         }}
       >
-        {/* Section rule draw */}
-        <motion.div
-          initial={prefersReducedMotion ? {} : { scaleX: 0, originX: '0%' }}
-          whileInView={{ scaleX: 1 }}
-          viewport={VIEWPORT_ONCE}
-          transition={{ duration: 0.65, ease: EASE_OUT_EXPO }}
-          style={{ height: '1px', background: 'var(--color-border)', marginBottom: 'clamp(3rem, 6vw, 5rem)', transformOrigin: 'left' }}
-        />
 
         {/* Header — left-aligned, asymmetric */}
         <div
