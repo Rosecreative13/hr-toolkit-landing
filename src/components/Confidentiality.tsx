@@ -15,8 +15,8 @@ export default function Confidentiality() {
       id="confidentiality"
       style={{
         background: 'var(--color-paper)',
-        paddingTop: 'clamp(4rem, 8vw, 6rem)',
-        paddingBottom: 'clamp(4rem, 8vw, 6rem)',
+        paddingTop: 'clamp(2.75rem, 8vw, 6rem)',
+        paddingBottom: 'clamp(2.75rem, 8vw, 6rem)',
         position: 'relative',
       }}
     >

@@ -50,7 +50,7 @@ function BenefitSection({
         background: isTeal ? 'var(--color-surface)' : 'var(--color-paper)',
         position: 'relative',
         overflow: 'hidden',
-        padding: 'clamp(5rem, 10vw, 8rem) 0',
+        padding: 'clamp(3rem, 10vw, 8rem) 0',
       }}
     >
       <GridBg style={{ opacity: isTeal ? 0.34 : 0.3 }} />

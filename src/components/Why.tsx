@@ -200,8 +200,8 @@ export default function Why() {
       id="why"
       style={{
         background: 'var(--color-paper)',
-        paddingTop: 'clamp(5rem, 10vw, 8rem)',
-        paddingBottom: 'clamp(5rem, 10vw, 8rem)',
+        paddingTop: 'clamp(3rem, 10vw, 8rem)',
+        paddingBottom: 'clamp(3rem, 10vw, 8rem)',
         position: 'relative',
         overflow: 'hidden',
       }}

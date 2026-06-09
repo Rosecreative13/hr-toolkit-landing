@@ -24,18 +24,42 @@ export default function CircledWord({
   const [triggered, setTriggered] = useState(false)
 
   useEffect(() => {
+    const el = spanRef.current
+    if (!el) return
+
+    let raf = 0
     const measure = () => {
-      if (!spanRef.current) return
-      const rect = spanRef.current.getBoundingClientRect()
+      if (!el) return
+      const rect = el.getBoundingClientRect()
       if (rect.width > 0) {
-        setDims({ w: rect.width, h: rect.height })
+        setDims((prev) =>
+          Math.abs(prev.w - rect.width) > 0.5 || Math.abs(prev.h - rect.height) > 0.5
+            ? { w: rect.width, h: rect.height }
+            : prev
+        )
       }
     }
 
+    // Measure now + on the next two frames (after layout settles)
     measure()
-    // Re-measure after fonts load
-    const id = setTimeout(measure, 400)
-    return () => clearTimeout(id)
+    raf = requestAnimationFrame(() => requestAnimationFrame(measure))
+
+    // Re-measure once web fonts have loaded (display font on mobile loads late)
+    if (typeof document !== 'undefined' && 'fonts' in document) {
+      document.fonts.ready.then(measure).catch(() => {})
+    }
+
+    // Re-measure on any size change: viewport resize, orientation, line re-wrap,
+    // or the mobile `display:block` override kicking in.
+    const ro = new ResizeObserver(measure)
+    ro.observe(el)
+    window.addEventListener('resize', measure)
+
+    return () => {
+      cancelAnimationFrame(raf)
+      ro.disconnect()
+      window.removeEventListener('resize', measure)
+    }
   }, [children])
 
   useEffect(() => {

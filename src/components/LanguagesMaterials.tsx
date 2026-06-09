@@ -19,7 +19,7 @@ export default function LanguagesMaterials() {
         background: 'var(--color-surface)',
         position: 'relative',
         overflow: 'hidden',
-        padding: 'clamp(4.5rem, 8vw, 7rem) 0',
+        padding: 'clamp(3rem, 8vw, 7rem) 0',
         borderTop: '1px solid var(--color-border)',
         borderBottom: '1px solid var(--color-border)',
       }}

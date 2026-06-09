@@ -78,8 +78,8 @@ export default function NotAbout() {
       id="not-about"
       style={{
         background: 'var(--color-surface)',
-        paddingTop: 'clamp(5rem, 10vw, 8rem)',
-        paddingBottom: 'clamp(5rem, 10vw, 8rem)',
+        paddingTop: 'clamp(3rem, 10vw, 8rem)',
+        paddingBottom: 'clamp(3rem, 10vw, 8rem)',
         position: 'relative',
         overflow: 'hidden',
       }}
