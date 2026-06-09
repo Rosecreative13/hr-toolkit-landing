@@ -30,7 +30,15 @@ const partnerLogos = [
   },
 ]
 
-function FooterLink({ children, href = '#' }: { children: React.ReactNode; href?: string }) {
+function FooterLink({
+  children,
+  href = '#',
+  style,
+}: {
+  children: React.ReactNode
+  href?: string
+  style?: React.CSSProperties
+}) {
   const [hovered, setHovered] = useState(false)
   const prefersReducedMotion = useReducedMotion()
 
@@ -47,6 +55,7 @@ function FooterLink({ children, href = '#' }: { children: React.ReactNode; href?
         textDecoration: 'none',
         position: 'relative',
         transition: 'color 0.2s ease',
+        ...style,
       }}
       className={hovered ? 'footer-link-hover' : ''}
     >
@@ -298,16 +307,39 @@ export default function Footer() {
             >
               {t('footer.contactLabel')}
             </p>
-            <p
-              style={{
-                fontFamily: 'var(--font-body)',
-                fontSize: '0.875rem',
-                color: 'rgba(255,255,255,0.3)',
-                fontStyle: 'italic',
-              }}
-            >
-              {t('footer.contactPending')}
-            </p>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <li style={{ display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
+                <span
+                  style={{
+                    width: 4,
+                    height: 4,
+                    borderRadius: '50%',
+                    background: 'var(--color-magenta)',
+                    display: 'inline-block',
+                    opacity: 0.6,
+                    flexShrink: 0,
+                  }}
+                />
+                <FooterLink href="tel:+37379797947">+373 79 797 947</FooterLink>
+              </li>
+              <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.375rem' }}>
+                <span
+                  style={{
+                    width: 4,
+                    height: 4,
+                    borderRadius: '50%',
+                    background: 'var(--color-magenta)',
+                    display: 'inline-block',
+                    opacity: 0.6,
+                    flexShrink: 0,
+                    marginTop: '0.55rem',
+                  }}
+                />
+                <FooterLink href="mailto:event.smart.hr@gmail.com" style={{ wordBreak: 'break-word' }}>
+                  event.smart.hr@gmail.com
+                </FooterLink>
+              </li>
+            </ul>
           </motion.div>
         </div>
 
