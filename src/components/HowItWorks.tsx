@@ -405,7 +405,7 @@ export default function HowItWorks() {
         >
           {steps.slice(3).map((step, i) => (
             <React.Fragment key={step.number}>
-              {i > 0 && <RowArrow direction="left" delay={0.32 + i * 0.1} />}
+              {i > 0 && <RowArrow direction="right" delay={0.32 + i * 0.1} />}
               <StepCircle
                 step={step}
                 delay={0.32 + i * 0.1}
