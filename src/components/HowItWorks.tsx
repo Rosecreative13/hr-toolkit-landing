@@ -220,72 +220,19 @@ function StepCircle({
   )
 }
 
-/** Small ↓ chevron connector between steps */
-function ChevronConnector({ delay }: { delay: number }) {
-  const prefersReducedMotion = useReducedMotion()
+/** Horizontal directional arrow connector — vertically centered on the step circle */
+function RowArrow({ direction, delay }: { direction: 'right' | 'left'; delay: number }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <motion.svg
-        width="22" height="14" viewBox="0 0 22 14" fill="none"
-        aria-hidden="true"
-        initial={prefersReducedMotion ? {} : { opacity: 0, y: -4 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={VIEWPORT_ONCE}
-        transition={{ duration: 0.35, ease: EASE_OUT_EXPO, delay }}
-      >
-        <polyline
-          points="2,2 11,11 20,2"
-          stroke="var(--ill-navy)"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          fill="none"
-        />
-      </motion.svg>
-    </div>
-  )
-}
-
-/** The curved down-arrow that bridges top row end → bottom row end */
-function CurvedDownArrow() {
-  const prefersReducedMotion = useReducedMotion()
-  return (
-    <div style={{ display: 'flex', justifyContent: 'flex-end', paddingRight: 'clamp(2rem, 8vw, 8rem)', marginBottom: 'clamp(1rem, 2vw, 2rem)', marginTop: '0.25rem' }}>
-      <svg width="64" height="44" viewBox="0 0 64 44" fill="none" aria-hidden="true">
-        {!prefersReducedMotion ? (
-          <>
-            <motion.path
-              d="M60 6 C60 24, 44 38, 6 38"
-              stroke="var(--ill-navy)"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              fill="none"
-              strokeDasharray="4 3"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={VIEWPORT_ONCE}
-              transition={{ duration: 0.75, ease: EASE_OUT_EXPO, delay: 0.38 }}
-            />
-            <motion.polyline
-              points="6,32 6,38 12,38"
-              fill="none"
-              stroke="var(--ill-navy)"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={VIEWPORT_ONCE}
-              transition={{ duration: 0.3, ease: EASE_OUT_EXPO, delay: 1.1 }}
-            />
-          </>
-        ) : (
-          <>
-            <path d="M60 6 C60 24, 44 38, 6 38" stroke="var(--ill-navy)" strokeWidth="1.8" strokeLinecap="round" fill="none" strokeDasharray="4 3" />
-            <polyline points="6,32 6,38 12,38" fill="none" stroke="var(--ill-navy)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-          </>
-        )}
-      </svg>
+    <div
+      style={{
+        alignSelf: 'start',
+        height: 148, // = blob size, so the arrow centers on the circle
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <Arrow direction={direction} length={48} color="var(--ill-navy)" strokeWidth={1.6} drawOn drawDelay={delay} />
     </div>
   )
 }
@@ -427,9 +374,9 @@ export default function HowItWorks() {
           style={{
             display: 'grid',
             gridTemplateColumns: '1fr auto 1fr auto 1fr',
-            alignItems: 'center',
+            alignItems: 'start',
             gap: '0 clamp(0.5rem, 2vw, 2rem)',
-            marginBottom: '0.5rem',
+            marginBottom: 'clamp(2.5rem, 5vw, 4rem)',
           }}
         >
           {steps.slice(0, 3).map((step, i) => (
@@ -441,14 +388,9 @@ export default function HowItWorks() {
                 blobBorder={BLOB_BORDERS[i]}
                 flyDir={FLY_DIRS[i]}
               />
-              {i < 2 && <ChevronConnector delay={i * 0.1 + 0.2} />}
+              {i < 2 && <RowArrow direction="right" delay={i * 0.1 + 0.2} />}
             </React.Fragment>
           ))}
-        </div>
-
-        {/* Curved down-arrow — Z-connector (desktop two-row flow only) */}
-        <div className="how-z-curve">
-          <CurvedDownArrow />
         </div>
 
         {/* Bottom row: steps 4–6 in circles — R → L flow */}
@@ -457,13 +399,13 @@ export default function HowItWorks() {
           style={{
             display: 'grid',
             gridTemplateColumns: '1fr auto 1fr auto 1fr',
-            alignItems: 'center',
+            alignItems: 'start',
             gap: '0 clamp(0.5rem, 2vw, 2rem)',
           }}
         >
           {steps.slice(3).map((step, i) => (
             <React.Fragment key={step.number}>
-              {i > 0 && <ChevronConnector delay={0.32 + i * 0.1} />}
+              {i > 0 && <RowArrow direction="left" delay={0.32 + i * 0.1} />}
               <StepCircle
                 step={step}
                 delay={0.32 + i * 0.1}
@@ -532,9 +474,6 @@ export default function HowItWorks() {
             grid-template-columns: 1fr !important;
           }
           .how-z-row > :nth-child(even) {
-            display: none !important;
-          }
-          .how-z-curve {
             display: none !important;
           }
         }
