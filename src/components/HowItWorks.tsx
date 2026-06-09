@@ -446,8 +446,10 @@ export default function HowItWorks() {
           ))}
         </div>
 
-        {/* Curved down-arrow — Z-connector */}
-        <CurvedDownArrow />
+        {/* Curved down-arrow — Z-connector (desktop two-row flow only) */}
+        <div className="how-z-curve">
+          <CurvedDownArrow />
+        </div>
 
         {/* Bottom row: steps 4–6 in circles — R → L flow */}
         <div
@@ -530,6 +532,9 @@ export default function HowItWorks() {
             grid-template-columns: 1fr !important;
           }
           .how-z-row > :nth-child(even) {
+            display: none !important;
+          }
+          .how-z-curve {
             display: none !important;
           }
         }
