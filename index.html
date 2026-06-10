@@ -14,19 +14,31 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
+    <!-- Canonical + hreflang -->
+    <link rel="canonical" href="https://hrtoolkit.info/" />
+    <link rel="alternate" hreflang="x-default" href="https://hrtoolkit.info/" />
+    <link rel="alternate" hreflang="ro"         href="https://hrtoolkit.info/" />
+    <link rel="alternate" hreflang="ru"         href="https://hrtoolkit.info/?lang=ru" />
+    <link rel="alternate" hreflang="en"         href="https://hrtoolkit.info/?lang=en" />
+
     <!-- Primary meta -->
     <title>Programul HR Toolkit pentru IMM-uri · hrtoolkit.info</title>
-    <meta name="description" content="Suport HR practic pentru IMM-uri din 6 regiuni ale Moldovei. Instrumente pentru recrutare, onboarding și retenție. Participare 100% gratuită." />
+    <meta name="description" content="Suport HR practic pentru IMM-uri din 6 regiuni ale Moldovei. Instrumente gratuite pentru recrutare, onboarding și retenția angajaților tineri. Participare 100% gratuită — 50 locuri disponibile." />
+    <meta name="keywords" content="HR toolkit Moldova, suport HR IMM, recrutare IMM Moldova, onboarding angajați, retenție angajați, program HR gratuit Moldova, întreprinderi mici și mijlocii" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="author" content="HR Toolkit Programme" />
     <meta name="theme-color" content="#094C66" />
 
-    <!-- Open Graph (Google, Facebook, Telegram, WhatsApp) -->
+    <!-- Open Graph (Facebook, Telegram, WhatsApp, LinkedIn) -->
     <meta property="og:type"        content="website" />
-    <meta property="og:url"         content="https://hrtoolkit.info" />
+    <meta property="og:url"         content="https://hrtoolkit.info/" />
     <meta property="og:title"       content="Programul HR Toolkit pentru IMM-uri" />
-    <meta property="og:description" content="Suport HR practic pentru IMM-uri din 6 regiuni ale Moldovei. Instrumente pentru recrutare, onboarding și retenție. Participare 100% gratuită." />
-    <meta property="og:image"       content="https://hrtoolkit.info/og-image.svg" />
+    <meta property="og:description" content="Suport HR practic pentru IMM-uri din 6 regiuni ale Moldovei. Instrumente gratuite pentru recrutare, onboarding și retenție. Participare 100% gratuită." />
+    <meta property="og:image"       content="https://hrtoolkit.info/og-image.png" />
+    <meta property="og:image:type"  content="image/png" />
     <meta property="og:image:width"  content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt"   content="HR Toolkit Programme — Suport HR practic pentru IMM-uri din Moldova" />
     <meta property="og:locale"      content="ro_RO" />
     <meta property="og:locale:alternate" content="ru_RU" />
     <meta property="og:locale:alternate" content="en_US" />
@@ -34,9 +46,106 @@
 
     <!-- Twitter / X card -->
     <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:url"         content="https://hrtoolkit.info/" />
     <meta name="twitter:title"       content="Programul HR Toolkit pentru IMM-uri" />
-    <meta name="twitter:description" content="Suport HR practic pentru IMM-uri din 6 regiuni ale Moldovei. Participare gratuită." />
-    <meta name="twitter:image"       content="https://hrtoolkit.info/og-image.svg" />
+    <meta name="twitter:description" content="Suport HR practic pentru IMM-uri din 6 regiuni ale Moldovei. Participare 100% gratuită." />
+    <meta name="twitter:image"       content="https://hrtoolkit.info/og-image.png" />
+    <meta name="twitter:image:alt"   content="HR Toolkit Programme" />
+
+    <!-- JSON-LD structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://hrtoolkit.info/#website",
+          "url": "https://hrtoolkit.info/",
+          "name": "HR Toolkit Programme",
+          "description": "Suport HR practic pentru IMM-uri din 6 regiuni ale Moldovei",
+          "inLanguage": ["ro", "ru", "en"],
+          "publisher": { "@id": "https://hrtoolkit.info/#organization" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://hrtoolkit.info/#organization",
+          "name": "HR Toolkit Programme",
+          "url": "https://hrtoolkit.info/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://hrtoolkit.info/icon-512.png",
+            "width": 512,
+            "height": 512
+          },
+          "description": "Program de suport HR practic pentru 50 de IMM-uri din 6 regiuni ale Moldovei (Bălți, Chișinău, Edineț, Orhei, Soroca, Ungheni). Instrumente gratuite pentru recrutare, onboarding și retenția angajaților tineri.",
+          "areaServed": { "@type": "Country", "name": "Moldova" },
+          "knowsAbout": ["Recrutare", "Onboarding", "Retenție angajați", "HR pentru IMM-uri"]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://hrtoolkit.info/#webpage",
+          "url": "https://hrtoolkit.info/",
+          "name": "Programul HR Toolkit pentru IMM-uri",
+          "description": "Suport HR practic pentru IMM-uri din 6 regiuni ale Moldovei. Instrumente gratuite pentru recrutare, onboarding și retenție a angajaților tineri.",
+          "isPartOf": { "@id": "https://hrtoolkit.info/#website" },
+          "about": { "@id": "https://hrtoolkit.info/#organization" },
+          "inLanguage": "ro",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "HR Toolkit Programme", "item": "https://hrtoolkit.info/" }
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://hrtoolkit.info/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Participarea este gratuită?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Da, participarea este absolut gratuită." }
+            },
+            {
+              "@type": "Question",
+              "name": "Compania trebuie să aibă un departament HR?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Nu. Programul este conceput special pentru IMM-uri care pot să nu aibă departamente HR dedicate." }
+            },
+            {
+              "@type": "Question",
+              "name": "Programul va furniza angajați sau candidați?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Nu. Programul nu este un serviciu de recrutare. Acesta ajută companiile să îmbunătățească modul în care recrutează, integrează și rețin angajații." }
+            },
+            {
+              "@type": "Question",
+              "name": "Putem aplica dacă nu avem posturi vacante în prezent?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Da, dacă compania planifică să angajeze sau dorește să îmbunătățească practicile de recrutare, onboarding și retenție." }
+            },
+            {
+              "@type": "Question",
+              "name": "Cât timp va necesita participarea?",
+              "acceptedAnswer": { "@type": "Answer", "text": "IMM-urile participante trebuie să fie pregătite să completeze o scurtă evaluare inițială, să participe la ateliere practice și să ia parte la activități de mentorat sau suport de implementare." }
+            },
+            {
+              "@type": "Question",
+              "name": "Cine ar trebui să participe din partea companiei?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Cei mai potriviți participanți sunt proprietarii, directorii, managerii, supervisorii sau persoanele responsabile de recrutare, onboarding sau managementul angajaților." }
+            },
+            {
+              "@type": "Question",
+              "name": "Informațiile companiei vor rămâne confidențiale?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Da. Informațiile vor fi utilizate în scopurile proiectului și pentru raportare în formă agregată. Informațiile individuale ale companiilor nu vor fi divulgate public fără acordul prealabil." }
+            },
+            {
+              "@type": "Question",
+              "name": "Ce se întâmplă după transmiterea expresiei de interes?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Echipa proiectului va analiza formularele transmise și va contacta companiile eligibile cu pașii următori." }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
