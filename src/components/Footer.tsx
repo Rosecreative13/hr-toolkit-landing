@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import Star from './marks/Star'
-import Arrow from './marks/Arrow'
 import DotGrid from './marks/DotGrid'
 import { flyInFrom, VIEWPORT_ONCE } from '../lib/motion'
 
@@ -125,39 +124,6 @@ export default function Footer() {
           style={{ opacity: 0.2 }}
         />
       </motion.div>
-
-      {/* Tagline strip */}
-      <div
-        style={{
-          position: 'relative',
-          zIndex: 1,
-          borderBottom: '1px solid rgba(255,255,255,0.07)',
-          padding: 'clamp(1.25rem, 2.5vw, 1.75rem) clamp(1.25rem, 5vw, 4rem)',
-        }}
-      >
-        <div
-          style={{
-            maxWidth: 1280,
-            margin: '0 auto',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.75rem',
-          }}
-        >
-          <Arrow direction="right" length={28} color="var(--color-magenta)" strokeWidth={1.5} />
-          <p
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontWeight: 700,
-              fontSize: 'clamp(0.875rem, 1.4vw, 1rem)',
-              color: 'rgba(255,255,255,0.5)',
-              letterSpacing: '-0.02em',
-            }}
-          >
-            {t('footer.tagline')}
-          </p>
-        </div>
-      </div>
 
       {/* Main footer */}
       <div

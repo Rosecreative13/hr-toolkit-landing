@@ -238,34 +238,6 @@ export default function Hero() {
             {t('hero.body2')}
           </motion.p>
 
-          {/* Tagline chip */}
-          <motion.div
-            className="hero-tagline"
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 10 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE_OUT_EXPO, delay: 0.6 } },
-            }}
-            style={{
-              display: 'inline-flex',
-              alignSelf: 'flex-start',
-              alignItems: 'center',
-              gap: '0.5rem',
-              marginBottom: '1.75rem',
-              padding: '0.4rem 0.875rem',
-              background: 'var(--color-magenta-pale)',
-              border: '1px solid var(--color-magenta-tint)',
-              borderRadius: 100,
-              maxWidth: '100%',
-            }}
-          >
-            <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--color-magenta)', flexShrink: 0 }} />
-            <span style={{ fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: '0.8125rem', color: 'var(--color-magenta-dark)', letterSpacing: '0.01em' }}>
-              {t('hero.tagline')}
-            </span>
-          </motion.div>
-
           {/* Email pill CTA — magnetic button */}
           <motion.div
             initial="hidden"
